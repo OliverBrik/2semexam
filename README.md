@@ -3,8 +3,6 @@
 **2. semester - Multimediedesign**  
 *Syddansk Erhvervsakademi*
 
-S
-
 ##  Om projektet
 
 Dette er vores eksamenprojekt for 2. semester på multimediedesign uddannelsen. Projektet er udviklet i samarbejde med **Business-Region EU** 
