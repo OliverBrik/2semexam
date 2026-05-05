@@ -2,43 +2,19 @@
 @import "tailwindcss";
 
 /* 12 Column Grid System */
-@layer components {
-  .grid-12 {
-    @apply grid grid-cols-12 gap-4;
-  }
-
-  .col-span-1 {
-    @apply col-span-1;
-  }
-  .col-span-2 {
-    @apply col-span-2;
-  }
-  .col-span-3 {
-    @apply col-span-3;
-  }
-  .col-span-4 {
-    @apply col-span-4;
-  }
-  .col-span-6 {
-    @apply col-span-6;
-  }
-  .col-span-12 {
-    @apply col-span-12;
-  }
-
-  /* Responsive columns */
-  @screen md {
-    .md\:grid-cols-6 {
-      @apply grid-cols-6;
-    }
-  }
-
-  @screen lg {
-    .lg\:grid-cols-3 {
-      @apply grid-cols-3;
-    }
-  }
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1rem;
 }
+
+.col-span-1 { grid-column: span 1; }
+.col-span-2 { grid-column: span 2; }
+.col-span-3 { grid-column: span 3; }
+.col-span-4 { grid-column: span 4; }
+.col-span-6 { grid-column: span 6; }
+.col-span-8 { grid-column: span 8; }
+.col-span-12 { grid-column: span 12; }
 
 #app {
   max-width: 1280px;
