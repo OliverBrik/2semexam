@@ -1,6 +1,11 @@
 @import './base.css';
 @import "tailwindcss";
 
+/* Raleway Font Configuration */
+body, html {
+  font-family: 'Raleway', sans-serif;
+}
+
 /* 12 Column Grid System */
 .grid-12 {
   display: grid;

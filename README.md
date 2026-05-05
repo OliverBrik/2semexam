@@ -1,4 +1,4 @@
-# Business-Region EU - Eksamenprojekt 
+# Business-Region EU - Eksamensprojekt 
 
 **2. semester - Multimediedesign**  
 *Syddansk Erhvervsakademi*
