@@ -1,9 +1,9 @@
+<script setup>
+</script>
+
 <template>
-  <div class="about">
-    <h1 class="text-blue-500">This is an about page</h1>
-  </div>
+  <main>
+    <h1>About</h1>
+    <p>This is the about page.</p>
+  </main>
 </template>
-
-<style>
-
-</style>
