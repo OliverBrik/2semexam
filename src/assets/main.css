@@ -1,30 +1,25 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;500&display=swap');
 @import './base.css';
 @import "tailwindcss";
 
-/* Raleway Font Configuration */
+@theme {
+  --color-primary-darkest: #0D1B2A;
+  --color-primary-dark: #1B263B;
+  --color-primary-base: #415A77;
+  --color-primary-light: #778DA9;
+  --color-neutral-light: #E0E1DD;
+}
+
+/* Global Styles */
 body, html {
   font-family: 'Raleway', sans-serif;
+  background-color: white;
 }
 
-/* 12 Column Grid System */
-.grid-12 {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 1rem;
-}
-
-.col-span-1 { grid-column: span 1; }
-.col-span-2 { grid-column: span 2; }
-.col-span-3 { grid-column: span 3; }
-.col-span-4 { grid-column: span 4; }
-.col-span-6 { grid-column: span 6; }
-.col-span-8 { grid-column: span 8; }
-.col-span-12 { grid-column: span 12; }
-
-#app {
+#app > main {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-  font-weight: normal;
 }
 
