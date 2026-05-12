@@ -43,7 +43,7 @@ onBeforeUnmount(() => {
           <img :src="BusinessLogo" alt="Business Region Logo" class="h-12 flex-shrink-0" />
         </RouterLink>
         <div class="flex gap-8">
-          <RouterLink to="/nyheder" class="text-neutral-light no-underline font-light hover:text-primary-light transition-colors duration-300">Nyheder</RouterLink>
+          <RouterLink to="/nyheder" class="text-neutral-light no-underline font-light hover:text-primary-light transition-colors duration-300">Nyheder & Indsigter</RouterLink>
           <RouterLink to="/about" class="text-neutral-light no-underline font-light hover:text-primary-light transition-colors duration-300">Om os</RouterLink>
           <RouterLink to="/events" class="text-neutral-light no-underline font-light hover:text-primary-light transition-colors duration-300">Events</RouterLink>
         </div>
