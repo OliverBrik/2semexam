@@ -1,41 +1,37 @@
 <script setup>
 import BusinessLogo from '../assets/logos/Business logo.svg'
+import InterregLogo from '../assets/logos/interreg logo white.svg'
 </script>
 
 <template>
   <!-- Footer sektion -->
   <footer class="w-full bg-primary-darkest text-neutral-light">
     <div class="grid grid-cols-12 gap-4 px-8 py-12">
-      <!-- Logo (venstre) -->
-      <div class="col-start-2 col-end-5 flex flex-col gap-4">
-        <img :src="BusinessLogo" alt="Business Region Logo" class="h-12 w-auto" />
+      <!-- Logoer og juridisk info -->
+      <div class="col-start-2 col-end-4 flex flex-col gap-2 p-1">
+        <img :src="BusinessLogo" alt="Business Region Logo" class="h-12 w-auto p-0 m-0" />
+        <img :src="InterregLogo" alt="Interreg Logo" class="h-12 w-auto p-0 m-0" />
+        <div class="mt-4 pt-3 border-t border-neutral-light/20">
+          <p class="text-xs text-neutral-light/70 flex justify-center">JURIDISKE OPLYSNINGER</p>
+        </div>
       </div>
 
-      <!-- Kontaktinfo og juridisk info (midte) -->
-      <div class="col-start-5 col-end-9 flex flex-col gap-3">
-        <div>
-          <p class="text-sm font-light">Addresse: Vestergade 9 6270 Tønder</p>
-        </div>
-        <div>
-          <p class="text-sm font-light">Telefon: +4521776916</p>
-        </div>
-        <div>
-          <p class="text-sm font-light">Email: lecba@toender.dk</p>
-        </div>
-        <div class="mt-4 pt-4 border-t border-neutral-light/20">
-          <p class="text-xs text-neutral-light/70">JURIDISKE OPLYSNINGER</p>
+      <!-- Kontaktinfo -->
+      <div class="col-start-5 col-end-10 flex flex-col gap-3 p-1 justify-start">
+        <p class="text-sm font-light mt-0">Adresse: Vestergade 9 6270 Tønder</p>
+        <p class="text-sm font-light">Telefon: +4521776916</p>
+        <p class="text-sm font-light">Email: lecba@toender.dk</p>
+        <p class="text-sm font-light">Åbningstider: Man-Fre 08:30-15:30</p>
+        <div class="mt-4 pt-7 ">
           <p class="text-xs text-neutral-light/60">© 2026 Business Region - CVR: - EAN: - Alle rettigheder forbeholdes.</p>
         </div>
       </div>
 
-      <!-- Kontakt knap og sociale ikoner (højre) -->
-      <div class="col-start-9 col-end-11 flex flex-col gap-4 items-end">
-        <!-- Kontakt Os knap uden border-radius -->
-        <button class="bg-neutral-light text-primary-darkest px-6 py-3 font-light hover:bg-primary-light hover:text-neutral-light transition-colors duration-300 whitespace-nowrap">
+      <!-- Kontakt knap og sociale ikoner -->
+      <div class="col-start-10 col-end-12 flex flex-col items-center gap-3">
+        <button class="w-36 bg-neutral-light text-primary-darkest font-light hover:bg-primary-light hover:text-neutral-light transition-colors duration-300 flex items-center justify-center py-2">
           Kontakt os
         </button>
-
-        <!-- Sociale medie ikoner -->
         <div class="flex gap-3">
           <!-- Facebook -->
           <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center w-10 h-10 bg-neutral-light text-primary-darkest hover:bg-primary-light hover:text-neutral-light transition-colors duration-300">
@@ -43,14 +39,12 @@ import BusinessLogo from '../assets/logos/Business logo.svg'
               <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
             </svg>
           </a>
-
           <!-- YouTube -->
           <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center w-10 h-10 bg-neutral-light text-primary-darkest hover:bg-primary-light hover:text-neutral-light transition-colors duration-300">
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
               <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
             </svg>
           </a>
-
           <!-- LinkedIn -->
           <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center w-10 h-10 bg-neutral-light text-primary-darkest hover:bg-primary-light hover:text-neutral-light transition-colors duration-300">
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
