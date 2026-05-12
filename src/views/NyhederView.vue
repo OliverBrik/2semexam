@@ -2,28 +2,7 @@
 import { computed, ref } from 'vue'
 import { allNews } from '../data/news.js'
 
-const searchTerm = ref('')
-const selectedCategories = ref([])
 const currentIndex = ref(0)
-
-const categories = computed(() => [...new Set(allNews.map((item) => item.category))])
-
-const filteredNews = computed(() => {
-  const term = searchTerm.value.trim().toLowerCase()
-
-  return allNews.filter((item) => {
-    const matchesText =
-      term.length === 0 ||
-      item.title.toLowerCase().includes(term) ||
-      item.summary.toLowerCase().includes(term)
-
-    const matchesCategory =
-      selectedCategories.value.length === 0 ||
-      selectedCategories.value.includes(item.category)
-
-    return matchesText && matchesCategory
-  })
-})
 
 const highlightedNews = computed(() => allNews[currentIndex.value])
 
@@ -37,7 +16,6 @@ const sideNews = computed(() => {
 })
 
 const previousNews = () => {
-  // Prefer the left side card if available, otherwise step circularly
   const left = sideNews.value[0]
   if (left) {
     setCurrent(left.id)
@@ -47,7 +25,6 @@ const previousNews = () => {
 }
 
 const nextNews = () => {
-  // Prefer the right side card if available, otherwise step circularly
   const right = sideNews.value[1]
   if (right) {
     setCurrent(right.id)
@@ -86,7 +63,7 @@ const setCurrent = (id) => {
         </button>
 
         <div class="grid w-full grid-cols-1 gap-6 md:grid-cols-[1fr_2fr_1fr]">
-          <!-- Left side card -->
+
           <article
             v-if="sideNews[0]"
             class="news-card side-card cursor-pointer"
@@ -101,7 +78,7 @@ const setCurrent = (id) => {
             </div>
           </article>
 
-          <!-- Featured center card -->
+
           <article
             v-if="highlightedNews"
             class="news-card featured-card"
@@ -113,7 +90,7 @@ const setCurrent = (id) => {
             </div>
           </article>
 
-          <!-- Right side card -->
+
           <article
             v-if="sideNews[1]"
             class="news-card side-card cursor-pointer"
@@ -140,45 +117,21 @@ const setCurrent = (id) => {
       </div>
     </section>
 
-    <section class="mx-auto mt-10 grid max-w-6xl grid-cols-1 gap-8 px-4 pb-16 md:grid-cols-[280px_1fr] md:px-8">
-      <aside class="filter-panel">
-        <h2 class="text-xl text-neutral-light">Filter</h2>
-
-        <label for="search-news" class="mt-4 block text-sm text-neutral-light/80">Søg</label>
-        <div class="relative mt-2">
-          <input
-            id="search-news"
-            v-model="searchTerm"
-            type="text"
-            placeholder="Søg i nyheder"
-            class="w-full rounded-sm border border-neutral-light/20 bg-primary-base px-3 py-2 text-sm text-neutral-light outline-none placeholder:text-neutral-light/50 focus:border-neutral-light/50"
-          />
+    <section class="mx-auto mt-10 max-w-6xl px-4 pb-16 md:px-8">
+      <div class="mb-6 flex items-end justify-between gap-4">
+        <div>
+          <h2 class="text-2xl font-light text-primary-darkest sm:text-3xl">Seneste nyheder</h2>
+          <p class="mt-2 max-w-2xl text-sm text-primary-darkest/70">
+            </p>
         </div>
-
-        <h3 class="mt-6 text-sm uppercase tracking-[0.14em] text-neutral-light/80">Kategorier</h3>
-        <div class="mt-3 space-y-2">
-          <label
-            v-for="category in categories"
-            :key="category"
-            class="flex cursor-pointer items-center gap-2 text-sm text-neutral-light"
-          >
-            <input
-              v-model="selectedCategories"
-              type="checkbox"
-              :value="category"
-              class="h-4 w-4 accent-neutral-light"
-            />
-            {{ category }}
-          </label>
-        </div>
-      </aside>
+      </div>
 
       <section>
-        <div class="grid gap-6 sm:grid-cols-2 xl:grid-cols-2">
+        <div class="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
           <article
-            v-for="item in filteredNews"
+            v-for="item in allNews"
             :key="item.id"
-            class="news-card list-card"
+            class="news-card list-card full-card"
             :style="{ backgroundImage: `url(${item.image})` }"
           >
             <div class="card-overlay">
@@ -189,10 +142,6 @@ const setCurrent = (id) => {
             </div>
           </article>
         </div>
-
-        <p v-if="filteredNews.length === 0" class="mt-6 text-sm text-primary-darkest">
-          Ingen nyheder matcher dine filtre lige nu.
-        </p>
       </section>
     </section>
   </main>
@@ -261,7 +210,7 @@ const setCurrent = (id) => {
   box-shadow: 0 8px 30px rgba(13, 27, 42, 0.25);
 }
 
-/* Ensure featured card overlays above side cards so its controls are visible */
+
 .side-card { z-index: 1; }
 .featured-card { z-index: 3; position: relative; }
 
@@ -295,13 +244,6 @@ const setCurrent = (id) => {
   background: rgba(255, 255, 255, 0.2);
 }
 
-.filter-panel {
-  height: fit-content;
-  border-radius: 0.25rem;
-  background: linear-gradient(160deg, #526784 0%, #465b78 100%);
-  padding: 1.15rem;
-}
-
 @media (max-width: 767px) {
   .carousel-wrap {
     margin-top: 0;
@@ -310,10 +252,6 @@ const setCurrent = (id) => {
   .featured-card,
   .list-card {
     min-height: 220px;
-  }
-
-  .side-card {
-    display: none;
   }
 }
 </style>
