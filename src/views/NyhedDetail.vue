@@ -39,7 +39,7 @@
 </template>
 
 <script setup>
-import { useRoute, RouterLink } from 'vue-router'
+import { useRoute } from 'vue-router'
 import { allNews } from '../data/news.js'
 
 const route = useRoute()

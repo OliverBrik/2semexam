@@ -2,7 +2,7 @@
 <!-- Her vises det fra forsiden -->
 
 <script setup>
-import { RouterLink } from 'vue-router'
+// RouterLink is available globally via vue-router; no script logic needed here
 </script>
 
 <template>

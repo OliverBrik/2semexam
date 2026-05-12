@@ -2,7 +2,6 @@
 
 <script setup>
 import { onBeforeUnmount, onMounted, ref } from 'vue'
-import { RouterLink, RouterView } from 'vue-router'
 import BusinessLogo from './assets/logos/Business logo.svg'
 import FooterComponent from './components/FooterComponent.vue'
 

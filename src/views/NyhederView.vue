@@ -1,7 +1,6 @@
 <script setup>
 import { computed, ref } from 'vue'
 import { allNews } from '../data/news.js'
-import { RouterLink } from 'vue-router'
 
 const searchTerm = ref('')
 const selectedCategories = ref([])
@@ -265,7 +264,6 @@ const setCurrent = (id) => {
 /* Ensure featured card overlays above side cards so its controls are visible */
 .side-card { z-index: 1; }
 .featured-card { z-index: 3; position: relative; }
-.card-overlay { z-index: 4; }
 
 .list-card {
   min-height: 270px;
@@ -273,7 +271,7 @@ const setCurrent = (id) => {
 
 .card-overlay {
   position: relative;
-  z-index: 1;
+  z-index: 4;
   display: flex;
   height: 100%;
   flex-direction: column;
