@@ -2,25 +2,49 @@
 <!-- Her vises det fra forsiden -->
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+import { categories } from '../data/categories'
+import { allNews } from '../data/news'
+
 // Aktiv tab tracker
 const activeTab = ref(null)
 
-// Kategori data
-const categories = [
-  {
-    title: 'Hvem er vi?',
-    content: 'Business Region er en organisation dedikeret til at skabe stærke forbindelser mellem virksomheder i grænseregionen. Vi arbejder for at fremme vækst, samarbejde og nye muligheder på tværs af grænserne.'
-  },
-  {
-    title: 'Hvad kan vi tilbyde dig?',
-    content: 'Vi tilbyder en bred palette af services herunder netværksarrangementer, erhvervsrådgivning, projektsamarbejde og adgang til relevante kontakter i grænseregionen. Vores fokus er på at skabe værdi for vores medlemmer.'
-  },
-  {
-    title: 'Mål og initiativer',
-    content: 'Vores mål er at være en drivkraft for økonomisk udvikling i grænseregionen. Vi gennemfører initiativerne inden for innovation, uddannelse og bæredygtig udvikling for at sikre langsigtet vækst og velfærd.'
+// Nyheds karrusel
+const currentIndex = ref(0)
+
+const highlightedNews = computed(() => allNews[currentIndex.value])
+
+const sideNews = computed(() => {
+  if (allNews.length < 2) return []
+
+  const prevIndex = (currentIndex.value - 1 + allNews.length) % allNews.length
+  const nextIndex = (currentIndex.value + 1) % allNews.length
+
+  return [allNews[prevIndex], allNews[nextIndex]]
+})
+
+const previousNews = () => {
+  const left = sideNews.value[0]
+  if (left) {
+    setCurrent(left.id)
+  } else {
+    currentIndex.value = (currentIndex.value - 1 + allNews.length) % allNews.length
   }
-]
+}
+
+const nextNews = () => {
+  const right = sideNews.value[1]
+  if (right) {
+    setCurrent(right.id)
+  } else {
+    currentIndex.value = (currentIndex.value + 1) % allNews.length
+  }
+}
+
+const setCurrent = (id) => {
+  const idx = allNews.findIndex((n) => n.id === id)
+  if (idx !== -1) currentIndex.value = idx
+}
 </script>
 
 <template>
@@ -94,7 +118,7 @@ const categories = [
       </div>
 
       <!-- Højre side: Billede -->
-      <div class="col-start-7 col-end-11 flex items-center justify-center">
+      <div class="col-start-7 col-end-11 flex items-start justify-center sticky top-12">
         <img
           src="https://picsum.photos/600/800"
           alt="Grænse billede"
@@ -103,4 +127,73 @@ const categories = [
       </div>
     </div>
   </section>
+
+  <!-- Nyheds Karrusel -->
+  <section class="mx-auto max-w-6xl px-4 md:px-8 p-8 mb-8">
+    <h2 class="mb-18 text-2xl font-light text-primary-darkest sm:text-3xl uppercase">Seneste nyheder</h2>
+    <div class="flex items-center gap-3">
+      <button
+        class="w-10 h-10 rounded-full border border-primary-darkest/20 bg-neutral-light text-primary-darkest text-lg hover:bg-primary-light hover:-translate-y-0.5 transition-all duration-160 flex items-center justify-center"
+        type="button"
+        aria-label="Forrige nyhed"
+        @click="previousNews"
+      >
+        &#10094;
+      </button>
+
+      <div class="grid w-full grid-cols-1 gap-6 md:grid-cols-[1fr_2fr_1fr]">
+        <article
+          v-if="sideNews[0]"
+          class="relative overflow-hidden bg-cover bg-center rounded transition-all duration-220 hover:scale-105 hover:-translate-y-1 min-h-[200px] z-10 cursor-pointer"
+          :style="{ backgroundImage: `url(${sideNews[0].image})` }"
+          role="button"
+          tabindex="0"
+          @click="setCurrent(sideNews[0].id)"
+          @keydown.enter="setCurrent(sideNews[0].id)"
+        >
+          <div class="absolute inset-0 bg-gradient-to-b from-primary-darkest/18 to-primary-darkest/82"></div>
+          <div class="relative z-40 flex h-full flex-col justify-end p-4">
+            <p class="text-sm text-neutral-light/90">{{ sideNews[0].title }}</p>
+          </div>
+        </article>
+
+        <article
+          v-if="highlightedNews"
+          class="relative overflow-hidden bg-cover bg-center rounded transition-all duration-220 hover:scale-105 hover:-translate-y-1 min-h-[320px] scale-105 shadow-2xl z-30"
+          :style="{ backgroundImage: `url(${highlightedNews.image})` }"
+        >
+          <div class="absolute inset-0 bg-gradient-to-b from-primary-darkest/18 to-primary-darkest/82"></div>
+          <div class="relative z-40 flex h-full flex-col justify-end p-4">
+            <p class="text-lg text-neutral-light sm:text-2xl">{{ highlightedNews.title }}</p>
+            <RouterLink :to="{ name: 'nyhed', params: { id: highlightedNews.id } }" class="inline-block mt-2 px-4 py-2 text-sm text-white border border-white/70 rounded hover:bg-white/20 transition-colors duration-200">Læs mere</RouterLink>
+          </div>
+        </article>
+
+        <article
+          v-if="sideNews[1]"
+          class="relative overflow-hidden bg-cover bg-center rounded transition-all duration-220 hover:scale-105 hover:-translate-y-1 min-h-[200px] z-10 cursor-pointer"
+          :style="{ backgroundImage: `url(${sideNews[1].image})` }"
+          role="button"
+          tabindex="0"
+          @click="setCurrent(sideNews[1].id)"
+          @keydown.enter="setCurrent(sideNews[1].id)"
+        >
+          <div class="absolute inset-0 bg-gradient-to-b from-primary-darkest/18 to-primary-darkest/82"></div>
+          <div class="relative z-40 flex h-full flex-col justify-end p-4">
+            <p class="text-sm text-neutral-light/90">{{ sideNews[1].title }}</p>
+          </div>
+        </article>
+      </div>
+
+      <button
+        class="w-10 h-10 rounded-full border border-primary-darkest/20 bg-neutral-light text-primary-darkest text-lg hover:bg-primary-light hover:-translate-y-0.5 transition-all duration-160 flex items-center justify-center"
+        type="button"
+        aria-label="Naeste nyhed"
+        @click="nextNews"
+      >
+        &#10095;
+      </button>
+    </div>
+  </section>
 </template>
+
