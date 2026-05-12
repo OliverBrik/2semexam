@@ -2,6 +2,7 @@
 <!-- Her vises det fra forsiden -->
 
 <script setup>
+import { RouterLink } from 'vue-router'
 </script>
 
 <template>
@@ -20,12 +21,12 @@
         Vi skaber stærke forbindelser mellem virksomheder i grænseregionen for at fremme vækst, samarbejde og nye muligheder.
       </p>
       <div class="mt-8 flex flex-wrap gap-4">
-        <button
+        <RouterLink
+          to="/nyheder"
           class="rounded-lg bg-white px-6 py-3 font-semibold text-blue-600 transition hover:bg-slate-100"
-          type="button"
         >
           Nyheder
-        </button>
+        </RouterLink>
         <button
           class="rounded-lg border border-white bg-transparent px-6 py-3 font-semibold text-white transition hover:bg-white/10"
           type="button"

@@ -44,7 +44,7 @@ onBeforeUnmount(() => {
           <img :src="BusinessLogo" alt="Business Region Logo" class="h-12 flex-shrink-0" />
         </RouterLink>
         <div class="flex gap-8">
-          <RouterLink to="/" class="text-neutral-light no-underline font-light hover:text-primary-light transition-colors duration-300">Nyheder</RouterLink>
+          <RouterLink to="/nyheder" class="text-neutral-light no-underline font-light hover:text-primary-light transition-colors duration-300">Nyheder</RouterLink>
           <RouterLink to="/about" class="text-neutral-light no-underline font-light hover:text-primary-light transition-colors duration-300">Om os</RouterLink>
           <RouterLink to="/events" class="text-neutral-light no-underline font-light hover:text-primary-light transition-colors duration-300">Events</RouterLink>
         </div>
@@ -59,8 +59,8 @@ onBeforeUnmount(() => {
             <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
           </button>
           <!-- Dropdown menu med sprogobjekter -->
-          <div 
-            class="absolute left-0 z-50 bg-neutral-light text-primary-darkest rounded-b shadow-lg w-full opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 origin-top" 
+          <div
+            class="absolute left-0 z-50 bg-neutral-light text-primary-darkest rounded-b shadow-lg w-full opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 origin-top"
             style="top: 100%; margin-top: 0;"
           >
             <button class="block w-full text-left px-4 py-2 hover:bg-primary-light hover:text-neutral-light transition-colors duration-300" @click="$emit('change-lang', 'da')">Dansk</button>
