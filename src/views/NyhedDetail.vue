@@ -1,40 +1,54 @@
 <template>
-  <main class="nyhed-detail mx-auto max-w-5xl px-4 py-12">
-    <RouterLink to="/nyheder" class="back-link text-sm text-primary-darkest">← Tilbage til Nyheder</RouterLink>
+  <main class="mx-auto max-w-5xl px-4 py-12 text-primary-darkest">
+    <RouterLink
+      to="/nyheder"
+      class="inline-flex items-center text-sm font-medium text-primary-darkest transition-colors hover:text-primary-base"
+    >
+      ← Tilbage til Nyheder
+    </RouterLink>
 
-    <div v-if="article" class="mt-6 rounded-md bg-white shadow-sm p-6">
-      <header class="mb-4">
-        <h1 class="text-3xl font-light text-primary-darkest">{{ article.title }}</h1>
-        <div class="mt-2 flex flex-wrap items-center gap-4 text-sm text-neutral-dark">
-          <span class="font-medium text-neutral-dark/80">{{ article.category }}</span>
-          <span class="text-neutral-dark/60">•</span>
-          <span class="text-neutral-dark/60">12. maj 2026</span>
-          <span class="text-neutral-dark/60">•</span>
-          <span class="text-neutral-dark/60">Af Business Region</span>
+    <article v-if="article" class="mt-6 overflow-hidden rounded-md bg-white shadow-sm ring-1 ring-black/5">
+      <header class="border-b border-slate-100 px-6 py-6 md:px-8">
+        <p class="text-sm font-medium uppercase tracking-[0.14em] text-primary-base">{{ article.category }}</p>
+        <h1 class="mt-2 text-3xl font-light text-primary-darkest sm:text-4xl">
+          {{ article.title }}
+        </h1>
+        <div class="mt-3 flex flex-wrap items-center gap-3 text-sm text-slate-500">
+          <span>12. maj 2026</span>
+          <span class="h-1 w-1 rounded-full bg-slate-300"></span>
+          <span>Af Business Region</span>
         </div>
       </header>
 
-      <div class="media rounded-md overflow-hidden" :style="{ backgroundImage: `url(${article.image})`, backgroundSize: 'cover', backgroundPosition: 'center', height: '360px' }"></div>
+      <div class="h-[320px] w-full bg-cover bg-center md:h-[420px]" :style="{ backgroundImage: `url(${article.image})` }"></div>
 
-      <article class="prose mt-6 text-neutral-dark">
-        <p>{{ article.body }}</p>
-        <p class="mt-4 text-sm text-neutral-dark/80">(Dette er en statisk eksempelartikel — senere kan indhold hentes fra API.)</p>
-      </article>
-
-      <footer class="mt-8 flex items-center justify-between">
-        <div class="flex items-center gap-3">
-          <button class="btn-primary">Kontakt os</button>
-          <a class="text-sm text-neutral-dark/70">Gem</a>
+      <div class="px-6 py-6 md:px-8">
+        <div class="space-y-4 text-base leading-7 text-slate-700">
+          <p>{{ article.body }}</p>
+          <p class="text-sm text-slate-500">
+            (Dette er en statisk eksempelartikel — senere kan indhold hentes fra API.)
+          </p>
         </div>
 
-        <div class="share flex items-center gap-3 text-neutral-dark/70">
-          <a aria-label="Del pa Facebook">Facebook</a>
-          <a aria-label="Del pa LinkedIn">LinkedIn</a>
-        </div>
-      </footer>
-    </div>
+        <footer class="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-slate-100 pt-6">
+          <div class="flex items-center gap-3">
+            <button class="rounded-md bg-primary-darkest px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-primary-base">
+              Kontakt os
+            </button>
+            <button class="rounded-md border border-slate-200 px-4 py-2 text-sm font-medium text-slate-700 transition-colors hover:border-slate-300 hover:bg-slate-50">
+              Gem
+            </button>
+          </div>
 
-    <p v-else class="text-sm text-primary-darkest mt-6">Nyheden blev ikke fundet.</p>
+          <div class="flex items-center gap-3 text-sm text-slate-500">
+            <a class="transition-colors hover:text-primary-darkest" aria-label="Del på Facebook">Facebook</a>
+            <a class="transition-colors hover:text-primary-darkest" aria-label="Del på LinkedIn">LinkedIn</a>
+          </div>
+        </footer>
+      </div>
+    </article>
+
+    <p v-else class="mt-6 text-sm text-primary-darkest">Nyheden blev ikke fundet.</p>
   </main>
 </template>
 
@@ -46,11 +60,3 @@ const route = useRoute()
 const id = Number(route.params.id)
 const article = allNews.find((a) => a.id === id)
 </script>
-
-<style scoped>
-.back-link { color: #0d1b2a; }
-.nyhed-detail { color: #0d1b2a; }
-.btn-primary { background:#0d1b2a; color:white; padding:0.45rem 0.75rem; border-radius:0.25rem; }
-.media { margin-top: 0.5rem; }
-.prose p { margin-bottom: 1rem; }
-</style>
