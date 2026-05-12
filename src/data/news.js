@@ -33,7 +33,7 @@ export const allNews = [
   },
   {
     id: 5,
-    title: 'Nyt netvaerk for SMV-eksport lanceres',
+    title: 'Nyt netværk for SMV-eksport lanceres',
     summary: 'Initiativet hjaelper mindre virksomheder med adgang til nye markeder.',
     category: 'Business',
     image: 'https://picsum.photos/seed/nyhed5/1600/900',
