@@ -1,3 +1,6 @@
+
+<!-- Her vises det fra forsiden -->
+
 <script setup>
 </script>
 
@@ -7,10 +10,11 @@
     style="background-image: url('/src/assets/hero.gif')"
   >
     <!-- Blå overlay -->
-    <div class="absolute inset-0 w-full h-full bg-primary-base"></div>
+    <div class="absolute w-full h-full bg-primary-base"></div>
     <!-- Content -->
-    <div class="relative z-10 flex flex-col px-6 pt-4 pb-16 w-full max-w-5xl mx-auto">
-      <p class="text-sm font-semibold uppercase tracking-widest text-white/80">Velkommen</p>
+    <div class="relative z-10 grid grid-cols-12 gap-4 px-8 pt-30 pb-16 w-full">
+      <div class="col-start-2 col-end-10 flex flex-col">
+      <p class="text-sm font-semibold uppercase text-white/80">Velkommen</p>
       <h1 class="mt-2 text-4xl font-bold text-white sm:text-5xl">Business DE-DK</h1>
       <p class="mt-4 max-w-2xl text-lg text-white/90">
         Vi skaber stærke forbindelser mellem virksomheder i grænseregionen for at fremme vækst, samarbejde og nye muligheder.
@@ -28,6 +32,7 @@
         >
           Jobopslag
         </button>
+      </div>
       </div>
     </div>
   </header>
