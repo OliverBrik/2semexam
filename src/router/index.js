@@ -28,6 +28,11 @@ const router = createRouter({
       component: () => import('../views/EventsView.vue'),
     },
     {
+      path: '/nyhed/:id',
+      name: 'nyhed',
+      component: () => import('../views/NyhedDetail.vue'),
+    },
+    {
       path: '/kontakt',
       name: 'kontakt',
       component: () => import('../views/KontaktView.vue'),
