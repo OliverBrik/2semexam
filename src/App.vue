@@ -7,6 +7,7 @@ import BusinessLogo from './assets/logos/Business logo.svg'
 
 const isSearchOpen = ref(false)
 const searchContainerRef = ref(null)
+const showDropdown = ref(false)
 const toggleSearch = () => {
   isSearchOpen.value = !isSearchOpen.value
 }
@@ -46,13 +47,13 @@ onBeforeUnmount(() => {
       <div class="col-start-10 col-end-11 flex justify-end gap-0 justify-self-end">
         <div class="relative group">
           <!-- Usynligt område for at fikse en bug så dropdown menuen holder sig åben -->
-          <div class="absolute left-0 top-full w-full h-4 group-hover:block" style="pointer-events: auto;"></div>
+          <div class="absolute left-0 top-full w-full h-10 group-hover:block" style="pointer-events: auto;"></div>
           <!-- Oversættelses knap for dansk, åbner en menu som viser andre sprog ved klik ændres sproget på alle sider -->
           <button class="bg-neutral-light text-primary-darkest px-4 py-2 font-light rounded-l-lg hover:bg-primary-light hover:text-neutral-light transition-colors duration-300 whitespace-nowrap flex items-center gap-1 h-full min-h-[40px] min-w-[64px]">
             DA
             <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
           </button>
-          <div class="absolute left-0 z-10 hidden group-hover:block bg-neutral-light text-primary-darkest rounded shadow-lg mt-1 min-w-full">
+          <div class="absolute left-0 z-10 hidden group-hover:block group-focus-within:block bg-neutral-light text-primary-darkest rounded shadow-lg mt-1 min-w-full" tabindex="0">
             <button class="block w-full text-left px-4 py-2 hover:bg-primary-light hover:text-neutral-light transition-colors duration-300" @click="$emit('change-lang', 'da')">Dansk</button>
             <button class="block w-full text-left px-4 py-2 hover:bg-primary-light hover:text-neutral-light transition-colors duration-300" @click="$emit('change-lang', 'de')">Tysk</button>
             <button class="block w-full text-left px-4 py-2 hover:bg-primary-light hover:text-neutral-light transition-colors duration-300" @click="$emit('change-lang', 'en')">Engelsk</button>
