@@ -9,6 +9,7 @@ const router = createRouter({
       name: 'home',
       component: HomeView,
     },
+    // Nyhedsoversigtside med karusel og alle nyheder
     {
       path: '/nyheder',
       name: 'nyheder',
@@ -17,9 +18,7 @@ const router = createRouter({
     {
       path: '/about',
       name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
+
       component: () => import('../views/AboutView.vue'),
     },
     {
@@ -27,6 +26,7 @@ const router = createRouter({
       name: 'events',
       component: () => import('../views/EventsView.vue'),
     },
+    // Detaljeret nyhedsside som vises når man klikker "Læs mere" (id bruges til at finde den korrekte nyhed)
     {
       path: '/nyhed/:id',
       name: 'nyhed',

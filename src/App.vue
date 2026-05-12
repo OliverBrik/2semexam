@@ -5,15 +5,16 @@ import { onBeforeUnmount, onMounted, ref } from 'vue'
 import BusinessLogo from './assets/logos/Business logo.svg'
 import FooterComponent from './components/FooterComponent.vue'
 
-// Søgefunktionalitet
+// Styrer søgefeltet: åben/lukket tilstand
 const isSearchOpen = ref(false)
 const searchContainerRef = ref(null)
 
+// Åbner eller lukker søgefeltet
 const toggleSearch = () => {
   isSearchOpen.value = !isSearchOpen.value
 }
 
-// Lukker søgefelt når der klikkes uden for det
+// Lukker søgefelt når der klikkes uden for det (for god brugeroplevelse)
 const onDocumentClick = (event) => {
   if (!isSearchOpen.value) return
   const target = event.target
