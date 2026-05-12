@@ -45,7 +45,7 @@ const setCurrent = (id) => {
       <div class="mx-auto max-w-6xl px-6 py-16 md:px-10 md:py-20">
         <h1 class="text-4xl font-light text-neutral-light sm:text-5xl">Nyheder</h1>
         <p class="mt-5 max-w-2xl text-sm text-neutral-light/80 sm:text-base">
-          Vi skaber staerke forbindelser mellem virksomheder i graenseregionen for at fremme vaekst,
+          Vi skaber stærke forbindelser mellem virksomheder i grænseregionen for at fremme vækst,
           samarbejde og nye muligheder.
         </p>
       </div>
@@ -122,7 +122,8 @@ const setCurrent = (id) => {
         <div>
           <h2 class="text-2xl font-light text-primary-darkest sm:text-3xl">Seneste nyheder</h2>
           <p class="mt-2 max-w-2xl text-sm text-primary-darkest/70">
-            </p>
+            Her er alle nyheder samlet i et enkelt overblik.
+          </p>
         </div>
       </div>
 
@@ -138,7 +139,12 @@ const setCurrent = (id) => {
               <p class="text-xs uppercase tracking-[0.15em] text-neutral-light/80">{{ item.category }}</p>
               <h4 class="mt-2 text-xl text-neutral-light">{{ item.title }}</h4>
               <p class="mt-2 line-clamp-2 text-sm text-neutral-light/90">{{ item.summary }}</p>
-              <RouterLink :to="{ name: 'nyhed', params: { id: item.id } }" class="read-more-btn mt-4">Læs mere</RouterLink>
+              <RouterLink
+                :to="{ name: 'nyhed', params: { id: item.id } }"
+                class="mt-4 inline-flex w-fit items-center rounded border border-white/70 px-3 py-1.5 text-xs uppercase tracking-[0.08em] text-neutral-light transition-colors hover:bg-white/20"
+              >
+                Læs mere
+              </RouterLink>
             </div>
           </article>
         </div>
@@ -210,7 +216,6 @@ const setCurrent = (id) => {
   box-shadow: 0 8px 30px rgba(13, 27, 42, 0.25);
 }
 
-
 .side-card { z-index: 1; }
 .featured-card { z-index: 3; position: relative; }
 
@@ -226,22 +231,6 @@ const setCurrent = (id) => {
   flex-direction: column;
   justify-content: flex-end;
   padding: 1rem;
-}
-
-.read-more-btn {
-  width: fit-content;
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  background: transparent;
-  padding: 0.35rem 0.65rem;
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #f8fbff;
-  transition: background-color 160ms ease;
-}
-
-.read-more-btn:hover {
-  background: rgba(255, 255, 255, 0.2);
 }
 
 @media (max-width: 767px) {
