@@ -49,13 +49,24 @@ const setCurrent = (id) => {
 
 <template>
   <header
-    class="relative min-h-96 w-screen bg-cover bg-center overflow-x-hidden"
+    class="relative min-h-156 w-screen bg-cover bg-center overflow-x-hidden"
     style="background-image: url('/src/assets/hero.gif')"
   >
+    <!-- Baggrundsvideo (autoplay bag overlay) -->
+    <div class="absolute inset-0 overflow-hidden">
+      <iframe
+        class="absolute left-1/2 top-1/2 h-[280%] w-[100%] -translate-x-1/2 -translate-y-1/2"
+        src="https://www.youtube.com/embed/l-aV3qt6dKw?autoplay=1&mute=1&loop=1&playlist=l-aV3qt6dKw&controls=0&modestbranding=1&playsinline=1&rel=0"
+        title="Baggrundsvideo"
+        frameborder="0"
+        allow="autoplay; fullscreen; picture-in-picture"
+        aria-hidden="true"
+      ></iframe>
+    </div>
     <!-- Blå overlay -->
-    <div class="absolute w-full h-full bg-primary-base"></div>
+    <div class="absolute w-full h-full bg-primary-base/80"></div>
     <!-- Content -->
-    <div class="relative z-10 grid grid-cols-12 gap-4 px-8 pt-30 pb-16 w-full">
+    <div class="relative z-10 grid grid-cols-12 gap-4 px-8 pt-80 pb-16 w-full">
       <div class="col-start-2 col-end-10 flex flex-col">
       <p class="text-sm font-semibold uppercase text-white/80">Velkommen til</p>
       <h1 class="mt-2 text-4xl font-bold text-white sm:text-5xl">Business DE-DK</h1>
@@ -80,8 +91,13 @@ const setCurrent = (id) => {
     </div>
   </header>
 
-  <!-- Ny sektion: Kategorier med billede -->
+  <!-- Ny sektion: Tekst kategorier med billede -->
   <section class="w-full bg-white">
+    <div class="grid grid-cols-12 gap-4 px-8 pt-12">
+      <div class="col-start-2 col-end-7">
+        <h2 class="text-2xl font-light text-primary-darkest sm:text-3xl uppercase">F.A.Q</h2>
+      </div>
+    </div>
     <div class="grid grid-cols-12 gap-4 px-8 py-12">
       <!-- Venstre side: Kategorier (Accordion stil) -->
       <div class="col-start-2 col-end-7">
