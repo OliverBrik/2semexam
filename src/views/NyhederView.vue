@@ -5,6 +5,9 @@ import { allNews } from '../data/news.js'
 // Holder track af hvilken nyhed der vises i karusellens center
 const currentIndex = ref(0)
 
+// Søgeboks til nyheds-listen
+const searchQuery = ref('')
+
 // Den aktuelle nyhed i midten af karusellen
 const highlightedNews = computed(() => allNews[currentIndex.value])
 
@@ -17,6 +20,17 @@ const sideNews = computed(() => {
   const nextIndex = (currentIndex.value + 1) % allNews.length
 
   return [allNews[prevIndex], allNews[nextIndex]]
+})
+
+// Filtrerede og sorterede nyheder til listen under
+const filteredNews = computed(() => {
+  let filtered = allNews.filter((news) =>
+    news.title.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
+    news.summary.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
+    news.category.toLowerCase().includes(searchQuery.value.toLowerCase())
+  )
+  // Sorter efter nyeste først (omvendt rækkefølge)
+  return filtered.reverse()
 })
 
 // Skifter til nyheden til venstre
@@ -47,171 +61,169 @@ const setCurrent = (id) => {
 </script>
 
 <template>
-  <main class="news-page">
-    <!-- Kort intro til siden -->
-    <section class="hero-section">
-      <div class="mx-auto grid max-w-6xl grid-cols-12 gap-6 px-6 py-10 md:px-10 md:py-12">
-        <div class="col-span-12 lg:col-span-7">
-          <p class="text-xs font-semibold uppercase tracking-[0.22em] text-neutral-light/70">Nyheder & indsigter</p>
-          <h1 class="mt-4 max-w-3xl text-3xl font-light leading-tight text-neutral-light sm:text-4xl">
-            Projektets fremdrift, erfaringer og resultater samlet ét sted
-          </h1>
-          <p class="mt-4 max-w-2xl text-sm leading-7 text-neutral-light/80 sm:text-base">
-            Her deler vi opdateringer fra projektet, indsigter fra arbejdet i grænseregionen og de vigtigste
-            resultater, så man hurtigt kan se, hvad der sker og hvorfor det betyder noget.
-          </p>
+  <main class="news-page !p-0">
+    <!-- Hero-sektion: Side-header med baggrundsbillede -->
+    <section class="relative min-h-156 w-screen overflow-hidden bg-primary-darkest" style="margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw);">
+      <div
+        class="absolute inset-0 bg-cover bg-center"
+        style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1600&q=80')"
+      ></div>
+      <div class="absolute inset-0 bg-primary-darkest/80"></div>
 
-          <div class="mt-6 grid gap-3 sm:grid-cols-3">
-            <article class="rounded-xl border border-white/15 bg-white/10 p-4 backdrop-blur-sm">
-              <p class="text-xs uppercase tracking-[0.18em] text-neutral-light/70">Opdatering</p>
-              <p class="mt-2 text-sm leading-6 text-neutral-light/90">Nye aktiviteter og status fra projektet.</p>
-            </article>
-            <article class="rounded-xl border border-white/15 bg-white/10 p-4 backdrop-blur-sm">
-              <p class="text-xs uppercase tracking-[0.18em] text-neutral-light/70">Indsigt</p>
-              <p class="mt-2 text-sm leading-6 text-neutral-light/90">Viden om regionen og målgruppen bag projektet.</p>
-            </article>
-            <article class="rounded-xl border border-white/15 bg-white/10 p-4 backdrop-blur-sm">
-              <p class="text-xs uppercase tracking-[0.18em] text-neutral-light/70">Resultat</p>
-              <p class="mt-2 text-sm leading-6 text-neutral-light/90">Det projektet faktisk har skabt i praksis.</p>
-            </article>
+      <div class="absolute inset-0 z-10 flex items-end">
+        <div class="grid w-full grid-cols-12 gap-4 px-8 pb-16 lg:pb-20">
+          <div class="col-span-12 flex flex-col justify-end text-neutral-light lg:col-span-8 lg:col-start-2">
+            <p class="text-sm font-semibold uppercase text-white/80">Nyheder & indsigter</p>
+            <h1 class="mt-2 text-4xl font-bold text-white sm:text-5xl">
+              Projektets fremdrift, erfaringer og resultater samlet ét sted
+            </h1>
+            <p class="mt-4 max-w-2xl text-lg text-white/90">
+              Her deler vi opdateringer fra projektet, indsigter fra arbejdet i grænseregionen og de vigtigste
+              resultater, så man hurtigt kan se, hvad der sker og hvorfor det betyder noget.
+            </p>
           </div>
         </div>
-
-        <aside class="col-span-12 lg:col-span-5">
-          <div class="h-full rounded-2xl border border-white/15 bg-white/10 p-5 backdrop-blur-sm lg:min-h-55">
-            <p class="text-xs font-semibold uppercase tracking-[0.18em] text-neutral-light/70">Fokus lige nu</p>
-            <h2 class="mt-3 text-2xl font-light text-neutral-light">Hvad siden viser</h2>
-            <div class="mt-4 grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
-              <div class="rounded-xl bg-white/10 p-4">
-                <p class="text-sm font-medium text-neutral-light">Projektstatus</p>
-                <p class="mt-1 text-sm leading-6 text-neutral-light/80">Kort overblik over det seneste arbejde.</p>
-              </div>
-              <div class="rounded-xl bg-white/10 p-4">
-                <p class="text-sm font-medium text-neutral-light">Viden og indblik</p>
-                <p class="mt-1 text-sm leading-6 text-neutral-light/80">Det vigtigste man bør vide om projektet.</p>
-              </div>
-              <div class="rounded-xl bg-white/10 p-4">
-                <p class="text-sm font-medium text-neutral-light">Resultater</p>
-                <p class="mt-1 text-sm leading-6 text-neutral-light/80">Hvad der er kommet ud af indsatsen.</p>
-              </div>
-            </div>
-          </div>
-        </aside>
       </div>
     </section>
 
-    <!-- Karusellen med den vigtigste nyhed i midten -->
-    <section class="carousel-wrap mx-auto mt-6 max-w-6xl px-4 md:px-8">
-      <div class="mb-4 flex flex-wrap items-end justify-between gap-3 px-2">
-        <div>
-          <p class="text-xs font-semibold uppercase tracking-[0.18em] text-primary-darkest/55">Seneste fokus</p>
-          <h2 class="mt-1 text-2xl font-light text-primary-darkest sm:text-3xl">De vigtigste projektopdateringer</h2>
-        </div>
-        <p class="max-w-2xl text-sm leading-6 text-primary-darkest/70">
-          Karusellen fremhæver det indhold, der bedst viser projektets retning lige nu.
-        </p>
-      </div>
-
-      <div class="flex items-center gap-3">
-        <button
-          class="carousel-control"
-          type="button"
-          aria-label="Forrige nyhed"
-          @click="previousNews"
-        >
-          &#10094;
-        </button>
-
-        <div class="grid w-full grid-cols-1 gap-6 md:grid-cols-[1fr_2fr_1fr]">
-
-          <article
-            v-if="sideNews[0]"
-            class="news-card side-card cursor-pointer"
-            :style="{ backgroundImage: `url(${sideNews[0].image})` }"
-            role="button"
-            tabindex="0"
-            @click="setCurrent(sideNews[0].id)"
-            @keydown.enter="setCurrent(sideNews[0].id)"
-          >
-            <div class="card-overlay">
-              <p class="text-xs uppercase tracking-[0.15em] text-neutral-light/70">{{ sideNews[0].category }}</p>
-              <p class="mt-2 text-sm text-neutral-light/90">{{ sideNews[0].title }}</p>
-            </div>
-          </article>
-
-
-          <article
-            v-if="highlightedNews"
-            class="news-card featured-card"
-            :style="{ backgroundImage: `url(${highlightedNews.image})` }"
-          >
-            <div class="card-overlay">
-              <p class="text-xs uppercase tracking-[0.18em] text-neutral-light/75">{{ highlightedNews.category }}</p>
-              <p class="text-lg text-neutral-light sm:text-2xl">{{ highlightedNews.title }}</p>
-              <p class="mt-2 max-w-xl text-sm leading-6 text-neutral-light/85">{{ highlightedNews.summary }}</p>
-              <RouterLink :to="{ name: 'nyhed', params: { id: highlightedNews.id } }" class="read-more-btn">Læs mere</RouterLink>
-            </div>
-          </article>
-
-
-          <article
-            v-if="sideNews[1]"
-            class="news-card side-card cursor-pointer"
-            :style="{ backgroundImage: `url(${sideNews[1].image})` }"
-            role="button"
-            tabindex="0"
-            @click="setCurrent(sideNews[1].id)"
-            @keydown.enter="setCurrent(sideNews[1].id)"
-          >
-            <div class="card-overlay">
-              <p class="text-xs uppercase tracking-[0.15em] text-neutral-light/70">{{ sideNews[1].category }}</p>
-              <p class="mt-2 text-sm text-neutral-light/90">{{ sideNews[1].title }}</p>
-            </div>
-          </article>
+    <!-- Karussel: Fremhævet nyhed i midten med navigationspile -->
+    <section class="w-screen mb-12 overflow-x-hidden" style="margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw);">
+      <div class="pt-10">
+        <!-- Karussel-titel -->
+        <div class="grid grid-cols-12 gap-4 mx-auto max-w-full mb-6 px-8">
+          <div class="col-start-2 col-end-11">
+            <h2 class="text-2xl font-light text-primary-darkest sm:text-3xl">De vigtigste nyheder</h2>
+          </div>
         </div>
 
-        <button
-          class="carousel-control"
-          type="button"
-          aria-label="Næste nyhed"
-          @click="nextNews"
-        >
-          &#10095;
-        </button>
+        <!-- Karussel med navigationspile -->
+        <div class="grid grid-cols-12 gap-4 py-8 mx-auto max-w-full">
+        <div class="col-start-1 col-end-13 relative">
+          <div class="px-20">
+            <!-- Karussel-kort: venstre, center (fremhævet), højre -->
+            <div class="grid w-full grid-cols-1 gap-6 md:grid-cols-[1fr_2fr_1fr]">
+              <article
+                v-if="sideNews[0]"
+                class="relative overflow-hidden bg-cover bg-center rounded transition-all duration-220 hover:scale-105 hover:-translate-y-1 min-h-56 z-10 cursor-pointer"
+                :style="{ backgroundImage: `url(${sideNews[0].image})` }"
+                role="button"
+                tabindex="0"
+                @click="setCurrent(sideNews[0].id)"
+                @keydown.enter="setCurrent(sideNews[0].id)"
+              >
+                <div class="absolute inset-0 bg-linear-to-b from-primary-darkest/18 to-primary-darkest/82"></div>
+                <div class="relative z-40 flex h-full flex-col justify-end p-4">
+                  <p class="text-xs uppercase tracking-[0.15em] text-neutral-light/70">{{ sideNews[0].category }}</p>
+                  <p class="mt-2 text-sm text-neutral-light/90">{{ sideNews[0].title }}</p>
+                </div>
+              </article>
+
+              <article
+                v-if="highlightedNews"
+                class="relative overflow-hidden bg-cover bg-center rounded transition-all duration-220 hover:scale-100 hover:-translate-y-1 min-h-96 scale-105 shadow-2xl z-30"
+                :style="{ backgroundImage: `url(${highlightedNews.image})` }"
+              >
+                <div class="absolute inset-0 bg-linear-to-b from-primary-darkest/18 to-primary-darkest/82"></div>
+                <div class="relative z-40 flex h-full flex-col justify-end p-4">
+                  <p class="text-xs uppercase tracking-[0.18em] text-neutral-light/75">{{ highlightedNews.category }}</p>
+                  <p class="text-lg text-neutral-light sm:text-2xl">{{ highlightedNews.title }}</p>
+                  <p class="mt-2 max-w-xl text-sm leading-6 text-neutral-light/85">{{ highlightedNews.summary }}</p>
+                  <RouterLink :to="{ name: 'nyhed', params: { id: highlightedNews.id } }" class="inline-block mt-2 px-4 py-2 text-sm text-white border border-white/70 rounded hover:bg-white/20 transition-colors duration-200">Læs mere</RouterLink>
+                </div>
+              </article>
+
+              <article
+                v-if="sideNews[1]"
+                class="relative overflow-hidden bg-cover bg-center rounded transition-all duration-220 hover:scale-105 hover:-translate-y-1 min-h-56 z-10 cursor-pointer"
+                :style="{ backgroundImage: `url(${sideNews[1].image})` }"
+                role="button"
+                tabindex="0"
+                @click="setCurrent(sideNews[1].id)"
+                @keydown.enter="setCurrent(sideNews[1].id)"
+              >
+                <div class="absolute inset-0 bg-linear-to-b from-primary-darkest/18 to-primary-darkest/82"></div>
+                <div class="relative z-40 flex h-full flex-col justify-end p-4">
+                  <p class="text-xs uppercase tracking-[0.15em] text-neutral-light/70">{{ sideNews[1].category }}</p>
+                  <p class="mt-2 text-sm text-neutral-light/90">{{ sideNews[1].title }}</p>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <!-- Navigationspile -->
+          <button
+            class="absolute top-1/2 -translate-y-1/2 w-10 h-10 rounded-full border border-primary-darkest/20 bg-neutral-light text-primary-darkest text-lg hover:bg-primary-light hover:-translate-y-[52%] transition-all duration-160 flex items-center justify-center z-50"
+            style="right: 40px"
+            type="button"
+            aria-label="Næste nyhed"
+            @click="nextNews"
+          >
+            &#10095;
+          </button>
+          <button
+            class="absolute top-1/2 -translate-y-1/2 w-10 h-10 rounded-full border border-primary-darkest/20 bg-neutral-light text-primary-darkest text-lg hover:bg-primary-light hover:-translate-y-[52%] transition-all duration-160 flex items-center justify-center z-50"
+            style="left: 40px"
+            type="button"
+            aria-label="Forrige nyhed"
+            @click="previousNews"
+          >
+            &#10094;
+          </button>
+        </div>
+        </div>
       </div>
     </section>
 
-    <!-- Hele nyhedsoversigten -->
-    <section class="mx-auto mt-10 max-w-6xl px-4 pb-16 md:px-8">
-      <div class="mb-6 flex items-end justify-between gap-4">
-        <div>
+    <!-- Nyheds-liste: Søgbar oversigt over alle nyheder -->
+    <section class="w-full px-8 pb-16" style="background: linear-gradient(180deg, #e8edf3 0%, #f6f8fb 60%, #f5f7fa 100%);">
+      <div class="grid grid-cols-12 gap-4 mb-6 pt-10">
+        <div class="col-start-2 col-end-11">
           <h2 class="text-2xl font-light text-primary-darkest sm:text-3xl">Alle opdateringer</h2>
-          <p class="mt-2 max-w-2xl text-sm text-primary-darkest/70">
+          <p class="mt-2 text-sm text-primary-darkest/70">
             Et samlet overblik over projektets opdateringer, indsigter, events og resultater.
           </p>
         </div>
       </div>
 
+      <div class="grid grid-cols-12 gap-4 mb-8">
+        <div class="col-start-2 col-end-11">
+          <input
+            v-model="searchQuery"
+            type="text"
+            placeholder="Søg efter nyhed..."
+            class="w-full border border-primary-light/30 rounded px-4 py-2 text-primary-darkest placeholder:text-primary-darkest/50 focus:border-primary-base focus:outline-none"
+          />
+        </div>
+      </div>
+
       <section>
-        <div class="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
-          <article
-            v-for="item in allNews"
-            :key="item.id"
-            class="news-card list-card full-card"
-            :style="{ backgroundImage: `url(${item.image})` }"
-          >
-            <div class="card-overlay">
-              <p class="text-xs uppercase tracking-[0.15em] text-neutral-light/80">{{ item.category }}</p>
-              <h4 class="mt-2 text-xl text-neutral-light">{{ item.title }}</h4>
-              <p class="mt-2 line-clamp-2 text-sm text-neutral-light/90">{{ item.summary }}</p>
-              <RouterLink
-                :to="{ name: 'nyhed', params: { id: item.id } }"
-                class="mt-4 inline-flex w-fit items-center rounded border border-white/70 px-3 py-1.5 text-xs uppercase tracking-[0.08em] text-neutral-light transition-colors hover:bg-white/20"
+        <div class="grid grid-cols-12 gap-4">
+          <div class="col-start-2 col-end-11">
+            <div class="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+              <article
+                v-for="item in filteredNews"
+                :key="item.id"
+                class="news-card list-card full-card"
+                :style="{ backgroundImage: `url(${item.image})` }"
               >
-                Læs mere
-              </RouterLink>
+                <div class="card-overlay">
+                  <p class="text-xs uppercase tracking-[0.15em] text-neutral-light/80">{{ item.category }}</p>
+                  <h4 class="mt-2 text-xl text-neutral-light">{{ item.title }}</h4>
+                  <p class="mt-2 line-clamp-2 text-sm text-neutral-light/90">{{ item.summary }}</p>
+                  <RouterLink
+                    :to="{ name: 'nyhed', params: { id: item.id } }"
+                    class="mt-4 inline-flex w-fit items-center rounded border border-white/70 px-3 py-1.5 text-xs uppercase tracking-[0.08em] text-neutral-light transition-colors hover:bg-white/20"
+                  >
+                    Læs mere
+                  </RouterLink>
+                </div>
+              </article>
+
+              <div v-if="filteredNews.length === 0" class="col-span-full py-8 text-center text-primary-darkest/60">
+                <p>Ingen nyheder fundet som matcher din søgning.</p>
+              </div>
             </div>
-          </article>
+          </div>
         </div>
       </section>
     </section>
@@ -220,35 +232,15 @@ const setCurrent = (id) => {
 
 <style scoped>
 .news-page {
+  background: transparent;
+}
+
+/* Gradient background på nyheds-listen */
+.list-gradient {
   background: linear-gradient(180deg, #e8edf3 0%, #f6f8fb 60%, #f5f7fa 100%);
 }
 
-.hero-section {
-  background: linear-gradient(125deg, #1e3752 0%, #415a77 60%, #2c3f59 100%);
-}
-
-.carousel-wrap {
-  margin-top: 1.5rem;
-  padding: 1.25rem 0.5rem;
-  background: linear-gradient(180deg, rgba(13,27,42,0.06), rgba(13,27,42,0.02));
-}
-
-.carousel-control {
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 9999px;
-  border: 1px solid rgba(13, 27, 42, 0.2);
-  background: #f3f7fb;
-  color: #0d1b2a;
-  font-size: 1.125rem;
-  transition: transform 160ms ease, background-color 160ms ease;
-}
-
-.carousel-control:hover {
-  transform: translateY(-1px);
-  background: #e1e8f0;
-}
-
+/* Kort-styling for både karussel og liste */
 .news-card {
   position: relative;
   overflow: hidden;
@@ -259,10 +251,6 @@ const setCurrent = (id) => {
   cursor: default;
 }
 
-.news-card.cursor-pointer { cursor: pointer; }
-
-.news-card:hover { transform: translateY(-4px) scale(1.01); }
-
 .news-card::before {
   content: '';
   position: absolute;
@@ -270,23 +258,7 @@ const setCurrent = (id) => {
   background: linear-gradient(180deg, rgba(13, 27, 42, 0.18) 0%, rgba(13, 27, 42, 0.82) 100%);
 }
 
-.side-card {
-  min-height: 240px;
-}
-
-.featured-card {
-  min-height: 420px;
-  transform: scale(1.015);
-  box-shadow: 0 8px 30px rgba(13, 27, 42, 0.25);
-}
-
-.side-card { z-index: 1; }
-.featured-card { z-index: 3; position: relative; }
-
-.list-card {
-  min-height: 300px;
-}
-
+/* Tekst-overlay på kortene */
 .card-overlay {
   position: relative;
   z-index: 4;
@@ -297,22 +269,10 @@ const setCurrent = (id) => {
   padding: 1rem;
 }
 
+/* Responsiv styling */
 @media (max-width: 767px) {
-  .carousel-wrap {
-    margin-top: 1rem;
-  }
-
-  .hero-section .grid {
-    row-gap: 1.5rem;
-  }
-
   .hero-section h1 {
     font-size: 2rem;
-  }
-
-  .featured-card,
-  .list-card {
-    min-height: 220px;
   }
 }
 </style>

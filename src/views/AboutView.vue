@@ -1,6 +1,8 @@
 <script setup>
+// TODO: Erstat med din faktiske Formspree-formular ID
 const formspreeAction = 'https://formspree.io/f/your-form-id'
 
+// Teammedlemmer - vises i grid-layout på siden
 const employees = [
   {
     name: 'Dustin ettermann',
@@ -42,17 +44,21 @@ const employees = [
 </script>
 
 <template>
-  <main class="bg-[#f3f5f8] text-primary-darkest">
-    <!-- Hero-sektion: kort intro og baggrundsbillede til siden -->
-    <section class="relative overflow-hidden bg-primary-darkest">
+  <main class="!p-0 bg-[#f3f5f8] text-primary-darkest">
+    <!-- Hero-sektion: Om os-header i fuld bredde med baggrundsbillede -->
+    <section
+      class="relative min-h-156 w-screen overflow-hidden bg-primary-darkest"
+      style="margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw);"
+    >
       <div
         class="absolute inset-0 bg-cover bg-center opacity-45"
         style="background-image: url('https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=80')"
       ></div>
-      <div class="absolute inset-0 from-primary-darkest via-primary-darkest/80 to-primary-darkest/40"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-primary-darkest via-primary-darkest/80 to-primary-darkest/40"></div>
 
-      <div class="relative mx-auto grid max-w-7xl grid-cols-12 gap-4 px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
-        <div class="col-span-12 flex flex-col justify-end text-neutral-light lg:col-span-8 lg:col-start-2">
+      <div class="absolute inset-0 z-10 flex items-end">
+        <div class="grid w-full grid-cols-12 gap-4 px-8 pb-16 lg:pb-20">
+          <div class="col-span-12 flex flex-col justify-end text-neutral-light lg:col-span-8 lg:col-start-2">
           <p class="text-xs font-semibold uppercase tracking-[0.3em] text-neutral-light/70">Business Region</p>
           <h1 class="mt-4 max-w-3xl text-4xl font-light leading-tight sm:text-5xl lg:text-6xl">Hvem er vi?</h1>
           <p class="mt-5 max-w-2xl text-sm leading-7 text-neutral-light/85 sm:text-base">
@@ -60,13 +66,14 @@ const employees = [
             Vi skaber netværk, indsigter og samarbejder, der gør det lettere at udvikle sig, finde hinanden og
             skabe værdi sammen.
           </p>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Kontakt og vision: formular til venstre og tekst om siden til højre -->
-    <section class="mx-auto mt-10 max-w-7xl px-4 pb-10 sm:px-6 lg:mt-14 lg:px-8">
-      <div class="grid grid-cols-12 gap-6">
+    <section class="mt-10 w-full px-8 pb-10 lg:mt-14">
+      <div class="grid grid-cols-12 gap-8 xl:gap-12">
         <aside class="col-span-12 rounded-lg bg-[#6f7e92] p-5 text-neutral-light shadow-2xl lg:col-span-4 lg:col-start-2">
           <h2 class="text-center text-2xl font-light">Kontakt os</h2>
 
@@ -124,7 +131,7 @@ const employees = [
           </form>
         </aside>
 
-        <article class="col-span-12 bg-white px-6 py-8 shadow-sm lg:col-span-6 lg:col-start-6 lg:mt-10 lg:px-10 lg:py-12">
+        <article class="col-span-12 bg-white px-6 py-8 shadow-sm lg:col-span-5 lg:col-start-7 lg:mt-10 lg:px-10 lg:py-12 xl:col-span-5 xl:col-start-7">
           <h2 class="mt-2 text-3xl font-semibold tracking-tight text-primary-darkest sm:text-4xl">VORES VISION</h2>
           <div class="mt-6 space-y-5 text-base leading-7 text-primary-darkest/90">
             <p>
@@ -143,7 +150,7 @@ const employees = [
     </section>
 
     <!-- Medarbejdere: oversigt over teamet i kort med billede og kontaktinfo -->
-    <section class="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
+    <section class="w-full px-8 pb-16">
       <div class="mb-6 flex items-end justify-between gap-4">
         <div>
           <h2 class="mt-2 text-3xl font-semibold text-primary-darkest">MEDARBEJDERE</h2>
