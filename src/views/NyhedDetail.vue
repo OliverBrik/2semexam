@@ -56,7 +56,9 @@
 import { useRoute } from 'vue-router'
 import { allNews } from '../data/news.js'
 
+// Henter rute-parameteren (nyhedens id fra URLen)
 const route = useRoute()
 const id = Number(route.params.id)
+// Finder den nyhed som brugeren har klikket på
 const article = allNews.find((a) => a.id === id)
 </script>
