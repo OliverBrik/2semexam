@@ -129,11 +129,21 @@ const setCurrent = (id) => {
   </section>
 
   <!-- Nyheds Karrusel -->
-  <section class="mx-auto max-w-6xl px-4 md:px-8 p-8 mb-8">
-    <h2 class="mb-18 text-2xl font-light text-primary-darkest sm:text-3xl uppercase">Seneste nyheder</h2>
-    <div class="flex items-center gap-3">
+  <section class="w-full px-8 mb-8">
+    <div class="grid grid-cols-12 gap-4 mx-auto max-w-full mb-12">
+      <div class="col-start-2 col-end-7">
+        <h2 class="text-2xl font-light text-primary-darkest sm:text-3xl uppercase">Seneste nyheder</h2>
+      </div>
+      <div class=" col-start-10 col-end-12">
+        <RouterLink to="/nyheder" class="uppercase text-sm font-light text-primary-darkest hover:text-primary-light transition-colors">
+          Alle nyheder
+        </RouterLink>
+      </div>
+    </div>
+    <div class="grid grid-cols-12 gap-4 px-8 py-8 mx-auto max-w-full">
+      <div class="col-start-1 col-end-13 flex items-center gap-3">
       <button
-        class="w-10 h-10 rounded-full border border-primary-darkest/20 bg-neutral-light text-primary-darkest text-lg hover:bg-primary-light hover:-translate-y-0.5 transition-all duration-160 flex items-center justify-center"
+        class="w-10 h-10 rounded-full border border-primary-darkest/20 bg-neutral-light text-primary-darkest text-lg hover:bg-primary-light hover:-translate-y-0.5 transition-all duration-160 flex items-center justify-center flex-shrink-0"
         type="button"
         aria-label="Forrige nyhed"
         @click="previousNews"
@@ -186,13 +196,14 @@ const setCurrent = (id) => {
       </div>
 
       <button
-        class="w-10 h-10 rounded-full border border-primary-darkest/20 bg-neutral-light text-primary-darkest text-lg hover:bg-primary-light hover:-translate-y-0.5 transition-all duration-160 flex items-center justify-center"
+        class="w-10 h-10 rounded-full border border-primary-darkest/20 bg-neutral-light text-primary-darkest text-lg hover:bg-primary-light hover:-translate-y-0.5 transition-all duration-160 flex items-center justify-center flex-shrink-0"
         type="button"
         aria-label="Naeste nyhed"
         @click="nextNews"
       >
         &#10095;
       </button>
+      </div>
     </div>
   </section>
 </template>
