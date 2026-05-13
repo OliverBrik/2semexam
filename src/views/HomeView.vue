@@ -48,23 +48,21 @@ const setCurrent = (id) => {
 </script>
 
 <template>
-  <header
-    class="relative min-h-156 w-screen bg-cover bg-center overflow-x-hidden"
-    style="background-image: url('/src/assets/hero.gif')"
-  >
-    <!-- Baggrundsvideo (autoplay bag overlay) -->
-    <div class="absolute inset-0 overflow-hidden">
-      <iframe
-        class="absolute left-1/2 top-1/2 h-[280%] w-[100%] -translate-x-1/2 -translate-y-1/2"
-        src="https://www.youtube.com/embed/l-aV3qt6dKw?autoplay=1&mute=1&loop=1&playlist=l-aV3qt6dKw&controls=0&modestbranding=1&playsinline=1&rel=0"
-        title="Baggrundsvideo"
-        frameborder="0"
-        allow="autoplay; fullscreen; picture-in-picture"
-        aria-hidden="true"
-      ></iframe>
+  <header class="relative min-h-156 w-screen overflow-hidden">
+    <!-- Baggrundsvideo (loop bag overlay) -->
+    <div class="absolute inset-0">
+      <video
+        class="absolute left-1/2 top-1/2 h-[120%] w-[220%] -translate-x-1/2 -translate-y-1/2 object-cover"
+        autoplay
+        muted
+        loop
+        playsinline
+      >
+        <source src="/src/assets/videoes/Videoloop.mp4" type="video/mp4" />
+      </video>
     </div>
     <!-- Blå overlay -->
-    <div class="absolute w-full h-full bg-primary-base/80"></div>
+    <div class="absolute w-full h-full bg-primary-darkest/80"></div>
     <!-- Content -->
     <div class="relative z-10 grid grid-cols-12 gap-4 px-8 pt-80 pb-16 w-full">
       <div class="col-start-2 col-end-10 flex flex-col">
