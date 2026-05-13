@@ -106,6 +106,7 @@ const closeDetails = () => {
   <div
     v-if="selectedJob"
     class="fixed inset-0 z-50 flex items-center justify-center bg-primary-darkest/70 px-6 py-4 overflow-y-auto"
+    @click.self="closeDetails"
     role="dialog"
     aria-modal="true"
   >
