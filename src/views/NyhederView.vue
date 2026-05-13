@@ -231,7 +231,6 @@ const setCurrent = (id) => {
   margin-top: 1.5rem;
   padding: 1.25rem 0.5rem;
   background: linear-gradient(180deg, rgba(13,27,42,0.06), rgba(13,27,42,0.02));
-  border-radius: 0.5rem;
 }
 
 .carousel-control {
