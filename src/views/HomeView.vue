@@ -130,38 +130,33 @@ const setCurrent = (id) => {
 
   <!-- Nyheds Karrusel -->
   <section class="w-full px-8 mb-8">
-    <div class="grid grid-cols-12 gap-4 mx-auto max-w-full mb-12">
-      <div class="col-start-2 col-end-7">
+    <!-- Karrusel header (titel + link) -->
+    <div class="grid grid-cols-12 mx-auto max-w-full mb-14">
+      <div class="flex justify-start col-start-2 col-end-6">
         <h2 class="text-2xl font-light text-primary-darkest sm:text-3xl uppercase">Seneste nyheder</h2>
       </div>
-      <div class=" col-start-10 col-end-12">
+      <div class="flex justify-end col-start-10 col-end-11">
         <RouterLink to="/nyheder" class="uppercase text-sm font-light text-primary-darkest hover:text-primary-light transition-colors">
           Alle nyheder
         </RouterLink>
       </div>
     </div>
-    <div class="grid grid-cols-12 gap-4 px-8 py-8 mx-auto max-w-full">
-      <div class="col-start-1 col-end-13 flex items-center gap-3">
-      <button
-        class="w-10 h-10 rounded-full border border-primary-darkest/20 bg-neutral-light text-primary-darkest text-lg hover:bg-primary-light hover:-translate-y-0.5 transition-all duration-160 flex items-center justify-center flex-shrink-0"
-        type="button"
-        aria-label="Forrige nyhed"
-        @click="previousNews"
-      >
-        &#10094;
-      </button>
+    <!-- Karrusel container (pile udenfor grid, kort i col 2-11) -->
+    <div class="grid grid-cols-12 gap-4 py-8 mx-auto max-w-full">
+      <div class="col-start-2 col-end-11 relative">
 
+      <!-- Karrusel kort -->
       <div class="grid w-full grid-cols-1 gap-6 md:grid-cols-[1fr_2fr_1fr]">
         <article
           v-if="sideNews[0]"
-          class="relative overflow-hidden bg-cover bg-center rounded transition-all duration-220 hover:scale-105 hover:-translate-y-1 min-h-[200px] z-10 cursor-pointer"
+          class="relative overflow-hidden bg-cover bg-center rounded transition-all duration-220 hover:scale-105 hover:-translate-y-1 min-h-56 z-10 cursor-pointer"
           :style="{ backgroundImage: `url(${sideNews[0].image})` }"
           role="button"
           tabindex="0"
           @click="setCurrent(sideNews[0].id)"
           @keydown.enter="setCurrent(sideNews[0].id)"
         >
-          <div class="absolute inset-0 bg-gradient-to-b from-primary-darkest/18 to-primary-darkest/82"></div>
+          <div class="absolute inset-0 bg-linear-to-b from-primary-darkest/18 to-primary-darkest/82"></div>
           <div class="relative z-40 flex h-full flex-col justify-end p-4">
             <p class="text-sm text-neutral-light/90">{{ sideNews[0].title }}</p>
           </div>
@@ -169,10 +164,10 @@ const setCurrent = (id) => {
 
         <article
           v-if="highlightedNews"
-          class="relative overflow-hidden bg-cover bg-center rounded transition-all duration-220 hover:scale-105 hover:-translate-y-1 min-h-[320px] scale-105 shadow-2xl z-30"
+          class="relative overflow-hidden bg-cover bg-center rounded transition-all duration-220 hover:scale-100 hover:-translate-y-1 min-h-96 scale-105 shadow-2xl z-30"
           :style="{ backgroundImage: `url(${highlightedNews.image})` }"
         >
-          <div class="absolute inset-0 bg-gradient-to-b from-primary-darkest/18 to-primary-darkest/82"></div>
+          <div class="absolute inset-0 bg-linear-to-b from-primary-darkest/18 to-primary-darkest/82"></div>
           <div class="relative z-40 flex h-full flex-col justify-end p-4">
             <p class="text-lg text-neutral-light sm:text-2xl">{{ highlightedNews.title }}</p>
             <RouterLink :to="{ name: 'nyhed', params: { id: highlightedNews.id } }" class="inline-block mt-2 px-4 py-2 text-sm text-white border border-white/70 rounded hover:bg-white/20 transition-colors duration-200">Læs mere</RouterLink>
@@ -181,27 +176,39 @@ const setCurrent = (id) => {
 
         <article
           v-if="sideNews[1]"
-          class="relative overflow-hidden bg-cover bg-center rounded transition-all duration-220 hover:scale-105 hover:-translate-y-1 min-h-[200px] z-10 cursor-pointer"
+          class="relative overflow-hidden bg-cover bg-center rounded transition-all duration-220 hover:scale-105 hover:-translate-y-1 min-h-56 z-10 cursor-pointer"
           :style="{ backgroundImage: `url(${sideNews[1].image})` }"
           role="button"
           tabindex="0"
           @click="setCurrent(sideNews[1].id)"
           @keydown.enter="setCurrent(sideNews[1].id)"
         >
-          <div class="absolute inset-0 bg-gradient-to-b from-primary-darkest/18 to-primary-darkest/82"></div>
+          <div class="absolute inset-0 bg-linear-to-b from-primary-darkest/18 to-primary-darkest/82"></div>
           <div class="relative z-40 flex h-full flex-col justify-end p-4">
             <p class="text-sm text-neutral-light/90">{{ sideNews[1].title }}</p>
           </div>
         </article>
       </div>
 
+      <!-- Højre pil -->
       <button
-        class="w-10 h-10 rounded-full border border-primary-darkest/20 bg-neutral-light text-primary-darkest text-lg hover:bg-primary-light hover:-translate-y-0.5 transition-all duration-160 flex items-center justify-center flex-shrink-0"
+        class="absolute top-1/2 -translate-y-1/2 w-10 h-10 rounded-full border border-primary-darkest/20 bg-neutral-light text-primary-darkest text-lg hover:bg-primary-light hover:-translate-y-[52%] transition-all duration-160 flex items-center justify-center"
+        style="right: -60px"
         type="button"
-        aria-label="Naeste nyhed"
+        aria-label="Næste nyhed"
         @click="nextNews"
       >
         &#10095;
+      </button>
+            <!-- Venstre pil (udenfor kortet) -->
+      <button
+        class="absolute top-1/2 -translate-y-1/2 w-10 h-10 rounded-full border border-primary-darkest/20 bg-neutral-light text-primary-darkest text-lg hover:bg-primary-light hover:-translate-y-[52%] transition-all duration-160 flex items-center justify-center"
+        style="left: -60px"
+        type="button"
+        aria-label="Forrige nyhed"
+        @click="previousNews"
+      >
+        &#10094;
       </button>
       </div>
     </div>
