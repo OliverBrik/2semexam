@@ -36,12 +36,12 @@ onBeforeUnmount(() => {
 
 <template>
   <!-- Header og navigationsbar -->
-  <header class="w-full !bg-primary-darkest relative z-40">
+  <header class="w-full bg-primary-darkest! relative z-40">
     <nav class="grid grid-cols-12 gap-4 px-8 py-4">
       <!-- Logo og navigation links -->
       <div class="col-start-2 col-end-10 flex items-center gap-12">
         <RouterLink to="/" class="flex items-center">
-          <img :src="BusinessLogo" alt="Business Region Logo" class="h-12 flex-shrink-0" />
+          <img :src="BusinessLogo" alt="Business Region Logo" class="h-12 shrink-0" />
         </RouterLink>
         <div class="flex gap-8">
           <RouterLink to="/nyheder" class="text-neutral-light no-underline font-light hover:text-primary-light transition-colors duration-300">Nyheder & Indsigter</RouterLink>
@@ -54,7 +54,7 @@ onBeforeUnmount(() => {
         <!-- Sprog dropdown menu -->
         <div class="relative group">
           <!-- Oversættelses knap for dansk -->
-          <button class="bg-neutral-light text-primary-darkest px-4 py-2 font-light rounded-l-lg hover:bg-primary-light hover:text-neutral-light transition-colors duration-300 whitespace-nowrap flex items-center gap-1 h-full min-h-[40px] min-w-[64px]">
+          <button class="bg-neutral-light text-primary-darkest px-4 py-2 font-light rounded-l-lg hover:bg-primary-light hover:text-neutral-light transition-colors duration-300 whitespace-nowrap flex items-center gap-1 h-full min-h-10 min-w-16">
             DA
             <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
           </button>

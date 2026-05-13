@@ -78,7 +78,7 @@ const setCurrent = (id) => {
         </div>
 
         <aside class="col-span-12 lg:col-span-5">
-          <div class="h-full rounded-2xl border border-white/15 bg-white/10 p-5 backdrop-blur-sm lg:min-h-[220px]">
+          <div class="h-full rounded-2xl border border-white/15 bg-white/10 p-5 backdrop-blur-sm lg:min-h-55">
             <p class="text-xs font-semibold uppercase tracking-[0.18em] text-neutral-light/70">Fokus lige nu</p>
             <h2 class="mt-3 text-2xl font-light text-neutral-light">Hvad siden viser</h2>
             <div class="mt-4 grid gap-3 sm:grid-cols-3 lg:grid-cols-1">

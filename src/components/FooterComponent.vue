@@ -29,9 +29,12 @@ import InterregLogo from '../assets/logos/interreg logo white.svg'
 
       <!-- Kontakt knap og sociale ikoner -->
       <div class="col-start-10 col-end-12 flex flex-col items-center gap-3">
-        <button class="w-36 bg-neutral-light text-primary-darkest font-light hover:bg-primary-light hover:text-neutral-light transition-colors duration-300 flex items-center justify-center py-2">
+        <RouterLink
+          to="/kontakt"
+          class="w-36 bg-neutral-light text-primary-darkest font-light hover:bg-primary-light hover:text-neutral-light transition-colors duration-300 flex items-center justify-center py-2 text-center"
+        >
           Kontakt os
-        </button>
+        </RouterLink>
         <div class="flex gap-3">
           <!-- Facebook -->
           <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center w-10 h-10 bg-neutral-light text-primary-darkest hover:bg-primary-light hover:text-neutral-light transition-colors duration-300">

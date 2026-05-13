@@ -20,7 +20,7 @@
         </div>
       </header>
 
-      <div class="h-[320px] w-full bg-cover bg-center md:h-[420px]" :style="{ backgroundImage: `url(${article.image})` }"></div>
+      <div class="h-80 w-full bg-cover bg-center md:h-105" :style="{ backgroundImage: `url(${article.image})` }"></div>
 
       <div class="px-6 py-6 md:px-8">
         <div class="space-y-4 text-base leading-7 text-slate-700">
