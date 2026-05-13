@@ -9,7 +9,6 @@ const router = createRouter({
       name: 'home',
       component: HomeView,
     },
-    // Nyhedsoversigtside med karusel og alle nyheder
     {
       path: '/nyheder',
       name: 'nyheder',
@@ -26,7 +25,11 @@ const router = createRouter({
       name: 'events',
       component: () => import('../views/EventsView.vue'),
     },
-    // Detaljeret nyhedsside som vises når man klikker "Læs mere" (id bruges til at finde den korrekte nyhed)
+    {
+      path: '/jobportal',
+      name: 'jobportal',
+      component: () => import('../views/JobportalView.vue'),
+    },
     {
       path: '/nyhed/:id',
       name: 'nyhed',

@@ -78,12 +78,12 @@ const setCurrent = (id) => {
         >
           Nyheder & Indsigter
         </RouterLink>
-        <button
+        <RouterLink
+          to="/jobportal"
           class=" border border-white bg-transparent px-6 py-3 font-semibold text-white transition hover:bg-white/10"
-          type="button"
         >
           Jobportal
-        </button>
+        </RouterLink>
       </div>
       </div>
     </div>
@@ -97,10 +97,10 @@ const setCurrent = (id) => {
       </div>
     </div>
     <div class="grid grid-cols-12 gap-4 px-8 py-12">
-      <!-- Venstre side: Kategorier (Accordion stil) -->
+      <!-- Venstre side: Kategorier  -->
       <div class="col-start-2 col-end-7">
         <div class="space-y-0">
-          <!-- Alle kategorier som accordions -->
+          <!-- Alle kategorier som klikbare -->
           <div
             v-for="(category, index) in categories"
             :key="index"
@@ -134,7 +134,7 @@ const setCurrent = (id) => {
       <!-- Højre side: Billede -->
       <div class="col-start-7 col-end-11 flex items-start justify-center sticky top-12">
         <img
-          src="https://picsum.photos/600/800"
+          src="/src/assets/logos/Map.svg"
           alt="Grænse billede"
           class="w-full h-auto object-cover shadow-lg"
         />

@@ -47,6 +47,7 @@ onBeforeUnmount(() => {
           <RouterLink to="/nyheder" class="text-neutral-light no-underline font-light hover:text-primary-light transition-colors duration-300">Nyheder & Indsigter</RouterLink>
           <RouterLink to="/about" class="text-neutral-light no-underline font-light hover:text-primary-light transition-colors duration-300">Om os</RouterLink>
           <RouterLink to="/events" class="text-neutral-light no-underline font-light hover:text-primary-light transition-colors duration-300">Events</RouterLink>
+          <RouterLink to="/jobportal" class="text-neutral-light no-underline font-light hover:text-primary-light transition-colors duration-300">Jobportal</RouterLink>
         </div>
       </div>
       <!-- Menu bar område med dropdown, søg og kontakt -->

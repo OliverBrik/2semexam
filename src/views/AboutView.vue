@@ -49,7 +49,7 @@ const employees = [
         class="absolute inset-0 bg-cover bg-center opacity-45"
         style="background-image: url('https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=80')"
       ></div>
-      <div class="absolute inset-0 bg-gradient-to-r from-primary-darkest via-primary-darkest/80 to-primary-darkest/40"></div>
+      <div class="absolute inset-0 from-primary-darkest via-primary-darkest/80 to-primary-darkest/40"></div>
 
       <div class="relative mx-auto grid max-w-7xl grid-cols-12 gap-4 px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
         <div class="col-span-12 flex flex-col justify-end text-neutral-light lg:col-span-8 lg:col-start-2">
