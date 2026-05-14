@@ -116,26 +116,23 @@ const closeDetails = () => {
           <article
             v-for="job in filteredJobs"
             :key="job.id"
-            class=" border-primary-darkest/10 bg-white p-5 shadow-sm transition hover:shadow-md"
+            class="border-primary-darkest/10 bg-white p-5 shadow-sm transition hover:shadow-md flex gap-4"
           >
-            <div class="flex items-center gap-4">
-              <img
-                :src="getJobLogo(job)"
-                :alt="`${job.company} logo`"
-                class="h-12 w-12 rounded-full bg-neutral-light p-2 shrink-0 object-contain"
-                loading="lazy"
-                decoding="async"
-                @error="handleLogoError"
-              />
-              <div class="min-w-0">
-                <h3 class="line-clamp-2 text-base font-semibold text-primary-darkest">{{ job.title }}</h3>
-                <p class="text-sm font-light text-primary-darkest/70">{{ job.company }} - {{ job.location }}</p>
-              </div>
-            </div>
-            <div class="mt-4">
+            <img
+              :src="getJobLogo(job)"
+              :alt="`${job.company} logo`"
+              class="h-12 w-12 rounded-full bg-neutral-light p-2 shrink-0 object-contain"
+              loading="lazy"
+              decoding="async"
+              @error="handleLogoError"
+            />
+            <div class="min-w-0 flex flex-col">
+              <h3 class="line-clamp-2 text-base font-semibold text-primary-darkest">{{ job.title }}</h3>
+              <p class="text-sm font-light text-primary-darkest/70">{{ job.company }} - {{ job.location }}</p>
+              <div class="flex-1"></div>
               <button
                 type="button"
-                class="text-sm font-semibold text-primary-darkest hover:text-primary-light"
+                class="text-sm font-semibold mt-2 text-primary-darkest hover:text-primary-light self-start"
                 @click="toggleOpen(job.id)"
                 :aria-expanded="openId === job.id"
               >
