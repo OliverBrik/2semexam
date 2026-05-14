@@ -1,3 +1,4 @@
+// Data for Job portals siden med medlemmer af netværket
 export const businessNetworkJobs = [
   {
     id: 1,

@@ -75,7 +75,7 @@ const selectCategory = (category) => {
                   @click="selectCategory(category)"
                 >
                   <span
-                    class="h-2 w-2 flex-shrink-0"
+                    class="h-2 w-2 shrink-0"
                     :class="selectedCategory === category ? 'bg-neutral-light' : 'bg-primary-base'"
                   ></span>
                   <span>{{ category }}</span>

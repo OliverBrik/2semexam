@@ -86,7 +86,7 @@ const closeDetails = () => {
       <div class="col-start-2 col-end-10 flex flex-col">
       <h1 class="mt-2 text-4xl font-bold text-white sm:text-5xl">Jobportalen</h1>
       <p class="mt-4 max-w-2xl text-lg text-white/90">
-        Her kan du finde virksomheder i netvaerket, se samarbejdsmuligheder og tage kontakt til relevante partnere.
+        Her kan du finde virksomheder i netværket, se samarbejdsmuligheder og tage kontakt til relevante partnere.
       </p>
       </div>
     </div>
@@ -101,7 +101,7 @@ const closeDetails = () => {
               id="job-search"
               v-model="searchQuery"
               type="text"
-              placeholder="Sog efter virksomhed eller titel..."
+              placeholder="Søg efter virksomhed eller titel..."
               class="w-full rounded-full border border-primary-darkest/20 bg-white px-5 py-3 text-primary-darkest shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-light"
             />
           </div>

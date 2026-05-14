@@ -17,12 +17,12 @@ import InterregLogo from '../assets/logos/interreg logo white.svg'
       </div>
 
       <!-- Kontaktinfo -->
-      <div class="col-start-5 col-end-10 flex flex-col gap-3 p-1 justify-start">
+      <div class="col-start-6 col-end-10 flex flex-col gap-3 justify-start">
         <p class="text-sm font-light mt-0">Adresse: Vestergade 9 6270 Tønder</p>
         <p class="text-sm font-light">Telefon: +4521776916</p>
         <p class="text-sm font-light">Email: lecba@toender.dk</p>
         <p class="text-sm font-light">Åbningstider: Man-Fre 08:30-15:30</p>
-        <div class="mt-4 pt-7 ">
+        <div class="mt-3 ">
           <p class="text-xs text-neutral-light/60">© 2026 Business Region - CVR: - EAN: - Alle rettigheder forbeholdes.</p>
         </div>
       </div>

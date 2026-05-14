@@ -1,3 +1,4 @@
+// Data for medarbejdere vises både på Kontakt og Om os siden
 export const employees = [
   {
     name: 'Dustin ettermann',
