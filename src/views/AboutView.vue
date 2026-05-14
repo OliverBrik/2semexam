@@ -35,7 +35,7 @@ import { employees } from '../data/employees'
     <!-- Kontakt og vision: formular til venstre og tekst om siden til højre -->
     <section class="mt-10 w-full px-8 pb-10 lg:mt-14">
       <div class="grid grid-cols-12 gap-8 xl:gap-12">
-        <aside class="col-span-12  bg-[#6f7e92] p-5 text-neutral-light shadow-2xl lg:col-span-4 lg:col-start-2">
+        <aside class="col-span-12 bg-[#6f7e92] p-5 text-neutral-light shadow-2xl lg:col-span-4 lg:col-start-2">
           <h2 class="text-center text-2xl font-light">Kontakt os</h2>
 
           <form class="mt-5 space-y-4" :action="formspreeAction" method="POST">

@@ -7,7 +7,7 @@
       ← Tilbage til Nyheder
     </RouterLink>
 
-    <article v-if="article" class="mt-6 overflow-hidden rounded-md bg-white shadow-sm ring-1 ring-black/5">
+    <article v-if="article" class="mt-6 overflow-hidden bg-white shadow-sm ring-1 ring-black/5">
       <header class="border-b border-slate-100 px-6 py-6 md:px-8">
         <p class="text-sm font-medium uppercase tracking-[0.14em] text-primary-base">{{ article.category }}</p>
         <h1 class="mt-2 text-3xl font-light text-primary-darkest sm:text-4xl">
@@ -15,7 +15,7 @@
         </h1>
         <div class="mt-3 flex flex-wrap items-center gap-3 text-sm text-slate-500">
           <span>12. maj 2026</span>
-          <span class="h-1 w-1 rounded-full bg-slate-300"></span>
+          <span class="h-1 w-1 bg-slate-300"></span>
           <span>Af Business Region</span>
         </div>
       </header>
@@ -32,10 +32,10 @@
 
         <footer class="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-slate-100 pt-6">
           <div class="flex items-center gap-3">
-            <button class="rounded-md bg-primary-darkest px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-primary-base">
+            <button class=" bg-primary-darkest px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-primary-base">
               Kontakt os
             </button>
-            <button class="rounded-md border border-slate-200 px-4 py-2 text-sm font-medium text-slate-700 transition-colors hover:border-slate-300 hover:bg-slate-50">
+            <button class="border border-slate-200 px-4 py-2 text-sm font-medium text-slate-700 transition-colors hover:border-slate-300 hover:bg-slate-50">
               Gem
             </button>
           </div>

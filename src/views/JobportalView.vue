@@ -212,13 +212,13 @@ const closeDetails = () => {
           :href="selectedJob.website"
           target="_blank"
           rel="noopener noreferrer"
-          class="rounded-full bg-primary-darkest px-6 py-2.5 text-sm font-semibold text-white hover:bg-primary-base transition"
+          class=" bg-primary-darkest px-6 py-2.5 text-sm font-semibold text-white hover:bg-primary-base transition"
         >
           Besøg hjemmeside
         </a>
         <button
           type="button"
-          class="rounded-full border border-primary-darkest/30 px-6 py-2.5 text-sm font-semibold text-primary-darkest hover:border-primary-darkest transition"
+          class="border border-primary-darkest/30 px-6 py-2.5 text-sm font-semibold text-primary-darkest hover:border-primary-darkest transition"
         >
           Kontakt organisation
         </button>

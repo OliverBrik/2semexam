@@ -163,7 +163,7 @@ const setCurrent = (id) => {
       <div class="grid w-full grid-cols-1 gap-6 md:grid-cols-[1fr_2fr_1fr]">
         <article
           v-if="sideNews[0]"
-          class="relative overflow-hidden bg-cover bg-center rounded transition-all duration-220 hover:scale-105 hover:-translate-y-1 min-h-56 z-10 cursor-pointer"
+          class="relative overflow-hidden bg-cover bg-center  transition-all duration-220 hover:scale-105 hover:-translate-y-1 min-h-56 z-10 cursor-pointer"
           :style="{ backgroundImage: `url(${sideNews[0].image})` }"
           role="button"
           tabindex="0"
@@ -178,19 +178,19 @@ const setCurrent = (id) => {
 
         <article
           v-if="highlightedNews"
-          class="relative overflow-hidden bg-cover bg-center rounded transition-all duration-220 hover:scale-100 hover:-translate-y-1 min-h-96 scale-105 shadow-2xl z-30"
+          class="relative overflow-hidden bg-cover bg-center transition-all duration-220 hover:scale-100 hover:-translate-y-1 min-h-96 scale-105 shadow-2xl z-30"
           :style="{ backgroundImage: `url(${highlightedNews.image})` }"
         >
           <div class="absolute inset-0 bg-linear-to-b from-primary-darkest/18 to-primary-darkest/82"></div>
           <div class="relative z-40 flex h-full flex-col justify-end p-4">
             <p class="text-lg text-neutral-light sm:text-2xl">{{ highlightedNews.title }}</p>
-            <RouterLink :to="{ name: 'nyhed', params: { id: highlightedNews.id } }" class="inline-block mt-2 px-4 py-2 text-sm text-white border border-white/70 rounded hover:bg-white/20 transition-colors duration-200">Læs mere</RouterLink>
+            <RouterLink :to="{ name: 'nyhed', params: { id: highlightedNews.id } }" class="inline-block mt-2 px-4 py-2 text-sm text-white border border-white/70 hover:bg-white/20 transition-colors duration-200">Læs mere</RouterLink>
           </div>
         </article>
 
         <article
           v-if="sideNews[1]"
-          class="relative overflow-hidden bg-cover bg-center rounded transition-all duration-220 hover:scale-105 hover:-translate-y-1 min-h-56 z-10 cursor-pointer"
+          class="relative overflow-hidden bg-cover bg-center transition-all duration-220 hover:scale-105 hover:-translate-y-1 min-h-56 z-10 cursor-pointer"
           :style="{ backgroundImage: `url(${sideNews[1].image})` }"
           role="button"
           tabindex="0"
