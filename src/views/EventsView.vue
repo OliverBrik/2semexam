@@ -86,7 +86,7 @@ const selectCategory = (category) => {
         </aside>
 
         <!-- Højre side: Fremhævet event + andre events -->
-        <div class="col-span-12 lg:col-span-7 lg:col-start-6">
+        <div class="col-span-11 lg:col-span-6 lg:col-start-6">
           <!-- Fremhævet event -->
           <article
             v-if="highlightedEvent"

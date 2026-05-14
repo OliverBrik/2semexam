@@ -93,7 +93,7 @@ const closeDetails = () => {
   </header>
   <main class="w-full bg-white">
     <section class="grid grid-cols-12 gap-4 px-8 py-10 bg-primary-light/10">
-      <div class="col-start-1 col-end-13">
+      <div class="col-start-2 col-end-12">
         <div class="flex flex-col gap-4">
           <label class="text-sm font-light text-primary-darkest" for="job-search">Søg efter virksomheder</label>
           <div class="flex w-full items-center gap-3">
@@ -102,7 +102,7 @@ const closeDetails = () => {
               v-model="searchQuery"
               type="text"
               placeholder="Søg efter virksomhed eller titel..."
-              class="w-full rounded-full border border-primary-darkest/20 bg-white px-5 py-3 text-primary-darkest shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-light"
+              class="w-full border border-primary-darkest/20 bg-white px-5 py-3 text-primary-darkest shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-light"
             />
           </div>
           <p class="uppercase text-sm font-light text-primary-darkest/70">{{ resultsCount }} resultater</p>
@@ -110,8 +110,8 @@ const closeDetails = () => {
       </div>
     </section>
 
-    <section class="gap-4 px-8 py-10 bg-primary-light/10">
-      <div class="col-start-1 col-end-13">
+    <section class="grid grid-cols-12 gap-4 px-8 py-10 bg-primary-light/10">
+      <div class="col-start-2 col-end-12">
         <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           <article
             v-for="job in filteredJobs"

@@ -8,16 +8,16 @@ import InterregLogo from '../assets/logos/interreg logo white.svg'
   <footer class="w-full bg-primary-darkest text-neutral-light">
     <div class="grid grid-cols-12 gap-4 px-8 py-12">
       <!-- Logoer og juridisk info -->
-      <div class="col-start-2 col-end-4 flex flex-col gap-2 p-1">
+      <div class="col-start-2 col-end-5 flex flex-col items-start gap-2 p-0">
         <img :src="BusinessLogo" alt="Business Region Logo" class="h-12 w-auto p-0 m-0" />
         <img :src="InterregLogo" alt="Interreg Logo" class="h-12 w-auto p-0 m-0" />
         <div class="mt-4 pt-3 border-t border-neutral-light/20">
-          <p class="text-xs text-neutral-light/70 flex justify-center">JURIDISKE OPLYSNINGER</p>
+          <p class="text-xs text-neutral-light/70">JURIDISKE OPLYSNINGER</p>
         </div>
       </div>
 
       <!-- Kontaktinfo -->
-      <div class="col-start-6 col-end-10 flex flex-col gap-3 justify-start">
+      <div class="col-start-6 col-end-9 flex flex-col gap-3 justify-start">
         <p class="text-sm font-light mt-0">Adresse: Vestergade 9 6270 Tønder</p>
         <p class="text-sm font-light">Telefon: +4521776916</p>
         <p class="text-sm font-light">Email: lecba@toender.dk</p>
@@ -28,7 +28,7 @@ import InterregLogo from '../assets/logos/interreg logo white.svg'
       </div>
 
       <!-- Kontakt knap og sociale ikoner -->
-      <div class="col-start-10 col-end-12 flex flex-col items-center gap-3">
+      <div class="col-start-9 col-end-12 flex flex-col items-end gap-3">
         <RouterLink
           to="/kontakt"
           class="w-36 bg-neutral-light text-primary-darkest font-light hover:bg-primary-light hover:text-neutral-light transition-colors duration-300 flex items-center justify-center py-2 text-center"

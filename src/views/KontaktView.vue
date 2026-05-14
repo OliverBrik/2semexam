@@ -108,33 +108,37 @@ const formspreeAction = 'https://formspree.io/f/your-form-id'
     </section>
 
     <section class="w-full px-8 pb-16">
-      <div class="mb-6 flex items-end justify-between gap-4">
-        <div>
-          <h2 class="mt-2 text-3xl font-semibold text-primary-darkest">MEDARBEJDERE</h2>
-        </div>
-      </div>
-
-      <div class="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
-        <article
-          v-for="employee in employees"
-          :key="employee.name + employee.phone"
-          class="overflow-hidden bg-primary-darkest text-neutral-light shadow-lg transition-transform duration-300 hover:-translate-y-1"
-        >
-          <img :src="employee.image" :alt="employee.name" class="h-52 w-full object-cover object-center" />
-          <div class="p-4 text-center">
-            <h3 class="text-base font-semibold leading-6">{{ employee.name }}</h3>
-            <p class="mt-1 text-sm text-neutral-light/85">{{ employee.role }}</p>
-            <p class="mt-3 text-xs uppercase tracking-[0.18em] text-neutral-light/55">{{ employee.description }}</p>
-            <p class="mt-3 text-xs text-neutral-light/85">{{ employee.phone }}</p>
-            <p class="text-xs text-neutral-light/70">{{ employee.email }}</p>
-            <a
-              href="/kontakt"
-              class="mt-4 inline-flex items-center justify-center bg-neutral-light px-4 py-2 text-xs font-medium text-primary-darkest transition-colors duration-300 hover:bg-primary-light hover:text-neutral-light"
-            >
-              LinkedIn
-            </a>
+      <div class="grid grid-cols-12 gap-5">
+        <div class="col-span-12 mb-1 lg:col-start-2 lg:col-end-12">
+          <div class="mb-6 flex items-end justify-between gap-4">
+            <div>
+              <h2 class="mt-2 text-3xl font-semibold text-primary-darkest">MEDARBEJDERE</h2>
+            </div>
           </div>
-        </article>
+        </div>
+
+        <div class="col-span-12 grid gap-5 sm:grid-cols-2 xl:grid-cols-4 lg:col-start-2 lg:col-end-12">
+          <article
+            v-for="employee in employees"
+            :key="employee.name + employee.phone"
+            class="overflow-hidden bg-primary-darkest text-neutral-light shadow-lg transition-transform duration-300 hover:-translate-y-1"
+          >
+            <img :src="employee.image" :alt="employee.name" class="h-52 w-full object-cover object-center" />
+            <div class="p-4 text-center">
+              <h3 class="text-base font-semibold leading-6">{{ employee.name }}</h3>
+              <p class="mt-1 text-sm text-neutral-light/85">{{ employee.role }}</p>
+              <p class="mt-3 text-xs uppercase tracking-[0.18em] text-neutral-light/55">{{ employee.description }}</p>
+              <p class="mt-3 text-xs text-neutral-light/85">{{ employee.phone }}</p>
+              <p class="text-xs text-neutral-light/70">{{ employee.email }}</p>
+              <a
+                href="/kontakt"
+                class="mt-4 inline-flex items-center justify-center bg-neutral-light px-4 py-2 text-xs font-medium text-primary-darkest transition-colors duration-300 hover:bg-primary-light hover:text-neutral-light"
+              >
+                LinkedIn
+              </a>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
   </main>

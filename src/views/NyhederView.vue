@@ -15,6 +15,8 @@ const filteredNews = computed(() => {
   // Sorter efter nyeste først (omvendt rækkefølge)
   return filtered.reverse()
 })
+
+const resultsCount = computed(() => filteredNews.value.length)
 </script>
 
 <template>
@@ -55,13 +57,20 @@ const filteredNews = computed(() => {
       </div>
 
       <div class="grid grid-cols-12 gap-4 mb-8">
-        <div class="col-start-2 col-end-11">
-          <input
-            v-model="searchQuery"
-            type="text"
-            placeholder="Søg efter nyhed..."
-            class="w-full border border-primary-light/30 rounded px-4 py-2 text-primary-darkest placeholder:text-primary-darkest/50 focus:border-primary-base focus:outline-none"
-          />
+        <div class="col-start-2 col-end-12">
+          <div class="flex flex-col gap-4">
+            <label class="text-sm font-light text-primary-darkest" for="news-search">Søg efter virksomheder</label>
+            <div class="flex w-full items-center gap-3">
+              <input
+                id="news-search"
+                v-model="searchQuery"
+                type="text"
+                placeholder="Søg efter virksomhed eller titel..."
+                class="w-full border border-primary-darkest/20 bg-white px-5 py-3 text-primary-darkest shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-light"
+              />
+            </div>
+            <p class="uppercase text-sm font-light text-primary-darkest/70">{{ resultsCount }} resultater</p>
+          </div>
         </div>
       </div>
 
