@@ -1,15 +1,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;500&display=swap');
-@import './base.css';
 @import "tailwindcss";
-
-@theme {
-  --color-primary-darkest: #0D1B2A;
-  --color-primary-dark: #1B263B;
-  --color-primary-base: #415A77;
-  --color-primary-light: #778DA9;
-  --color-neutral-light: #E0E1DD;
-}
 
 /* Global Styles */
 body, html {
