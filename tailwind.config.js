@@ -15,7 +15,8 @@ export default {
       neutral: {
         light: '#E0E1DD',
       },
-      // You can add default Tailwind colors here if needed
+
+      
     },
     extend: {
       gridTemplateColumns: {

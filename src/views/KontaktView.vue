@@ -20,7 +20,7 @@ const formspreeAction = 'https://formspree.io/f/your-form-id'
         <div class="grid w-full grid-cols-12 gap-4 px-8 pb-16 lg:pb-20">
           <div class="col-span-12 flex flex-col justify-end text-neutral-light lg:col-span-8 lg:col-start-2">
             <p class="text-xs font-semibold uppercase tracking-[0.3em] text-neutral-light/70">Business Region</p>
-            <h1 class="mt-4 max-w-3xl text-4xl font-light leading-tight sm:text-5xl lg:text-6xl">Kontakt os</h1>
+            <h1 class="mt-4 max-w-3xl text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl">Kontakt os</h1>
             <p class="mt-5 max-w-2xl text-sm leading-7 text-neutral-light/85 sm:text-base">
               Har du spørgsmål, ønsker du at samarbejde, eller vil du høre mere om vores netværk, så er du velkommen
               til at skrive til os her.
