@@ -32,7 +32,7 @@ const resultsCount = computed(() => filteredNews.value.length)
       <div class="absolute inset-0 z-10 flex items-end">
         <div class="grid w-full grid-cols-12 gap-4 px-8 pb-16 lg:pb-20">
           <div class="col-span-12 flex flex-col justify-end text-neutral-light lg:col-span-8 lg:col-start-2">
-            <p class="text-sm font-semibold uppercase text-white/80">Nyheder & indsigter</p>
+            <p class="text-sm font-semibold uppercase text-neutral-light/70">Nyheder & indsigter</p>
             <h1 class="mt-2 text-4xl font-bold text-white sm:text-5xl">
               Projektets fremdrift, erfaringer og resultater samlet ét sted
             </h1>
@@ -59,13 +59,13 @@ const resultsCount = computed(() => filteredNews.value.length)
       <div class="grid grid-cols-12 gap-4 mb-8">
         <div class="col-start-2 col-end-12">
           <div class="flex flex-col gap-4">
-            <label class="text-sm font-light text-primary-darkest" for="news-search">Søg efter virksomheder</label>
+            <label class="text-sm font-light text-primary-darkest" for="news-search">Søg efter nyheder</label>
             <div class="flex w-full items-center gap-3">
               <input
                 id="news-search"
                 v-model="searchQuery"
                 type="text"
-                placeholder="Søg efter virksomhed eller titel..."
+                placeholder="Søg efter nyhed eller kategori..."
                 class="w-full border border-primary-darkest/20 bg-white px-5 py-3 text-primary-darkest shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-light"
               />
             </div>
@@ -90,7 +90,7 @@ const resultsCount = computed(() => filteredNews.value.length)
                   <p class="mt-2 line-clamp-2 text-sm text-neutral-light/90">{{ item.summary }}</p>
                   <RouterLink
                     :to="{ name: 'nyhed', params: { id: item.id } }"
-                    class="mt-4 inline-flex w-fit items-center rounded border border-white/70 px-3 py-1.5 text-xs uppercase tracking-[0.08em] text-neutral-light transition-colors hover:bg-white/20"
+                    class="mt-4 inline-flex w-fit items-center border border-white/70 px-3 py-1.5 text-xs uppercase tracking-[0.08em] text-neutral-light transition-colors hover:bg-white/20"
                   >
                     Læs mere
                   </RouterLink>

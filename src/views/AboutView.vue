@@ -20,7 +20,7 @@ import { employees } from '../data/employees'
       <div class="absolute inset-0 z-10 flex items-end">
         <div class="grid w-full grid-cols-12 gap-4 px-8 pb-16 lg:pb-20">
           <div class="col-span-12 flex flex-col justify-end text-neutral-light lg:col-span-8 lg:col-start-2">
-          <p class="text-xs font-semibold uppercase tracking-[0.3em] text-neutral-light/70">Business Region</p>
+          <p class="text-xs font-semibold uppercase tracking-[0.3em] text-neutral-light/70">om os</p>
           <h1 class="mt-4 max-w-3xl text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl">Hvem er vi?</h1>
           <p class="mt-5 max-w-2xl text-sm leading-7 text-neutral-light/85 sm:text-base">
             Business DE-DK forbinder virksomheder, organisationer og mennesker på tværs af grænseregionen.
@@ -35,7 +35,7 @@ import { employees } from '../data/employees'
     <!-- Kontakt og vision: formular til venstre og tekst om siden til højre -->
     <section class="mt-10 w-full px-8 pb-10 lg:mt-14">
       <div class="grid grid-cols-12 gap-8 xl:gap-12">
-        <aside class="col-span-12 rounded-lg bg-[#6f7e92] p-5 text-neutral-light shadow-2xl lg:col-span-4 lg:col-start-2">
+        <aside class="col-span-12  bg-[#6f7e92] p-5 text-neutral-light shadow-2xl lg:col-span-4 lg:col-start-2">
           <h2 class="text-center text-2xl font-light">Kontakt os</h2>
 
           <form class="mt-5 space-y-4" :action="formspreeAction" method="POST">

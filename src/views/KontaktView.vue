@@ -32,7 +32,7 @@ const formspreeAction = 'https://formspree.io/f/your-form-id'
 
     <section class="mt-10 w-full px-8 pb-10 lg:mt-14">
       <div class="grid grid-cols-12 gap-8 xl:gap-12">
-        <aside class="col-span-12 rounded-lg bg-[#6f7e92] p-5 text-neutral-light shadow-2xl lg:col-span-8 lg:col-start-3 lg:p-7 xl:col-span-8 xl:col-start-3">
+        <aside class="col-span-12 bg-[#6f7e92] p-5 text-neutral-light shadow-2xl lg:col-span-8 lg:col-start-3 lg:p-7 xl:col-span-8 xl:col-start-3">
           <h2 class="text-center text-3xl font-light">Kontakt os</h2>
           <p class="mx-auto mt-3 max-w-2xl text-center text-sm leading-6 text-neutral-light/85">
             Skriv til os direkte her, hvis du vil have fat i os hurtigt. Vi vender tilbage så snart vi kan.
