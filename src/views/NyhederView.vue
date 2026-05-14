@@ -61,7 +61,7 @@ const setCurrent = (id) => {
 </script>
 
 <template>
-  <main class="news-page !p-0">
+  <main class="news-page p-0!">
     <!-- Hero-sektion: Side-header med baggrundsbillede -->
     <section class="relative min-h-156 w-screen overflow-hidden bg-primary-darkest" style="margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw);">
       <div
