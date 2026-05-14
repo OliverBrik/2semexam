@@ -51,9 +51,9 @@ const selectCategory = (category) => {
 
     <!-- Sektion med filter og events -->
     <section class="w-full px-8 py-12">
-      <div class="grid grid-cols-12 gap-8">
+      <div class="grid grid-cols-12 gap-3">
         <!-- Venstre side: Filter -->
-        <aside class="flex justify-start col-span-12 lg:col-span-4 lg:col-start-1">
+        <aside class="flex justify-start col-span-12 lg:col-span-4 lg:col-start-2">
           <div class="sticky top-24">
             <h2 class="mb-6 text-sm font-semibold text-primary-darkest uppercase tracking-widest">Filter</h2>
 
@@ -86,7 +86,7 @@ const selectCategory = (category) => {
         </aside>
 
         <!-- Højre side: Fremhævet event + andre events -->
-        <div class="col-span-12 lg:col-span-8">
+        <div class="col-span-12 lg:col-span-7 lg:col-start-6">
           <!-- Fremhævet event -->
           <article
             v-if="highlightedEvent"
