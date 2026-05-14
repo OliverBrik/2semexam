@@ -6,6 +6,44 @@ import { businessNetworkJobs } from '../data/businessnetwork'
 const searchQuery = ref('')
 const openId = ref(null)
 
+const companyLogoPaths = {
+  1: '/src/assets/logos/virksomheder/business-esbjerg.svg',
+  2: '/src/assets/logos/virksomheder/business-kolding.svg',
+  3: '/src/assets/logos/virksomheder/business-aabenraa.svg',
+  4: '/src/assets/logos/virksomheder/copenhagen-capacity.svg',
+  5: '/src/assets/logos/virksomheder/dansk-industri.svg',
+  6: '/src/assets/logos/virksomheder/region-syddanmark.svg',
+  7: '/src/assets/logos/virksomheder/erhvervshus-sydjylland.svg',
+  8: '/src/assets/logos/virksomheder/tonder-erhvervsraad.svg',
+  9: '/src/assets/logos/virksomheder/trekantomradet-danmark.svg',
+  10: '/src/assets/logos/virksomheder/udviklingsrad-sonderjylland.svg',
+  11: '/src/assets/logos/virksomheder/workindenmark-south.svg',
+  12: '/src/assets/logos/virksomheder/kielregion.svg',
+  13: '/src/assets/logos/virksomheder/ihk-flensburg.svg',
+  14: '/src/assets/logos/virksomheder/hochschule-flensburg.svg',
+  15: '/src/assets/logos/virksomheder/hansebelt.svg',
+  16: '/src/assets/logos/virksomheder/wfg-nordfriesland.svg',
+  17: '/src/assets/logos/virksomheder/unternehmensverband-unterelbe-westkuste.svg',
+  18: '/src/assets/logos/virksomheder/agentur-fur-arbeit-flensburg.svg',
+  19: '/src/assets/logos/virksomheder/bundesagentur-fur-arbeit.svg',
+  20: '/src/assets/logos/virksomheder/sonderborg-vaekstrad.svg',
+  21: '/src/assets/logos/virksomheder/udviklingsrad-vejen.svg',
+  22: '/src/assets/logos/virksomheder/regionaldirektion-nord.svg',
+  23: '/src/assets/logos/virksomheder/erhvervshus-sydjylland.svg',
+  24: '/src/assets/logos/virksomheder/wirtschaftsvereinigung-eutin.svg',
+  25: '/src/assets/logos/virksomheder/work-live-stay.svg',
+  26: '/src/assets/logos/virksomheder/business-region-graense.svg',
+}
+
+const getJobLogo = (job) => {
+  return companyLogoPaths[job.id] ?? BusinessLogo
+}
+
+const handleLogoError = (event) => {
+  event.currentTarget.onerror = null
+  event.currentTarget.src = BusinessLogo
+}
+
 const filteredJobs = computed(() => {
   const query = searchQuery.value.trim().toLowerCase()
   if (!query) return businessNetworkJobs
@@ -81,7 +119,14 @@ const closeDetails = () => {
             class=" border-primary-darkest/10 bg-white p-5 shadow-sm transition hover:shadow-md"
           >
             <div class="flex items-center gap-4">
-              <img :src="BusinessLogo" alt="Logo" class="h-12 w-12 rounded-full bg-neutral-light p-2 shrink-0" />
+              <img
+                :src="getJobLogo(job)"
+                :alt="`${job.company} logo`"
+                class="h-12 w-12 rounded-full bg-neutral-light p-2 shrink-0 object-contain"
+                loading="lazy"
+                decoding="async"
+                @error="handleLogoError"
+              />
               <div class="min-w-0">
                 <h3 class="line-clamp-2 text-base font-semibold text-primary-darkest">{{ job.title }}</h3>
                 <p class="text-sm font-light text-primary-darkest/70">{{ job.company }} - {{ job.location }}</p>
@@ -114,7 +159,14 @@ const closeDetails = () => {
       <!-- Header med logo og luk-knap -->
       <div class="flex items-start justify-between gap-6 pb-6 border-b border-primary-darkest/10">
         <div class="flex items-center gap-4">
-          <img :src="BusinessLogo" alt="Logo" class="h-16 w-16 rounded-full bg-neutral-light p-2 shrink-0" />
+          <img
+            :src="getJobLogo(selectedJob)"
+            :alt="`${selectedJob.company} logo`"
+            class="h-16 w-16 rounded-full bg-neutral-light p-2 shrink-0 object-contain"
+            loading="lazy"
+            decoding="async"
+            @error="handleLogoError"
+          />
           <div>
             <h2 class="text-2xl font-bold text-primary-darkest">{{ selectedJob.title }}</h2>
             <p class="text-sm font-light text-primary-darkest/70 mt-1">

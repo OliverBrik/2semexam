@@ -1,50 +1,11 @@
 <script setup>
 // TODO: Erstat med din faktiske Formspree-formular ID
 const formspreeAction = 'https://formspree.io/f/your-form-id'
-
-// Teammedlemmer - vises i grid-layout på siden
-const employees = [
-  {
-    name: 'Dustin ettermann',
-    role: 'Rolle',
-    description: 'netudvikler',
-    phone: '+45 22 17 79 60',
-    email: 'kontakt@businessregion.dk',
-    image:
-      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80',
-  },
-  {
-    name: 'Dustin ettermann',
-    role: 'Rolle',
-    description: 'arbejdsmarked',
-    phone: '+45 22 17 79 61',
-    email: 'kontakt@businessregion.dk',
-    image:
-      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=900&q=80',
-  },
-  {
-    name: 'Dustin ettermann',
-    role: 'Rolle',
-    description: 'lokal udvikling',
-    phone: '+45 22 17 79 62',
-    email: 'kontakt@businessregion.dk',
-    image:
-      'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=900&q=80',
-  },
-  {
-    name: 'Dustin ettermann',
-    role: 'Rolle',
-    description: 'lokal udvikling',
-    phone: '+45 22 17 79 63',
-    email: 'kontakt@businessregion.dk',
-    image:
-      'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=900&q=80',
-  },
-]
+import { employees } from '../data/employees'
 </script>
 
 <template>
-  <main class="!p-0 bg-[#f3f5f8] text-primary-darkest">
+  <main class="p-0! bg-[#f3f5f8] text-primary-darkest">
     <!-- Hero-sektion: Om os-header i fuld bredde med baggrundsbillede -->
     <section
       class="relative min-h-156 w-screen overflow-hidden bg-primary-darkest"
@@ -54,7 +15,7 @@ const employees = [
         class="absolute inset-0 bg-cover bg-center opacity-45"
         style="background-image: url('https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=80')"
       ></div>
-      <div class="absolute inset-0 bg-gradient-to-r from-primary-darkest via-primary-darkest/80 to-primary-darkest/40"></div>
+      <div class="absolute inset-0 bg-linear-to-r from-primary-darkest via-primary-darkest/80 to-primary-darkest/40"></div>
 
       <div class="absolute inset-0 z-10 flex items-end">
         <div class="grid w-full grid-cols-12 gap-4 px-8 pb-16 lg:pb-20">
