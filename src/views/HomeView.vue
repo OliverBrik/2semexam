@@ -155,9 +155,9 @@ const setCurrent = (id) => {
         </RouterLink>
       </div>
     </div>
-    <!-- Karrusel container (pile udenfor grid, kort i col 2-11) -->
+    <!-- Karrusel container  -->
     <div class="grid grid-cols-12 gap-4 py-8 mx-auto max-w-full">
-      <div class="col-start-2 col-end-11 relative">
+      <div class="col-start-2 col-end-12 relative">
 
       <!-- Karrusel kort -->
       <div class="grid w-full grid-cols-1 gap-6 md:grid-cols-[1fr_2fr_1fr]">
