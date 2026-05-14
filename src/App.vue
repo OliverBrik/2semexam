@@ -131,7 +131,7 @@ onBeforeUnmount(() => {
         </div>
       </div>
       <!-- Højre side: sprogvalg, søgning og kontaktknap -->
-      <div class="col-start-10 col-end-11 flex justify-end gap-0 justify-self-end">
+      <div class="col-start-10 col-end-12 flex justify-end gap-0 justify-self-end">
         <!-- Sprogmenu med dropdown -->
         <div class="relative group">
           <!-- Selve sprogknappen, som fungerer som trigger til dropdownen -->
