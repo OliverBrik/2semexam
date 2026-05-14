@@ -24,7 +24,7 @@ const selectCategory = (category) => {
 </script>
 
 <template>
-  <main class="p-0! bg-[#f3f5f8] text-primary-darkest">
+  <div class="p-0! bg-[#f3f5f8] text-primary-darkest">
     <!-- Hero-sektion: Events-header med baggrundsbillede og overlay -->
     <section
       class="relative min-h-156 w-screen overflow-hidden bg-primary-darkest"
@@ -149,7 +149,7 @@ const selectCategory = (category) => {
         </div>
       </div>
     </section>
-  </main>
+  </div>
 </template>
 
 <style scoped>

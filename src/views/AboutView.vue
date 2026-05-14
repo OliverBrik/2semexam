@@ -5,7 +5,7 @@ import { employees } from '../data/employees'
 </script>
 
 <template>
-  <main class="p-0! bg-[#f3f5f8] text-primary-darkest">
+  <div class="p-0! bg-[#f3f5f8] text-primary-darkest">
     <!-- Hero-sektion: Om os-header i fuld bredde med baggrundsbillede -->
     <section
       class="relative min-h-156 w-screen overflow-hidden bg-primary-darkest"
@@ -141,5 +141,5 @@ import { employees } from '../data/employees'
         </article>
       </div>
     </section>
-  </main>
+  </div>
 </template>

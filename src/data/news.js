@@ -48,4 +48,52 @@ export const allNews = [
     image: 'https://picsum.photos/seed/nyhed6/1600/900',
     body: 'Programoversigt, speakers og links til materialer og optagelser.'
   },
+  {
+    id: 7,
+    title: 'Ny platform sammenbinder kompetencer på tværs af grænsen',
+    summary: 'Virksomheder kan nu nemmere finde og dele specialiseret viden og ekspertise.',
+    category: 'Opdatering',
+    image: 'https://picsum.photos/seed/nyhed7/1600/900',
+    body: 'Information om platformens funktioner, hvordan man tilmelder sig og case studies fra tidlige brugere.'
+  },
+  {
+    id: 8,
+    title: 'Grænseregionen åbner uddannelsescenter for bæredygtighed',
+    summary: 'Centerets fokus er på cirkulær økonomi og grøn omstilling i virksomheder.',
+    category: 'Indsigt',
+    image: 'https://picsum.photos/seed/nyhed8/1600/900',
+    body: 'Uddannelsestilbud, kurser på calenderen og hvordan virksomheder kan deltage.'
+  },
+  {
+    id: 9,
+    title: 'Succeshistorie: Fra ledig til fastansat på tværs af grænsen',
+    summary: 'En kandidat gjorde det - og mange flere kan gøre det samme med de rette værktøjer.',
+    category: 'Resultat',
+    image: 'https://picsum.photos/seed/nyhed9/1600/900',
+    body: 'Interview med kandidaten, hvordan jobmessen hjalp, og tips til andre jobsøgende.'
+  },
+  {
+    id: 10,
+    title: 'Samlet erhvervsregister lanceret for tysk-dansk handel',
+    summary: 'Lettet adgang til kontaktinformation og handelspotentiale mellem virksomheder.',
+    category: 'Opdatering',
+    image: 'https://picsum.photos/seed/nyhed10/1600/900',
+    body: 'Hvordan registeret fungerer, hvad der kan søges på, og fordele for medlemsbedrifter.'
+  },
+  {
+    id: 11,
+    title: 'Investeringsfond åbner for ekspansion af innovative løsninger',
+    summary: 'Virksomheder med bæredygtige forretningsmodeller kan søge finansiering.',
+    category: 'Indsigt',
+    image: 'https://picsum.photos/seed/nyhed11/1600/900',
+    body: 'Finansieringsbetingelser, eksempler på støttede projekter og tidsplan for ansøgninger.'
+  },
+  {
+    id: 12,
+    title: 'Workshop-serie: Fra ide til marked - get your startup ready',
+    summary: 'Fem intensive workshops hjælper entrepreneurs med at strukturere deres forretning.',
+    category: 'Event',
+    image: 'https://picsum.photos/seed/nyhed12/1600/900',
+    body: 'Programplan, instruktører, praktisk information om tilmelding og netværksmuligheder.'
+  },
 ]
