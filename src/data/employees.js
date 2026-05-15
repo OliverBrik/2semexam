@@ -1,39 +1,45 @@
+// Import employee profile images
+import dustinImg from '../assets/employeeimgs/dustin-profilepic.jpg'
+import lewisImg from '../assets/employeeimgs/lewis-profilepic.jpg'
+import peterImg from '../assets/employeeimgs/peter-profileimg.png'
+import idaImg from '../assets/employeeimgs/ida-profilepic.png'
+
 // Data for medarbejdere vises både på Kontakt og Om os siden
 export const employees = [
   {
-    name: 'Dustin ettermann',
-    role: 'Rolle',
-    description: 'netudvikler',
-    phone: '+45 22 17 79 60',
-    email: 'kontakt@businessregion.dk',
-    image:
-      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80',
+    name: 'Dustin Chwalek',
+    role: 'Communication Manager',
+    description: '',
+    phone: '+45 24 25 36 70',
+    email: 'dusch@toender.dk',
+    linkedin: 'https://www.linkedin.com/in/dustin-chwalek-720018206/',
+    image: dustinImg,
   },
   {
-    name: 'Dustin ettermann',
-    role: 'Rolle',
-    description: 'arbejdsmarked',
-    phone: '+45 22 17 79 61',
-    email: 'kontakt@businessregion.dk',
-    image:
-      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=900&q=80',
+    name: 'Lewis C. Bardt',
+    role: 'Projektleder',
+    description: '',
+    phone: '+45 21 77 59 16',
+    email: 'lecba@toender.dk',
+    linkedin: 'https://www.linkedin.com/in/lewisbardt/',
+    image: lewisImg,
   },
   {
-    name: 'Dustin ettermann',
-    role: 'Rolle',
-    description: 'lokal udvikling',
-    phone: '+45 22 17 79 62',
-    email: 'kontakt@businessregion.dk',
-    image:
-      'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=900&q=80',
+    name: 'Peter Engel-Andreasen',
+    role: 'Erhversdirektør',
+    description: 'Tønder Erhversråd',
+    phone: '+45 30 65 60 60',
+    email: 'peeng@toender.dk',
+    linkedin: 'https://www.linkedin.com/in/peter-engel-andreasen-0a4a6b1a9/',
+    image: peterImg,
   },
   {
-    name: 'Dustin ettermann',
-    role: 'Rolle',
-    description: 'lokal udvikling',
-    phone: '+45 22 17 79 63',
-    email: 'kontakt@businessregion.dk',
-    image:
-      'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=900&q=80',
+    name: 'Ida Mahler Høeg',
+    role: 'Administrations- og økonomikoordinator',
+    description: '',
+    phone: '+45 30 61 96 18',
+    linkedin: 'https://www.linkedin.com/in/ida-mahler-høeg-0a4a6b1a9/',
+    email: 'idmho@toender.dk',
+    image: idaImg,
   },
 ]

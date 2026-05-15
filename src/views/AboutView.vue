@@ -128,21 +128,25 @@ import { employees } from '../data/employees'
           <article
             v-for="employee in employees"
             :key="employee.name + employee.phone"
-            class="overflow-hidden bg-primary-darkest text-neutral-light shadow-lg transition-transform duration-300 hover:-translate-y-1"
+            class="flex flex-col overflow-hidden bg-primary-darkest text-neutral-light shadow-lg transition-transform duration-300 hover:-translate-y-1"
           >
             <img :src="employee.image" :alt="employee.name" class="h-52 w-full object-cover object-center" />
-            <div class="p-4 text-center">
+            <div class="flex flex-col flex-1 p-4 text-center">
               <h3 class="text-base font-semibold leading-6">{{ employee.name }}</h3>
               <p class="mt-1 text-sm text-neutral-light/85">{{ employee.role }}</p>
-              <p class="mt-3 text-xs uppercase tracking-[0.18em] text-neutral-light/55">{{ employee.description }}</p>
+              <p v-if="employee.description" class="mt-3 text-xs uppercase tracking-[0.18em] text-neutral-light/55">{{ employee.description }}</p>
               <p class="mt-3 text-xs text-neutral-light/85">{{ employee.phone }}</p>
               <p class="text-xs text-neutral-light/70">{{ employee.email }}</p>
-              <a
-                href="/kontakt"
-                class="mt-4 inline-flex items-center justify-center bg-neutral-light px-4 py-2 text-xs font-medium text-primary-darkest transition-colors duration-300 hover:bg-primary-light hover:text-neutral-light"
-              >
-                LinkedIn
-              </a>
+              <div class="mt-auto flex justify-center">
+                <a
+                  :href="employee.linkedin"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center justify-center w-16 h-8 bg-neutral-light text-xs font-medium text-primary-darkest transition-colors duration-300 hover:bg-primary-light hover:text-neutral-light"
+                >
+                  LinkedIn
+                </a>
+              </div>
             </div>
           </article>
         </div>
