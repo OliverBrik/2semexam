@@ -1,16 +1,16 @@
 // Importer alle nyheds-billeder
-import img1 from '../assets/news-images/Skaermbillede-2026-05-13-110120.png'
-import img2 from '../assets/news-images/logo-business-region-.svg.png'
-import img3 from '../assets/news-images/Toender-erhvervsraad-foto-35.png'
-import img4 from '../assets/news-images/oender-erhvervsraad-foto-1-1280x780.png'
-import img5 from '../assets/news-images/Skaermbillede-2025-04-22-kl.-13.52.42.png'
-import img6 from '../assets/news-images/2.png'
-import img7 from '../assets/news-images/IMG_2316-scaled.jpg'
-import img8 from '../assets/news-images/DSCF1527-scaled.jpg'
-import img9 from '../assets/news-images/DSCF2411-scaled.jpg'
-import img10 from '../assets/news-images/Design-uden-navn-36.png'
-import img11 from '../assets/news-images/Design-uden-navn-35.png'
-import img12 from '../assets/news-images/Skaermbillede-2025-05-07-kl.-14.33.37.png'
+import img1 from '../assets/news-images/news-01-onboarding.png'
+import img2 from '../assets/news-images/news-3-gwyn.jpg'
+import img3 from '../assets/news-images/news-03-toender-erhvervsraad.png'
+import img4 from '../assets/news-images/news-04-tilflytter-interview.png'
+import img5 from '../assets/news-images/news-05-toender-erhvervsraad-interview.png'
+import img6 from '../assets/news-images/news-06-andritz-onboarding.png'
+import img7 from '../assets/news-images/news-07-brauhaus-eutin.jpg'
+import img8 from '../assets/news-images/news-08-international-rekruttering.jpg'
+import img9 from '../assets/news-images/news-09-graensen-bragte-os-videre.jpg'
+import img10 from '../assets/news-images/news-10-starte-virksomhed.png'
+import img11 from '../assets/news-images/news-11-happy-family-happy-life.png'
+import img12 from '../assets/news-images/news-12-business-kolding-event.png'
 
 // Alle nyheder med titel, resumé, kategori og brødtekst. Bruges både i karusel og liste
 export const allNews = [
@@ -21,6 +21,7 @@ export const allNews = [
     category: 'Interview',
     badge: 'NYHED!',
     image: img1,
+    youtube: 'a11VoY2aQfY',
     body: 'Hvordan onboarder man medarbejdere fra 19 forskellige nationaliteter – og sikrer, at de ikke bare falder til på jobbet, men også i lokalsamfundet? Andritz Feed & Biofuel har sat onboarding højt på dagsordenen og arbejder målrettet med alt fra buddy‑ordninger og ledertræning til social og kulturel integration. Resultatet er en helhedsorienteret tilgang med praktisk støtte til bolig, mentorordninger, faglig sparring og sociale aktiviteter, der kan inspirere andre virksomheder.'
   },
   {
@@ -30,7 +31,8 @@ export const allNews = [
     category: 'Interview',
     badge: '5 MÅNEDER SIDEN',
     image: img4,
-    body: 'At flytte til et nyt land handler ikke kun om arbejde – det handler om at føle sig hjemme. Artiklen peger på, at sprog, lokale netværk og støtte fra arbejdspladsen er afgørende for, at internationale medarbejdere trives. Praktisk hjælp til opholds‑ og arbejdstilladelser, bolig og transport samt sociale initiativer på arbejdspladsen kan gøre starten lettere.'
+    youtube: 'hnbAzHQNnik',
+    body: '<p>“Jeg føler mig godt tilpas både på arbejdet og i min fritid. Men nogle kulturelle ting kan man ikke erstatte, og det er vigtigt at holde kontakten til sin egen kultur. Heldigvis er folk her åbne og nysgerrige – de spørger til, hvordan jeg havde det hjemme, og det gør det nemmere at føle sig inkluderet.”</p>\n\n<p>Integration kræver mere end et arbejde – det kræver netværk og sprog. At få støtte til sprogundervisning, at møde nye mennesker både på og uden for arbejdspladsen og at have adgang til lokale netværksgrupper hjælper udenlandske medarbejdere med at føle sig hjemme hurtigere.</p>\n\n<p>“Når arbejdspladsen hjælper med alt fra arbejds- og opholdstilladelse til bolig og transport, bliver starten meget nemmere, og man kan fokusere på sit arbejde og sit liv her.”</p>\n\n<p>Nøglen til succes: sprog, netværk og støtte fra arbejdspladsen. Små gestusser kan gøre en stor forskel for, at nye kollegaer føler sig velkomne – både på arbejdet og i livet generelt.</p>'
   },
   {
     id: 3,
