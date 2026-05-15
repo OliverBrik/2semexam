@@ -1,4 +1,6 @@
 <script setup>
+import InterregLogo from '../assets/logos/Interreg-Logo_business-de-dk.png'
+
 const formspreeAction = import.meta.env.VITE_FORMSPREE_FORM_ID
   ? `https://formspree.io/f/${import.meta.env.VITE_FORMSPREE_FORM_ID}`
   : 'https://formspree.io/f/your-form-id'
@@ -95,19 +97,29 @@ import { employees } from '../data/employees'
           </form>
         </aside>
 
-        <article class="col-span-12 bg-white px-6 py-8 shadow-sm lg:col-span-5 lg:col-start-7 lg:mt-10 lg:px-10 lg:py-12 xl:col-span-5 xl:col-start-7">
+        <article class="col-span-12 flex flex-col h-full bg-white shadow-sm lg:col-span-6 lg:col-start-7  lg:px-10 lg:py-6 xl:col-span-6 xl:col-start-6">
           <h2 class="mt-2 text-3xl font-semibold tracking-tight text-primary-darkest sm:text-4xl">VORES VISION</h2>
           <div class="mt-6 space-y-5 text-base leading-7 text-primary-darkest/90">
             <p>
-              Hos Business DE-DK er vores vision at skabe en stærk og fremtidssikret forbindelse mellem Danmark og
-              Tyskland, hvor virksomheder, talenter og ideer kan udvikle sig på tværs af grænsen. Vi tror på, at
-              samarbejde og vidensdeling er nøglen til innovation, vækst og bæredygtig udvikling i regionen.
+                Projektet Business DE-DK skal imødekomme samarbejdsmæssige udfordringer i den nordtyske og syddanske grænseregion. Projektet vil forbedre samarbejdet og koordineringen mellem virksomheder, institutioner og initiativer i grænseregionen, og dermed optimere det grænseoverskridende erhvervssamarbejde og derved styrke den grænseoverskridende mérværdi for erhvervslivet og borgere i regionen. Projektet skal altså bidrage til at tackle grænseregionens mangel på arbejdskraft, fremme det økonomiske samarbejde og skabe en mere synlig og attraktiv grænseregion for nuværende og fremtidige generationer af arbejdsgivere og arbejdssøgende fra hele verden.
             </p>
+        <div class="mt-4 space-y-5 text-base leading-7 text-primary-darkest/90">
             <p>
-              Gennem netværk, partnerskaber og fælles initiativer arbejder vi for at styrke erhvervslivet og skabe nye
-              muligheder for både virksomheder og mennesker. Vores mål er at være en drivkraft for international
-              samarbejde og bidrage til en region, hvor udvikling, innovation og fællesskab går hånd i hånd.
+                Business DE-DK skal skabe en platform for samarbejde og videndeling, hvor virksomheder og jobsøgende lettere kan finde hinanden og skabe nye forbindelser på tværs af grænsen. Projektet skal styrke relationer mellem aktører i regionen og skabe bedre muligheder for netværk, erfaringsudveksling og udvikling gennem både fysiske og digitale samarbejdsflader. Målet er at understøtte et stærkere fællesskab og gøre det nemmere at skabe kontakt og nye muligheder på tværs af Danmark og Tyskland.
             </p>
+          <a
+            href="https://www.interreg-de-dk.eu/dk/projekter-og-resultater/vores-projekter/enkeltvisning-projekter/business-de-dk/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-sm font-medium text-primary-darkest hover:underline"
+          >
+            Læs mere...
+          </a>
+        </div>
+          </div>
+
+          <div class="mt-auto flex justify-end">
+            <img :src="InterregLogo" alt="Interreg logo" class="h-12 w-auto" />
           </div>
         </article>
       </div>
