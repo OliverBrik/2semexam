@@ -1,6 +1,7 @@
 <script setup>
-// TODO: Erstat med din faktiske Formspree-formular ID
-const formspreeAction = 'https://formspree.io/f/your-form-id'
+const formspreeAction = import.meta.env.VITE_FORMSPREE_FORM_ID
+  ? `https://formspree.io/f/${import.meta.env.VITE_FORMSPREE_FORM_ID}`
+  : 'https://formspree.io/f/your-form-id'
 import { employees } from '../data/employees'
 </script>
 
@@ -39,6 +40,8 @@ import { employees } from '../data/employees'
           <h2 class="text-center text-2xl font-light">Kontakt os</h2>
 
           <form class="mt-5 space-y-4" :action="formspreeAction" method="POST">
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
+
             <div class="space-y-2">
               <label class="text-sm font-light" for="about-name">Navn</label>
               <input

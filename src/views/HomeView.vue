@@ -69,7 +69,7 @@ const setCurrent = (id) => {
       <p class="text-sm font-semibold uppercase text-white/80">Velkommen til</p>
       <h1 class="mt-2 text-4xl font-bold text-white sm:text-5xl">Business DE-DK</h1>
       <p class="mt-4 max-w-2xl text-lg text-white/90">
-        Vi skaber stærke forbindelser mellem virksomheder i grænseregionen for at fremme vækst, samarbejde og nye muligheder.
+        Vi hjælper virksomheder og jobsøgende i grænseregionen mellem Danmark og Tyskland med at skabe forbindelser, finde muligheder, styrke vækst og samarbejde på tværs af grænsen.
       </p>
       <div class="mt-8 flex flex-wrap gap-4">
         <RouterLink
