@@ -21,7 +21,7 @@ import { employees } from '../data/employees'
         <div class="grid w-full grid-cols-12 gap-4 px-8 pb-16 lg:pb-20">
           <div class="col-span-12 flex flex-col justify-end text-neutral-light lg:col-span-8 lg:col-start-2">
           <p class="text-xs font-semibold uppercase tracking-[0.3em] text-neutral-light/70">om os</p>
-          <h1 class="mt-4 max-w-3xl text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl">Hvem er vi?</h1>
+          <h1 class="mt-4 max-w-3xl text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl text-white">Hvem er vi?</h1>
           <p class="mt-5 max-w-2xl text-sm leading-7 text-neutral-light/85 sm:text-base">
             Business DE-DK forbinder virksomheder, organisationer og mennesker på tværs af grænseregionen.
             Vi skaber netværk, indsigter og samarbejder, der gør det lettere at udvikle sig, finde hinanden og

@@ -86,7 +86,7 @@ const closeDetails = () => {
       <div class="grid w-full grid-cols-12 gap-4 px-8 pb-16 lg:pb-20">
         <div class="col-span-12 flex flex-col justify-end text-neutral-light lg:col-span-8 lg:col-start-2">
           <p class="text-xs font-semibold uppercase tracking-[0.3em] text-neutral-light/70">Jobportal</p>
-          <h1 class="mt-4 max-w-3xl text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl">Jobportalen</h1>
+          <h1 class="mt-4 max-w-3xl text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl text-white">Jobportalen</h1>
           <p class="mt-5 max-w-2xl text-sm leading-7 text-neutral-light/85 sm:text-base">
             Her kan du finde virksomheder i netværket, se samarbejdsmuligheder og tage kontakt til relevante partnere.
           </p>
