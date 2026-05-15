@@ -10,6 +10,6 @@ export const categories = [
   },
   {
     title: 'Hvad kan vi tilbyde dig?',
-    content: 'Vi tilbyder en bred palette af services herunder netværksarrangementer, erhvervsrådgivning, projektsamarbejde og adgang til relevante kontakter i grænseregionen. Vores fokus er på at skabe værdi for vores medlemmer.'
+    content: 'Vi skaber et stærkt netværk, hvor virksomheder kan mødes, opbygge relationer og styrke hinandens forretning både fysisk og digitalt. Gennem vores platform og nyhedsbrev formidler vi aktuelle nyheder, inspirerende virksomhedsfortællinger og relevante cases fra regionen, så det er nemt at holde sig opdateret og finde ny inspiration. Samtidig arrangerer vi netværksmøder, temadage og workshops, hvor virksomheder får adgang til ny viden, faglige input og mulighed for at skabe værdifulde forbindelser med andre aktører i grænseregionen. Ved at samle erhvervslivet og synliggøre regionens muligheder arbejder vi desuden aktivt for at tiltrække arbejdskraft, investeringer og nye samarbejdspartnere.'
   }
 ]

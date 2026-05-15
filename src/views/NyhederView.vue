@@ -4,16 +4,24 @@ import { allNews } from '../data/news.js'
 
 // Søgeboks til nyheds-listen
 const searchQuery = ref('')
+const selectedCategory = ref('Alle kategorier')
+
+const availableCategories = computed(() => {
+  return ['Alle kategorier', ...new Set(allNews.map((news) => news.category))]
+})
 
 // Filtrerede og sorterede nyheder til listen
 const filteredNews = computed(() => {
   let filtered = allNews.filter((news) =>
-    news.title.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
-    news.summary.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
-    news.category.toLowerCase().includes(searchQuery.value.toLowerCase())
+    (selectedCategory.value === 'Alle kategorier' || news.category === selectedCategory.value) &&
+    (
+      news.title.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
+      news.summary.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
+      news.category.toLowerCase().includes(searchQuery.value.toLowerCase())
+    )
   )
-  // Sorter efter nyeste først (omvendt rækkefølge)
-  return filtered.reverse()
+
+  return filtered
 })
 
 const resultsCount = computed(() => filteredNews.value.length)
@@ -60,7 +68,7 @@ const resultsCount = computed(() => filteredNews.value.length)
         <div class="col-start-2 col-end-12">
           <div class="flex flex-col gap-4">
             <label class="text-sm font-light text-primary-darkest" for="news-search">Søg efter nyheder</label>
-            <div class="flex w-full items-center gap-3">
+            <div class="flex w-full flex-col gap-3 md:flex-row">
               <input
                 id="news-search"
                 v-model="searchQuery"
@@ -68,6 +76,14 @@ const resultsCount = computed(() => filteredNews.value.length)
                 placeholder="Søg efter nyhed eller kategori..."
                 class="w-full border border-primary-darkest/20 bg-white px-5 py-3 text-primary-darkest shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-light"
               />
+              <select
+                v-model="selectedCategory"
+                class="w-full border border-primary-darkest/20 bg-white px-5 py-3 text-primary-darkest shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-light md:max-w-xs"
+              >
+                <option v-for="category in availableCategories" :key="category" :value="category">
+                  {{ category }}
+                </option>
+              </select>
             </div>
             <p class="uppercase text-sm font-light text-primary-darkest/70">{{ resultsCount }} resultater</p>
           </div>
@@ -84,6 +100,12 @@ const resultsCount = computed(() => filteredNews.value.length)
                 class="news-card list-card full-card min-h-80"
                 :style="{ backgroundImage: `url(${item.image})` }"
               >
+                <div class="absolute right-3 top-3 z-10">
+                  <p class="bg-primary-darkest/80 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-neutral-light backdrop-blur-sm">
+                    {{ item.badge }}
+                  </p>
+                </div>
+
                 <div class="card-overlay">
                   <p class="text-xs uppercase tracking-[0.15em] text-neutral-light/80">{{ item.category }}</p>
                   <h4 class="mt-2 text-xl text-neutral-light">{{ item.title }}</h4>
@@ -124,7 +146,6 @@ const resultsCount = computed(() => filteredNews.value.length)
   overflow: hidden;
   background-size: cover;
   background-position: center;
-  border-radius: 0.375rem;
   transition: transform 220ms ease, box-shadow 220ms ease;
   cursor: default;
 }
