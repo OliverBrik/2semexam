@@ -1,10 +1,44 @@
 <script setup>
 import { computed, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { allNews } from '../data/news.js'
+
+const { t, locale } = useI18n()
+
+// Helper to get translated news data
+const getTranslatedNews = (newsId) => {
+  const newsItems = t('newsItems')
+  const newsIndex = allNews.findIndex(n => n.id === newsId)
+  if (Array.isArray(newsItems) && newsIndex >= 0 && newsIndex < newsItems.length) {
+    return newsItems[newsIndex]
+  }
+  return null
+}
+
+// Cached translation map that updates when locale changes
+const translatedNewsMap = computed(() => {
+  locale.value // Force dependency tracking
+  const map = {}
+  const newsItems = t('newsItems')
+  if (Array.isArray(newsItems)) {
+    allNews.forEach((news, idx) => {
+      if (idx < newsItems.length) {
+        map[news.id] = newsItems[idx]
+      }
+    })
+  }
+  return map
+})
 
 // Søgeboks til nyheds-listen
 const searchQuery = ref('')
 const selectedCategory = ref('Alle kategorier')
+
+// Get translated category name or fallback
+const getTranslatedCategory = (category) => {
+  const categories = t('newsCategories')
+  return categories?.[category] || category
+}
 
 const availableCategories = computed(() => {
   return ['Alle kategorier', ...new Set(allNews.map((news) => news.category))]
@@ -12,14 +46,28 @@ const availableCategories = computed(() => {
 
 // Filtrerede og sorterede nyheder til listen
 const filteredNews = computed(() => {
+  locale.value // Force reactivity on locale change
+  
   let filtered = allNews.filter((news) =>
-    (selectedCategory.value === 'Alle kategorier' || news.category === selectedCategory.value) &&
-    (
-      news.title.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
-      news.summary.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
-      news.category.toLowerCase().includes(searchQuery.value.toLowerCase())
-    )
+    (selectedCategory.value === 'Alle kategorier' || news.category === selectedCategory.value)
   )
+  
+  // Filter by search query on translated title/summary
+  if (searchQuery.value) {
+    const query = searchQuery.value.toLowerCase()
+    filtered = filtered.filter((news) => {
+      const translated = getTranslatedNews(news.id)
+      const title = translated?.title || news.title || ''
+      const summary = translated?.summary || news.summary || ''
+      const category = getTranslatedCategory(news.category)
+      
+      return (
+        title.toLowerCase().includes(query) ||
+        summary.toLowerCase().includes(query) ||
+        category.toLowerCase().includes(query)
+      )
+    })
+  }
 
   return filtered
 })
@@ -40,13 +88,12 @@ const resultsCount = computed(() => filteredNews.value.length)
       <div class="absolute inset-0 z-10 flex items-end">
         <div class="grid w-full grid-cols-12 gap-4 px-8 pb-16 lg:pb-20">
           <div class="col-span-12 flex flex-col justify-end text-neutral-light lg:col-span-8 lg:col-start-2">
-            <p class="text-sm font-semibold uppercase text-neutral-light/70">Nyheder & indsigter</p>
+            <p class="text-sm font-semibold uppercase text-neutral-light/70">{{ $t('news.subtitle') }}</p>
             <h1 class="mt-2 text-4xl font-bold text-white sm:text-5xl">
-              Projektets fremdrift, erfaringer og resultater samlet ét sted
+              {{ $t('news.title') }}
             </h1>
             <p class="mt-4 max-w-2xl text-lg text-white/90">
-              Her deler vi opdateringer fra projektet, indsigter fra arbejdet i grænseregionen og de vigtigste
-              resultater, så man hurtigt kan se, hvad der sker og hvorfor det betyder noget.
+              {{ $t('news.description') }}
             </p>
           </div>
         </div>
@@ -57,9 +104,9 @@ const resultsCount = computed(() => filteredNews.value.length)
     <section class="w-full px-8 pb-16" style="background: linear-gradient(180deg, #e8edf3 0%, #f6f8fb 60%, #f5f7fa 100%);">
       <div class="grid grid-cols-12 gap-4 mb-6 pt-10">
         <div class="col-start-2 col-end-11">
-          <h2 class="text-2xl font-light text-primary-darkest sm:text-3xl">Seneste nyheder</h2>
+          <h2 class="text-2xl font-light text-primary-darkest sm:text-3xl">{{ $t('news.latestNews') }}</h2>
           <p class="mt-2 text-sm text-primary-darkest/70">
-            Et samlet overblik over projektets opdateringer, indsigter, events og resultater.
+            {{ $t('news.overview') }}
           </p>
         </div>
       </div>
@@ -67,13 +114,13 @@ const resultsCount = computed(() => filteredNews.value.length)
       <div class="grid grid-cols-12 gap-4 mb-8">
         <div class="col-start-2 col-end-12">
           <div class="flex flex-col gap-4">
-            <label class="text-sm font-light text-primary-darkest" for="news-search">Søg efter nyheder</label>
+            <label class="text-sm font-light text-primary-darkest" for="news-search">{{ $t('news.search') }}</label>
             <div class="flex w-full flex-col gap-3 md:flex-row">
               <input
                 id="news-search"
                 v-model="searchQuery"
                 type="text"
-                placeholder="Søg efter nyhed eller kategori..."
+                :placeholder="$t('news.searchPlaceholder')"
                 class="w-full border border-primary-darkest/20 bg-white px-5 py-3 text-primary-darkest shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-light"
               />
               <select
@@ -85,7 +132,7 @@ const resultsCount = computed(() => filteredNews.value.length)
                 </option>
               </select>
             </div>
-            <p class="uppercase text-sm font-light text-primary-darkest/70">{{ resultsCount }} resultater</p>
+            <p class="uppercase text-sm font-light text-primary-darkest/70">{{ resultsCount }} {{ $t('news.results') }}</p>
           </div>
         </div>
       </div>
@@ -95,7 +142,7 @@ const resultsCount = computed(() => filteredNews.value.length)
           <div class="col-start-2 col-end-12">
             <div class="grid gap-6 lg:grid-cols-2">
               <article
-                v-for="item in filteredNews"
+                v-for="(item, index) in filteredNews"
                 :key="item.id"
                 class="news-card list-card full-card min-h-80"
                 :style="{ backgroundImage: `url(${item.image})` }"
@@ -107,14 +154,14 @@ const resultsCount = computed(() => filteredNews.value.length)
                 </div>
 
                 <div class="card-overlay">
-                  <p class="text-xs uppercase tracking-[0.15em] text-neutral-light/80">{{ item.category }}</p>
-                  <h4 class="mt-2 text-xl text-neutral-light">{{ item.title }}</h4>
-                  <p class="mt-2 line-clamp-2 text-sm text-neutral-light/90">{{ item.summary }}</p>
+                  <p class="text-xs uppercase tracking-[0.15em] text-neutral-light/80">{{ getTranslatedCategory(item.category) }}</p>
+                  <h4 class="mt-2 text-xl text-neutral-light">{{ translatedNewsMap[item.id]?.title || item.title }}</h4>
+                  <p class="mt-2 line-clamp-2 text-sm text-neutral-light/90">{{ translatedNewsMap[item.id]?.summary || item.summary }}</p>
                   <RouterLink
                     :to="{ name: 'nyhed', params: { id: item.id } }"
                     class="mt-4 inline-flex w-fit items-center border border-white/70 px-3 py-1.5 text-xs uppercase tracking-[0.08em] text-neutral-light transition-colors hover:bg-white/20"
                   >
-                    Læs mere
+                    {{ $t('home.readMore') }}
                   </RouterLink>
                 </div>
               </article>

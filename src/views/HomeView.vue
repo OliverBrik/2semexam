@@ -3,8 +3,60 @@
 
 <script setup>
 import { ref, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { categories } from '../data/categories'
 import { allNews } from '../data/news'
+
+const { t, locale } = useI18n()
+
+// Direkte oversættelse af kategori indhold
+const getCategoryTranslations = () => {
+  const translations = {
+    da: {
+      0: { title: 'Hvem er vi?', content: 'Business DE-DK arbejder for at forbedre samarbejdet mellem virksomheder, institutioner og initiativer i den nordtyske og syddanske grænseregion. Projektet fokuserer på at optimere erhvervssamarbejdet, tackle manglen på arbejdskraft og gøre regionen mere attraktiv for både virksomheder og talent fra hele verden.' },
+      1: { title: 'Mål og initiativer', content: 'Business DE-DK arbejder med at kortlægge regionens muligheder, behov og eksisterende initiativer gennem data og indsigt. Derudover etableres et grænseoverskridende erhvervsnetværk for virksomheder og eksperter med fokus på samarbejde og videndeling. Gennem en mediekanal formidles analyser, viden og relevante perspektiver, som skal styrke synligheden omkring regionens udvikling og potentialer. Samtidig undersøges mulighederne for at etablere et grænseoverskridende erhvervsråd, der kan understøtte samarbejde på tværs af grænsen. Et centralt fokusområde er også at tiltrække og fastholde kvalificeret arbejdskraft for at skabe vækst og udvikling i regionen. Business DE-DK bidrager dermed til at skabe overblik, facilitere samarbejde og styrke den grænseoverskridende erhvervsudvikling.' },
+      2: { title: 'Hvad kan vi tilbyde dig?', content: 'Vi skaber et stærkt netværk, hvor virksomheder kan mødes, opbygge relationer og styrke hinandens forretning både fysisk og digitalt. Gennem vores platform og nyhedsbrev formidler vi aktuelle nyheder, inspirerende virksomhedsfortællinger og relevante cases fra regionen, så det er nemt at holde sig opdateret og finde ny inspiration. Samtidig arrangerer vi netværksmøder, temadage og workshops, hvor virksomheder får adgang til ny viden, faglige input og mulighed for at skabe værdifulde forbindelser med andre aktører i grænseregionen. Ved at samle erhvervslivet og synliggøre regionens muligheder arbejder vi desuden aktivt for at tiltrække arbejdskraft, investeringer og nye samarbejdspartnere.' }
+    },
+    de: {
+      0: { title: 'Wer sind wir?', content: 'Business DE-DK arbeitet daran, die Zusammenarbeit zwischen Unternehmen, Institutionen und Initiativen in der nordteutschen und süddänischen Grenzregion zu verbesseren. Das Projekt konzentriert sich darauf, die Geschäftstätigkeit zu optimieren, den Fachkräftemangel zu bekämpfen und die Region für Unternehmen und Talente aus der ganzen Welt attraktiver zu machen.' },
+      1: { title: 'Ziele und Initiativen', content: 'Business DE-DK arbeitet daran, die Chancen, Bedürfnisse und bestehenden Initiativen der Region durch Daten und Erkenntnisse zu kartografieren. Darüber hinaus wird ein grenzüberschreitendes Geschäftsnetzwerk für Unternehmen und Experten mit Schwerpunkt auf Zusammenarbeit und Wissenstransfer aufgebaut. Durch einen Medienkanal werden Analysen, Wissen und relevante Perspektiven vermittelt, um die Sichtbarkeit des Regionalen Entwicklungs- und Potenzials zu stärken. Gleichzeitig werden die Möglichkeiten zur Gründung eines grenzüberschreitenden Wirtschaftsrats untersucht, der die grenzüberschreitende Zusammenarbeit unterstützen kann. Ein zentraler Fokusbereich ist auch die Gewinnung und Bindung von qualifizierten Arbeitskräften, um Wachstum und Entwicklung in der Region zu schaffen. Business DE-DK trägt somit dazu bei, einen Überblick zu schaffen, Zusammenarbeit zu erleichtern und die grenzüberschreitende Geschäftsentwicklung zu stärken.' },
+      2: { title: 'Was können wir dir anbieten?', content: 'Wir schaffen ein starkes Netzwerk, in dem Unternehmen sich treffen, Beziehungen aufbauen und sich gegenseitig verschärfen können - physisch und digital. Durch unsere Plattform und unseren Newsletter vermitteln wir aktuelle Nachrichten, inspirierende Unternehmensgeschichten und relevante Fallstudien aus der Region, so dass es leicht ist, auf dem Laufenden zu bleiben und neue Inspirationen zu finden. Gleichzeitig organisieren wir Netzwerktreffen, Themeseminare und Workshops, auf denen Unternehmen Zugang zu neuem Wissen, professionelle Inputs und die Möglichkeit erhalten, wertvolle Verbindungen mit anderen Akteuren in der Grenzregion zu schaffen. Durch die Zusammenführung des Übernativen Lebens und die Verdeutlichung der Chancen der Region arbeiten wir aktiv daran, Arbeitskräfte, Investitionen und neue Partner anzulocken.' }
+    },
+    en: {
+      0: { title: 'Who are we?', content: 'Business DE-DK works to improve cooperation between companies, institutions and initiatives in the North German and South Danish border region. The project focuses on optimizing business cooperation, addressing the shortage of skilled labor, and making the region more attractive for both companies and talent from around the world.' },
+      1: { title: 'Goals and initiatives', content: 'Business DE-DK works to map the region\'s opportunities, needs and existing initiatives through data and insights. In addition, a cross-border business network for companies and experts is established with a focus on collaboration and knowledge sharing. Through a media channel, analyses, knowledge and relevant perspectives are communicated to strengthen visibility around the region\'s development and potential. At the same time, the possibilities of establishing a cross-border business council that can support cooperation across borders are being explored. A central focus area is also to attract and retain qualified labor to create growth and development in the region. Business DE-DK thus contributes to creating overview, facilitating cooperation and strengthening cross-border business development.' },
+      2: { title: 'What can we offer you?', content: 'We create a strong network where companies can meet, build relationships and strengthen each other\'s business both physically and digitally. Through our platform and newsletter, we communicate current news, inspiring company stories and relevant cases from the region, making it easy to stay updated and find new inspiration. At the same time, we organize networking meetings, theme days and workshops where companies gain access to new knowledge, professional input and the opportunity to build valuable connections with other players in the border region. By bringing the business community together and highlighting the region\'s opportunities, we also actively work to attract labor, investments and new partnerships.' }
+    }
+  }
+  return translations[locale.value] || translations.da
+}
+
+// Funktion der oversætter kategori titler og indhold baseret på sproget
+const getTranslatedCategories = () => {
+  const catTranslations = getCategoryTranslations()
+  return categories.map((cat, idx) => ({
+    ...cat,
+    title: catTranslations[idx]?.title || cat.title,
+    content: catTranslations[idx]?.content || cat.content
+  }))
+}
+
+// Helper to get translated news data
+const getTranslatedNews = (newsId) => {
+  const newsItems = t('newsItems')
+  const newsIndex = allNews.findIndex(n => n.id === newsId)
+  if (Array.isArray(newsItems) && newsIndex >= 0 && newsIndex < newsItems.length) {
+    return newsItems[newsIndex]
+  }
+  return null
+}
+
+// Computed property som reagerer på sproget
+const translatedCategories = computed(() => {
+  // locale.value sikrer at denne computed virker igen når sproget ændres
+  locale.value
+  return getTranslatedCategories()
+})
 
 // Aktiv tab tracker
 const activeTab = ref(null)
@@ -12,9 +64,14 @@ const activeTab = ref(null)
 // Nyheds karrusel
 const currentIndex = ref(0)
 
-const highlightedNews = computed(() => allNews[currentIndex.value])
+const highlightedNews = computed(() => {
+  locale.value // Force reactivity on locale change
+  return allNews[currentIndex.value]
+})
 
 const sideNews = computed(() => {
+  locale.value // Force reactivity on locale change
+  
   if (allNews.length < 2) return []
 
   const prevIndex = (currentIndex.value - 1 + allNews.length) % allNews.length
@@ -66,23 +123,23 @@ const setCurrent = (id) => {
     <!-- Content -->
     <div class="relative z-10 grid grid-cols-12 gap-4 px-8 pt-80 pb-16 w-full">
       <div class="col-start-2 col-end-10 flex flex-col">
-      <p class="text-sm font-semibold uppercase text-white/80">Velkommen til</p>
-      <h1 class="mt-2 text-4xl font-bold text-white sm:text-5xl">Business DE-DK</h1>
+      <p class="text-sm font-semibold uppercase text-white/80">{{ $t('home.welcome') }}</p>
+      <h1 class="mt-2 text-4xl font-bold text-white sm:text-5xl">{{ $t('home.title') }}</h1>
       <p class="mt-4 max-w-2xl text-lg text-white/90">
-        Vi hjælper virksomheder og jobsøgende i grænseregionen mellem Danmark og Tyskland med at skabe forbindelser, finde muligheder, styrke vækst og samarbejde på tværs af grænsen.
+        {{ $t('home.subtitle') }}
       </p>
       <div class="mt-8 flex flex-wrap gap-4">
         <RouterLink
           to="/nyheder"
           class=" border border-white bg-transparent px-6 py-3 font-semibold text-white transition hover:bg-white/10"
         >
-          Nyheder & Indsigter
+          {{ $t('home.newsBtn') }}
         </RouterLink>
         <RouterLink
           to="/jobportal"
           class=" border border-white bg-transparent px-6 py-3 font-semibold text-white transition hover:bg-white/10"
         >
-          Jobportal
+          {{ $t('home.jobBtn') }}
         </RouterLink>
       </div>
       </div>
@@ -93,7 +150,7 @@ const setCurrent = (id) => {
   <section class="w-full bg-white">
     <div class="grid grid-cols-12 gap-4 px-8 pt-12">
       <div class="col-start-2 col-end-7">
-        <h2 class="text-2xl font-light text-primary-darkest sm:text-3xl uppercase">F.A.Q</h2>
+        <h2 class="text-2xl font-light text-primary-darkest sm:text-3xl uppercase">{{ $t('home.faq') }}</h2>
       </div>
     </div>
     <div class="grid grid-cols-12 gap-4 px-8 py-12">
@@ -102,7 +159,7 @@ const setCurrent = (id) => {
         <div class="space-y-0">
           <!-- Alle kategorier som klikbare -->
           <div
-            v-for="(category, index) in categories"
+            v-for="(category, index) in translatedCategories"
             :key="index"
             class="space-y-0 border-b border-neutral-light/20"
           >
@@ -147,11 +204,11 @@ const setCurrent = (id) => {
     <!-- Karrusel header (titel + link) -->
     <div class="grid grid-cols-12 mx-auto max-w-full mb-14">
       <div class="flex justify-start col-start-2 col-end-6">
-        <h2 class="text-2xl font-light text-primary-darkest sm:text-3xl uppercase">Seneste nyheder</h2>
+        <h2 class="text-2xl font-light text-primary-darkest sm:text-3xl uppercase">{{ $t('home.latestNews') }}</h2>
       </div>
-      <div class="flex justify-end col-start-10 col-end-11">
+      <div class="flex justify-center col-start-10 col-end-12">
         <RouterLink to="/nyheder" class="uppercase text-sm font-light text-primary-darkest hover:text-primary-light transition-colors">
-          Alle nyheder
+          {{ $t('home.allNews') }}
         </RouterLink>
       </div>
     </div>
@@ -172,7 +229,7 @@ const setCurrent = (id) => {
         >
           <div class="absolute inset-0 bg-linear-to-b from-primary-darkest/18 to-primary-darkest/82"></div>
           <div class="relative z-40 flex h-full flex-col justify-end p-4">
-            <p class="text-sm text-neutral-light/90">{{ sideNews[0].title }}</p>
+            <p class="text-sm text-neutral-light/90">{{ getTranslatedNews(sideNews[0].id)?.title || sideNews[0].title }}</p>
           </div>
         </article>
 
@@ -183,8 +240,8 @@ const setCurrent = (id) => {
         >
           <div class="absolute inset-0 bg-linear-to-b from-primary-darkest/18 to-primary-darkest/82"></div>
           <div class="relative z-40 flex h-full flex-col justify-end p-4">
-            <p class="text-lg text-neutral-light sm:text-2xl">{{ highlightedNews.title }}</p>
-            <RouterLink :to="{ name: 'nyhed', params: { id: highlightedNews.id } }" class="inline-block mt-2 px-4 py-2 text-sm text-white border border-white/70 hover:bg-white/20 transition-colors duration-200">Læs mere</RouterLink>
+            <p class="text-lg text-neutral-light sm:text-2xl">{{ getTranslatedNews(highlightedNews.id)?.title || highlightedNews.title }}</p>
+            <RouterLink :to="{ name: 'nyhed', params: { id: highlightedNews.id } }" class="inline-block mt-2 px-4 py-2 text-sm text-white border border-white/70 hover:bg-white/20 transition-colors duration-200">{{ $t('home.readMore') }}</RouterLink>
           </div>
         </article>
 
@@ -199,7 +256,7 @@ const setCurrent = (id) => {
         >
           <div class="absolute inset-0 bg-linear-to-b from-primary-darkest/18 to-primary-darkest/82"></div>
           <div class="relative z-40 flex h-full flex-col justify-end p-4">
-            <p class="text-sm text-neutral-light/90">{{ sideNews[1].title }}</p>
+            <p class="text-sm text-neutral-light/90">{{ getTranslatedNews(sideNews[1].id)?.title || sideNews[1].title }}</p>
           </div>
         </article>
       </div>

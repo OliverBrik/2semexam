@@ -21,11 +21,10 @@ const formspreeAction = import.meta.env.VITE_FORMSPREE_FORM_ID
       <div class="absolute inset-0 z-10 flex items-end">
         <div class="grid w-full grid-cols-12 gap-4 px-8 pb-16 lg:pb-20">
           <div class="col-span-12 flex flex-col justify-end text-neutral-light lg:col-span-8 lg:col-start-2">
-            <p class="text-xs font-semibold uppercase tracking-[0.3em] text-neutral-light/70">Business Region</p>
-            <h1 class="mt-4 max-w-3xl text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl">Kontakt os</h1>
+            <p class="text-xs font-semibold uppercase tracking-[0.3em] text-neutral-light/70">{{ $t('contact.subtitle') }}</p>
+            <h1 class="mt-4 max-w-3xl text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl">{{ $t('contact.title') }}</h1>
             <p class="mt-5 max-w-2xl text-sm leading-7 text-neutral-light/85 sm:text-base">
-              Har du spørgsmål, ønsker du at samarbejde, eller vil du høre mere om vores netværk, så er du velkommen
-              til at skrive til os her.
+              {{ $t('contact.description') }}
             </p>
           </div>
         </div>
@@ -35,7 +34,7 @@ const formspreeAction = import.meta.env.VITE_FORMSPREE_FORM_ID
     <section class="mt-10 w-full px-8 pb-10 lg:mt-14">
       <div class="grid grid-cols-12 gap-8 xl:gap-12">
         <aside class="col-span-12 bg-[#6f7e92] p-5 text-neutral-light shadow-2xl lg:col-span-8 lg:col-start-3 lg:p-7 xl:col-span-8 xl:col-start-3">
-          <h2 class="text-center text-3xl font-light">Kontakt os</h2>
+          <h2 class="text-center text-3xl font-light">{{ $t('contact.title') }}</h2>
           <p class="mx-auto mt-3 max-w-2xl text-center text-sm leading-6 text-neutral-light/85">
             Skriv til os direkte her, hvis du vil have fat i os hurtigt. Vi vender tilbage så snart vi kan.
           </p>
@@ -45,7 +44,7 @@ const formspreeAction = import.meta.env.VITE_FORMSPREE_FORM_ID
 
             <div class="grid gap-5 md:grid-cols-2">
               <div class="space-y-2">
-                <label class="text-sm font-light" for="kontakt-navn">Navn</label>
+                <label class="text-sm font-light" for="kontakt-navn">{{ $t('contact.name') }}</label>
                 <input
                   id="kontakt-navn"
                   name="name"
@@ -68,7 +67,7 @@ const formspreeAction = import.meta.env.VITE_FORMSPREE_FORM_ID
             </div>
 
             <div class="space-y-2">
-              <label class="text-sm font-light" for="kontakt-email">Email</label>
+                <label class="text-sm font-light" for="kontakt-email">{{ $t('contact.email') }}</label>
               <input
                 id="kontakt-email"
                 name="email"
@@ -79,7 +78,7 @@ const formspreeAction = import.meta.env.VITE_FORMSPREE_FORM_ID
             </div>
 
             <div class="space-y-2">
-              <label class="text-sm font-light" for="kontakt-besked">Besked</label>
+                <label class="text-sm font-light" for="kontakt-besked">{{ $t('contact.message') }}</label>
               <textarea
                 id="kontakt-besked"
                 name="message"

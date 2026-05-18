@@ -3,10 +3,24 @@
 <script setup>
 import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 import BusinessLogo from './assets/logos/Business logo.svg'
 import FooterComponent from './components/FooterComponent.vue'
 import { allNews } from './data/news'
 import { businessNetworkJobs } from './data/businessnetwork'
+
+// i18n setup for at skifte sproget
+const { locale } = useI18n()
+
+// Map locale value til sprogets kode for at vise i knappen
+const currentLanguageCode = computed(() => {
+  const languageCodes = { da: 'DA', de: 'DE', en: 'EN' }
+  return languageCodes[locale.value] || 'DA'
+})
+
+const changeLang = (lang) => {
+  locale.value = lang
+}
 
 // Holder styr på om søgningen i navbaren er åben, og hvad brugeren har skrevet
 const isSearchOpen = ref(false)
@@ -119,24 +133,24 @@ onBeforeUnmount(() => {
   <header class="w-full bg-primary-darkest! relative z-40">
     <nav class="grid grid-cols-12 gap-4 px-8 py-4">
       <!-- Venstre side: logo og hovednavigation -->
-      <div class="col-start-2 col-end-10 flex items-center gap-12">
-        <RouterLink to="/" class="flex items-center">
+      <div class="col-start-2 col-end-10 flex items-center gap-8 min-w-0 overflow-hidden">
+        <RouterLink to="/" class="flex items-center flex-shrink-0">
           <img :src="BusinessLogo" alt="Business Region Logo" class="h-12 shrink-0" />
         </RouterLink>
-        <div class="flex gap-8">
-          <RouterLink to="/nyheder" class="text-neutral-light no-underline font-light hover:text-primary-light transition-colors duration-300">Nyheder & Indsigter</RouterLink>
-          <RouterLink to="/about" class="text-neutral-light no-underline font-light hover:text-primary-light transition-colors duration-300">Om os</RouterLink>
-          <RouterLink to="/events" class="text-neutral-light no-underline font-light hover:text-primary-light transition-colors duration-300">Events</RouterLink>
-          <RouterLink to="/jobportal" class="text-neutral-light no-underline font-light hover:text-primary-light transition-colors duration-300">Jobportal</RouterLink>
+        <div class="flex gap-4 flex-wrap items-center min-w-0">
+          <RouterLink to="/nyheder" class="text-neutral-light no-underline font-light hover:text-primary-light transition-colors duration-300 text-sm lg:text-base">{{ $t('nav.news') }}</RouterLink>
+          <RouterLink to="/about" class="text-neutral-light no-underline font-light hover:text-primary-light transition-colors duration-300 text-sm lg:text-base">{{ $t('nav.about') }}</RouterLink>
+          <RouterLink to="/events" class="text-neutral-light no-underline font-light hover:text-primary-light transition-colors duration-300 text-sm lg:text-base">{{ $t('nav.events') }}</RouterLink>
+          <RouterLink to="/jobportal" class="text-neutral-light no-underline font-light hover:text-primary-light transition-colors duration-300 text-sm lg:text-base">{{ $t('nav.jobportal') }}</RouterLink>
         </div>
       </div>
       <!-- Højre side: sprogvalg, søgning og kontaktknap -->
-      <div class="col-start-10 col-end-12 flex justify-end gap-0 justify-self-end">
+      <div class="col-start-10 col-end-12 flex justify-end gap-0 justify-self-end flex-shrink-0">
         <!-- Sprogmenu med dropdown -->
-        <div class="relative group">
+        <div class="relative group flex-shrink-0">
           <!-- Selve sprogknappen, som fungerer som trigger til dropdownen -->
-          <button class="bg-neutral-light text-primary-darkest px-4 py-2 font-light rounded-l-lg hover:bg-primary-light hover:text-neutral-light transition-colors duration-300 whitespace-nowrap flex items-center gap-1 h-full min-h-10 min-w-16">
-            DA
+          <button class="bg-neutral-light text-primary-darkest px-4 py-2 font-light rounded-l-lg hover:bg-primary-light hover:text-neutral-light transition-colors duration-300 whitespace-nowrap flex items-center gap-1 h-full min-h-10 min-w-16 flex-shrink-0">
+            {{ currentLanguageCode }}
             <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
           </button>
           <!-- Dropdownen vises kun, når der hoveres over sprogknappen -->
@@ -144,13 +158,13 @@ onBeforeUnmount(() => {
             class="absolute left-0 z-50 bg-neutral-light text-primary-darkest rounded-b shadow-lg w-full opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 origin-top"
             style="top: 100%; margin-top: 0;"
           >
-            <button class="block w-full text-left px-4 py-2 hover:bg-primary-light hover:text-neutral-light transition-colors duration-300" @click="$emit('change-lang', 'da')">Dansk</button>
-            <button class="block w-full text-left px-4 py-2 hover:bg-primary-light hover:text-neutral-light transition-colors duration-300" @click="$emit('change-lang', 'de')">Tysk</button>
-            <button class="block w-full text-left px-4 py-2 hover:bg-primary-light hover:text-neutral-light transition-colors duration-300" @click="$emit('change-lang', 'en')">Engelsk</button>
+            <button class="block w-full text-left px-4 py-2 hover:bg-primary-light hover:text-neutral-light transition-colors duration-300" @click="changeLang('da')">Dansk</button>
+            <button class="block w-full text-left px-4 py-2 hover:bg-primary-light hover:text-neutral-light transition-colors duration-300" @click="changeLang('de')">Tysk</button>
+            <button class="block w-full text-left px-4 py-2 hover:bg-primary-light hover:text-neutral-light transition-colors duration-300" @click="changeLang('en')">Engelsk</button>
           </div>
         </div>
         <!-- Søgeikon og inputfelt, som åbner forslag direkte i navbaren -->
-        <div ref="searchContainerRef" class="relative flex items-center border-l border-r border-primary-darkest bg-neutral-light px-3 py-2">
+        <div ref="searchContainerRef" class="relative flex items-center border-l border-r border-primary-darkest bg-neutral-light px-3 py-2 flex-shrink-0">
           <button type="button" class="text-primary-darkest flex items-center" @click="toggleSearch" aria-label="Åbn søgning">
             <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#0D1B2A" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="m21 21l-4.343-4.343m0 0A8 8 0 1 0 5.343 5.343a8 8 0 0 0 11.314 11.314"/></svg>
           </button>
@@ -158,7 +172,7 @@ onBeforeUnmount(() => {
             v-if="isSearchOpen"
             v-model="searchQuery"
             type="text"
-            placeholder="Søg..."
+            :placeholder="$t('nav.searchPlaceholder')"
             class="bg-neutral-light text-primary-darkest ml-2 pr-2 py-1 rounded focus:outline-none w-24 sm:w-32 md:w-40 transition-all duration-300"
             @focus="openSearch"
             @input="openSearch"
@@ -192,7 +206,7 @@ onBeforeUnmount(() => {
           </div>
         </div>
         <!-- Fast kontaktknap, så brugeren altid kan komme hurtigt til kontakt -->
-        <RouterLink to="/kontakt" class="bg-neutral-light text-primary-darkest px-4 py-2 font-light rounded-r-lg hover:bg-primary-light hover:text-neutral-light transition-colors duration-300 whitespace-nowrap flex items-center">Kontakt Os</RouterLink>
+        <RouterLink to="/kontakt" class="bg-neutral-light text-primary-darkest px-4 py-2 font-light rounded-r-lg hover:bg-primary-light hover:text-neutral-light transition-colors duration-300 whitespace-nowrap flex items-center">{{ $t('nav.contact') }}</RouterLink>
       </div>
     </nav>
   </header>

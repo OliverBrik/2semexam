@@ -1,5 +1,8 @@
 <script setup>
+import { useI18n } from 'vue-i18n'
 import InterregLogo from '../assets/logos/Interreg-Logo_business-de-dk.png'
+
+const { t } = useI18n()
 
 const formspreeAction = import.meta.env.VITE_FORMSPREE_FORM_ID
   ? `https://formspree.io/f/${import.meta.env.VITE_FORMSPREE_FORM_ID}`
@@ -23,12 +26,10 @@ import { employees } from '../data/employees'
       <div class="absolute inset-0 z-10 flex items-end">
         <div class="grid w-full grid-cols-12 gap-4 px-8 pb-16 lg:pb-20">
           <div class="col-span-12 flex flex-col justify-end text-neutral-light lg:col-span-8 lg:col-start-2">
-          <p class="text-xs font-semibold uppercase tracking-[0.3em] text-neutral-light/70">om os</p>
-          <h1 class="mt-4 max-w-3xl text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl text-white">Hvem er vi?</h1>
+          <p class="text-xs font-semibold uppercase tracking-[0.3em] text-neutral-light/70">{{ $t('about.subtitle') }}</p>
+          <h1 class="mt-4 max-w-3xl text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl text-white">{{ $t('about.title') }}</h1>
           <p class="mt-5 max-w-2xl text-sm leading-7 text-neutral-light/85 sm:text-base">
-            Business DE-DK forbinder virksomheder, organisationer og mennesker på tværs af grænseregionen.
-            Vi skaber netværk, indsigter og samarbejder, der gør det lettere at udvikle sig, finde hinanden og
-            skabe værdi sammen.
+            {{ $t('about.description') }}
           </p>
           </div>
         </div>
@@ -39,13 +40,13 @@ import { employees } from '../data/employees'
     <section class="mt-10 w-full px-8 pb-10 lg:mt-14">
       <div class="grid grid-cols-12 gap-8 xl:gap-12">
         <aside class="col-span-12 bg-[#6f7e92] p-5 text-neutral-light shadow-2xl lg:col-span-4 lg:col-start-2">
-          <h2 class="text-center text-2xl font-light">Kontakt os</h2>
+          <h2 class="text-center text-2xl font-light">{{ $t('about.contactUs') }}</h2>
 
           <form class="mt-5 space-y-4" :action="formspreeAction" method="POST">
             <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
 
             <div class="space-y-2">
-              <label class="text-sm font-light" for="about-name">Navn</label>
+              <label class="text-sm font-light" for="about-name">{{ $t('about.name') }}</label>
               <input
                 id="about-name"
                 name="name"
@@ -56,7 +57,7 @@ import { employees } from '../data/employees'
             </div>
 
             <div class="space-y-2">
-              <label class="text-sm font-light" for="about-email">Email</label>
+              <label class="text-sm font-light" for="about-email">{{ $t('about.email') }}</label>
               <input
                 id="about-email"
                 name="email"
@@ -67,7 +68,7 @@ import { employees } from '../data/employees'
             </div>
 
             <div class="space-y-2">
-              <label class="text-sm font-light" for="about-message">Besked</label>
+              <label class="text-sm font-light" for="about-message">{{ $t('about.message') }}</label>
               <textarea
                 id="about-message"
                 name="message"
@@ -92,20 +93,20 @@ import { employees } from '../data/employees'
               type="submit"
               class="mt-2 w-full bg-neutral-light px-4 py-2 text-sm font-medium text-primary-darkest transition-colors duration-300 hover:bg-primary-light hover:text-neutral-light"
             >
-              Send besked
+              {{ $t('about.send') }}
             </button>
           </form>
         </aside>
 
         <article class="col-span-12 flex flex-col h-full bg-white shadow-sm lg:col-span-6 lg:col-start-7  lg:px-10 lg:py-6 xl:col-span-6 xl:col-start-6">
-          <h2 class="mt-2 text-3xl font-semibold tracking-tight text-primary-darkest sm:text-4xl">VORES VISION</h2>
+          <h2 class="mt-2 text-3xl font-semibold tracking-tight text-primary-darkest sm:text-4xl">{{ $t('about.vision') }}</h2>
           <div class="mt-6 space-y-5 text-base leading-7 text-primary-darkest/90">
             <p>
-                Projektet Business DE-DK skal imødekomme samarbejdsmæssige udfordringer i den nordtyske og syddanske grænseregion. Projektet vil forbedre samarbejdet og koordineringen mellem virksomheder, institutioner og initiativer i grænseregionen, og dermed optimere det grænseoverskridende erhvervssamarbejde og derved styrke den grænseoverskridende mérværdi for erhvervslivet og borgere i regionen. Projektet skal altså bidrage til at tackle grænseregionens mangel på arbejdskraft, fremme det økonomiske samarbejde og skabe en mere synlig og attraktiv grænseregion for nuværende og fremtidige generationer af arbejdsgivere og arbejdssøgende fra hele verden.
+                {{ $t('about.visionText') }}
             </p>
         <div class="mt-4 space-y-5 text-base leading-7 text-primary-darkest/90">
             <p>
-                Business DE-DK skal skabe en platform for samarbejde og videndeling, hvor virksomheder og jobsøgende lettere kan finde hinanden og skabe nye forbindelser på tværs af grænsen. Projektet skal styrke relationer mellem aktører i regionen og skabe bedre muligheder for netværk, erfaringsudveksling og udvikling gennem både fysiske og digitale samarbejdsflader. Målet er at understøtte et stærkere fællesskab og gøre det nemmere at skabe kontakt og nye muligheder på tværs af Danmark og Tyskland.
+                {{ $t('about.visionText2') }}
             </p>
           <a
             href="https://www.interreg-de-dk.eu/dk/projekter-og-resultater/vores-projekter/enkeltvisning-projekter/business-de-dk/"
@@ -113,7 +114,7 @@ import { employees } from '../data/employees'
             rel="noopener noreferrer"
             class="text-sm font-medium text-primary-darkest hover:underline"
           >
-            Læs mere...
+            {{ $t('about.readMore') }}
           </a>
         </div>
           </div>
@@ -131,7 +132,7 @@ import { employees } from '../data/employees'
         <div class="col-span-12 mb-1 lg:col-start-2 lg:col-end-12">
           <div class="mb-6 flex items-end justify-between gap-4">
             <div>
-              <h2 class="mt-2 text-3xl font-semibold text-primary-darkest">MEDARBEJDERE</h2>
+              <h2 class="mt-2 text-3xl font-semibold text-primary-darkest">{{ $t('about.employees') }}</h2>
             </div>
           </div>
         </div>
