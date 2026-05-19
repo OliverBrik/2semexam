@@ -81,6 +81,15 @@
     "company": "Company",
     "private": "Private"
   },
+  "footer": {
+    "legalInfo": "Legal information",
+    "address": "Address: Vestergade 9 6270 Tønder",
+    "phone": "Phone: +4521776916",
+    "email": "Email: lecba@toender.dk",
+    "openingHours": "Opening hours: Mon-Fri 08:30-15:30",
+    "copyright": "© 2026 Business Region - CVR: - EAN: - All rights reserved.",
+    "contactButton": "Contact us"
+  },
   "categories": [
     {
       "title": "Who are we?",
@@ -98,7 +107,8 @@
   "eventCategories": ["All", "Networking", "Workshop", "Job & Career", "Seminar"],
   "newsCategories": {
     "Interview": "Interview",
-    "Indsigt": "Insight"
+    "Indsigt": "Insight",
+    "Resultat": "Result"
   },
   "nyhedDetail": {
     "share": "Share",

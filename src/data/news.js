@@ -11,6 +11,31 @@ import img9 from '../assets/news-images/news-09-graensen-bragte-os-videre.jpg'
 import img10 from '../assets/news-images/news-10-starte-virksomhed.png'
 import img11 from '../assets/news-images/news-11-happy-family-happy-life.png'
 import img12 from '../assets/news-images/news-12-business-kolding-event.png'
+import da from '../i18n/da.json'
+import de from '../i18n/de.json'
+import en from '../i18n/en.json'
+
+const newsTranslations = {
+  da: da.newsItems,
+  de: de.newsItems,
+  en: en.newsItems,
+}
+
+export const getTranslatedNewsItem = (news, locale = 'da') => {
+  const translatedItems = newsTranslations[locale] || newsTranslations.da
+  const translated = translatedItems?.[news.id - 1]
+
+  if (!translated) {
+    return news
+  }
+
+  return {
+    ...news,
+    title: translated.title || news.title,
+    summary: translated.summary || news.summary,
+    body: translated.body || news.body,
+  }
+}
 
 // Alle nyheder med titel, resumé, kategori og brødtekst. Bruges både i karusel og liste
 export const allNews = [

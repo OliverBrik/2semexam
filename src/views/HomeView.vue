@@ -5,7 +5,7 @@
 import { ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { categories } from '../data/categories'
-import { allNews } from '../data/news'
+import { allNews, getTranslatedNewsItem } from '../data/news'
 
 const { t, locale } = useI18n()
 
@@ -43,13 +43,18 @@ const getTranslatedCategories = () => {
 
 // Helper to get translated news data
 const getTranslatedNews = (newsId) => {
-  const newsItems = t('newsItems')
-  const newsIndex = allNews.findIndex(n => n.id === newsId)
-  if (Array.isArray(newsItems) && newsIndex >= 0 && newsIndex < newsItems.length) {
-    return newsItems[newsIndex]
-  }
-  return null
+  const news = allNews.find((item) => item.id === newsId)
+  return news ? getTranslatedNewsItem(news, locale.value) : null
 }
+
+const translatedNewsMap = computed(() => {
+  locale.value
+  const map = {}
+  allNews.forEach((news) => {
+    map[news.id] = getTranslatedNewsItem(news, locale.value)
+  })
+  return map
+})
 
 // Computed property som reagerer på sproget
 const translatedCategories = computed(() => {
@@ -121,7 +126,7 @@ const setCurrent = (id) => {
     <!-- Blå overlay -->
     <div class="absolute w-full h-full bg-primary-darkest/80"></div>
     <!-- Content -->
-    <div class="relative z-10 grid grid-cols-12 gap-4 px-8 pt-80 pb-16 w-full">
+    <div class="relative z-10 grid grid-cols-12 gap-4 px-8 pt-60 pb-16 w-full">
       <div class="col-start-2 col-end-10 flex flex-col">
       <p class="text-sm font-semibold uppercase text-white/80">{{ $t('home.welcome') }}</p>
       <h1 class="mt-2 text-4xl font-bold text-white sm:text-5xl">{{ $t('home.title') }}</h1>
@@ -229,7 +234,7 @@ const setCurrent = (id) => {
         >
           <div class="absolute inset-0 bg-linear-to-b from-primary-darkest/18 to-primary-darkest/82"></div>
           <div class="relative z-40 flex h-full flex-col justify-end p-4">
-            <p class="text-sm text-neutral-light/90">{{ getTranslatedNews(sideNews[0].id)?.title || sideNews[0].title }}</p>
+            <p class="text-sm text-neutral-light/90">{{ translatedNewsMap[sideNews[0].id]?.title || sideNews[0].title }}</p>
           </div>
         </article>
 
@@ -240,7 +245,7 @@ const setCurrent = (id) => {
         >
           <div class="absolute inset-0 bg-linear-to-b from-primary-darkest/18 to-primary-darkest/82"></div>
           <div class="relative z-40 flex h-full flex-col justify-end p-4">
-            <p class="text-lg text-neutral-light sm:text-2xl">{{ getTranslatedNews(highlightedNews.id)?.title || highlightedNews.title }}</p>
+            <p class="text-lg text-neutral-light sm:text-2xl">{{ translatedNewsMap[highlightedNews.id]?.title || highlightedNews.title }}</p>
             <RouterLink :to="{ name: 'nyhed', params: { id: highlightedNews.id } }" class="inline-block mt-2 px-4 py-2 text-sm text-white border border-white/70 hover:bg-white/20 transition-colors duration-200">{{ $t('home.readMore') }}</RouterLink>
           </div>
         </article>
@@ -256,7 +261,7 @@ const setCurrent = (id) => {
         >
           <div class="absolute inset-0 bg-linear-to-b from-primary-darkest/18 to-primary-darkest/82"></div>
           <div class="relative z-40 flex h-full flex-col justify-end p-4">
-            <p class="text-sm text-neutral-light/90">{{ getTranslatedNews(sideNews[1].id)?.title || sideNews[1].title }}</p>
+            <p class="text-sm text-neutral-light/90">{{ translatedNewsMap[sideNews[1].id]?.title || sideNews[1].title }}</p>
           </div>
         </article>
       </div>

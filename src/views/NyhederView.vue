@@ -1,32 +1,23 @@
 <script setup>
 import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { allNews } from '../data/news.js'
+import { allNews, getTranslatedNewsItem } from '../data/news.js'
 
 const { t, locale } = useI18n()
 
 // Helper to get translated news data
 const getTranslatedNews = (newsId) => {
-  const newsItems = t('newsItems')
-  const newsIndex = allNews.findIndex(n => n.id === newsId)
-  if (Array.isArray(newsItems) && newsIndex >= 0 && newsIndex < newsItems.length) {
-    return newsItems[newsIndex]
-  }
-  return null
+  const news = allNews.find((item) => item.id === newsId)
+  return news ? getTranslatedNewsItem(news, locale.value) : null
 }
 
 // Cached translation map that updates when locale changes
 const translatedNewsMap = computed(() => {
-  locale.value // Force dependency tracking
+  locale.value
   const map = {}
-  const newsItems = t('newsItems')
-  if (Array.isArray(newsItems)) {
-    allNews.forEach((news, idx) => {
-      if (idx < newsItems.length) {
-        map[news.id] = newsItems[idx]
-      }
-    })
-  }
+  allNews.forEach((news) => {
+    map[news.id] = getTranslatedNewsItem(news, locale.value)
+  })
   return map
 })
 

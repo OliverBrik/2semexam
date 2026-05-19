@@ -26,7 +26,7 @@ import { employees } from '../data/employees'
       <div class="absolute inset-0 z-10 flex items-end">
         <div class="grid w-full grid-cols-12 gap-4 px-8 pb-16 lg:pb-20">
           <div class="col-span-12 flex flex-col justify-end text-neutral-light lg:col-span-8 lg:col-start-2">
-          <p class="text-xs font-semibold uppercase tracking-[0.3em] text-neutral-light/70">{{ $t('about.subtitle') }}</p>
+          <p class="text-xs font-semibold uppercase tracking-[0.3em] text-neutral-light/85">{{ $t('about.subtitle') }}</p>
           <h1 class="mt-4 max-w-3xl text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl text-white">{{ $t('about.title') }}</h1>
           <p class="mt-5 max-w-2xl text-sm leading-7 text-neutral-light/85 sm:text-base">
             {{ $t('about.description') }}

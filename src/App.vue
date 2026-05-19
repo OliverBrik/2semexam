@@ -6,7 +6,7 @@ import { useRoute, useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import BusinessLogo from './assets/logos/Business logo.svg'
 import FooterComponent from './components/FooterComponent.vue'
-import { allNews } from './data/news'
+import { allNews, getTranslatedNewsItem } from './data/news'
 import { businessNetworkJobs } from './data/businessnetwork'
 
 // i18n setup for at skifte sproget
@@ -37,11 +37,15 @@ const searchEntries = computed(() => [
   { label: 'Events', hint: 'Se kommende events', path: '/events' },
   { label: 'Jobportal', hint: 'Find virksomheder', path: '/jobportal' },
   { label: 'Kontakt', hint: 'Skriv til os', path: '/kontakt' },
-  ...allNews.map((news) => ({
-    label: news.title,
+  ...allNews.map((news) => {
+    const translatedNews = getTranslatedNewsItem(news, locale.value)
+
+    return {
+    label: translatedNews.title,
     hint: news.category,
     path: { name: 'nyhed', params: { id: news.id } },
-  })),
+    }
+  }),
   ...businessNetworkJobs.map((job) => ({
     label: job.company,
     hint: job.location,

@@ -1,7 +1,7 @@
 <script setup>
 import { computed, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { allEvents, eventCategories as baseEventCategories } from '../data/events'
+import { allEvents, eventCategories as baseEventCategories, getTranslatedEventItem } from '../data/events'
 
 const { t, locale } = useI18n()
 
@@ -19,16 +19,18 @@ const categoryMapping = {
 
 // Helper to get translated event data
 const getTranslatedEvent = (eventId) => {
-  const eventItems = t('eventItems')
   const event = allEvents.find(e => e.id === eventId)
-  if (!event || !Array.isArray(eventItems)) return null
-  
-  const index = allEvents.findIndex(e => e.id === eventId)
-  if (index >= 0 && index < eventItems.length) {
-    return eventItems[index]
-  }
-  return null
+  return event ? getTranslatedEventItem(event, locale.value) : null
 }
+
+const translatedEventMap = computed(() => {
+  locale.value
+  const map = {}
+  allEvents.forEach((event) => {
+    map[event.id] = getTranslatedEventItem(event, locale.value)
+  })
+  return map
+})
 
 // Henter oversatte event kategorier fra i18n
 const getTranslatedEventCategories = () => {
@@ -151,8 +153,8 @@ const selectCategory = (category) => {
             <div class="absolute inset-0 bg-linear-to-b from-primary-darkest/20 to-primary-darkest/70"></div>
             <div class="relative z-10 flex h-80 flex-col justify-end p-8">
               <p class="text-xs uppercase tracking-[0.2em] text-neutral-light/80">{{ highlightedEvent.category }}</p>
-              <h3 class="mt-3 text-3xl font-semibold text-neutral-light">{{ getTranslatedEvent(highlightedEvent.id)?.title || highlightedEvent.title }}</h3>
-              <p class="mt-4 max-w-xl text-sm leading-6 text-neutral-light/90">{{ getTranslatedEvent(highlightedEvent.id)?.description || highlightedEvent.description }}</p>
+              <h3 class="mt-3 text-3xl font-semibold text-neutral-light">{{ translatedEventMap[highlightedEvent.id]?.title || highlightedEvent.title }}</h3>
+              <p class="mt-4 max-w-xl text-sm leading-6 text-neutral-light/90">{{ translatedEventMap[highlightedEvent.id]?.description || highlightedEvent.description }}</p>
               <div class="mt-4 flex items-center gap-4 text-xs text-neutral-light/80">
                 <span> {{ highlightedEvent.location }}</span>
                 <span> {{ new Date(highlightedEvent.date).toLocaleDateString('da-DK') }}</span>
@@ -179,8 +181,8 @@ const selectCategory = (category) => {
               </div>
 
               <div class="p-5">
-                <h4 class="text-base font-semibold text-primary-darkest">{{ getTranslatedEvent(event.id)?.title || event.title }}</h4>
-                <p class="mt-2 line-clamp-2 text-sm text-primary-darkest/70">{{ getTranslatedEvent(event.id)?.description || event.description }}</p>
+                <h4 class="text-base font-semibold text-primary-darkest">{{ translatedEventMap[event.id]?.title || event.title }}</h4>
+                <p class="mt-2 line-clamp-2 text-sm text-primary-darkest/70">{{ translatedEventMap[event.id]?.description || event.description }}</p>
 
                 <div class="mt-4 space-y-1 text-xs text-primary-darkest/60">
                   <p> {{ event.location }}</p>

@@ -1,4 +1,29 @@
 // Events data med titel, dato, kategori, billede osv.
+import da from '../i18n/da.json'
+import de from '../i18n/de.json'
+import en from '../i18n/en.json'
+
+const eventTranslations = {
+  da: da.eventItems,
+  de: de.eventItems,
+  en: en.eventItems,
+}
+
+export const getTranslatedEventItem = (event, locale = 'da') => {
+  const translatedItems = eventTranslations[locale] || eventTranslations.da
+  const translated = translatedItems?.[event.id - 1]
+
+  if (!translated) {
+    return event
+  }
+
+  return {
+    ...event,
+    title: translated.title || event.title,
+    description: translated.description || event.description,
+  }
+}
+
 export const allEvents = [
   {
     id: 1,

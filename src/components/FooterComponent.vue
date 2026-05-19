@@ -1,6 +1,9 @@
 <script setup>
 import BusinessLogo from '../assets/logos/Business logo.svg'
 import InterregLogo from '../assets/logos/interreg logo white.svg'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 </script>
 
 <template>
@@ -12,18 +15,18 @@ import InterregLogo from '../assets/logos/interreg logo white.svg'
         <img :src="BusinessLogo" alt="Business Region Logo" class="h-12 w-auto p-0 m-0" />
         <img :src="InterregLogo" alt="Interreg Logo" class="h-12 w-auto p-0 m-0" />
         <div class="mt-4 pt-3 border-t border-neutral-light/20">
-          <p class="text-xs text-neutral-light/70">JURIDISKE OPLYSNINGER</p>
+          <p class="text-xs text-neutral-light/70">{{ t('footer.legalInfo') }}</p>
         </div>
       </div>
 
       <!-- Kontaktinfo -->
       <div class="col-start-6 col-end-9 flex flex-col gap-3 justify-start">
-        <p class="text-sm font-light mt-0">Adresse: Vestergade 9 6270 Tønder</p>
-        <p class="text-sm font-light">Telefon: +4521776916</p>
-        <p class="text-sm font-light">Email: lecba@toender.dk</p>
-        <p class="text-sm font-light">Åbningstider: Man-Fre 08:30-15:30</p>
+        <p class="text-sm font-light mt-0">{{ t('footer.address') }}</p>
+        <p class="text-sm font-light">{{ t('footer.phone') }}</p>
+        <p class="text-sm font-light">{{ t('footer.email') }}</p>
+        <p class="text-sm font-light">{{ t('footer.openingHours') }}</p>
         <div class="mt-3 ">
-          <p class="text-xs text-neutral-light/60">© 2026 Business Region - CVR: - EAN: - Alle rettigheder forbeholdes.</p>
+          <p class="text-xs text-neutral-light/60">{{ t('footer.copyright') }}</p>
         </div>
       </div>
 
@@ -33,7 +36,7 @@ import InterregLogo from '../assets/logos/interreg logo white.svg'
           to="/kontakt"
           class="w-36 bg-neutral-light text-primary-darkest font-light hover:bg-primary-light hover:text-neutral-light transition-colors duration-300 flex items-center justify-center py-2 text-center"
         >
-          Kontakt os
+          {{ t('footer.contactButton') }}
         </RouterLink>
         <div class="flex gap-3">
           <!-- Facebook -->
