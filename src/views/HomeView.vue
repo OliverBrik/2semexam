@@ -110,7 +110,10 @@ const setCurrent = (id) => {
 </script>
 
 <template>
-  <header class="relative min-h-156 w-screen overflow-hidden">
+  <header
+    class="relative min-h-156 w-screen overflow-hidden bg-primary-darkest"
+    style="margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw);"
+  >
     <!-- Baggrundsvideo (loop bag overlay) -->
     <div class="absolute inset-0">
       <video
@@ -124,13 +127,13 @@ const setCurrent = (id) => {
       </video>
     </div>
     <!-- Blå overlay -->
-    <div class="absolute w-full h-full bg-primary-darkest/80"></div>
+    <div class="absolute inset-0 bg-linear-to-r from-primary-darkest via-primary-darkest/80 to-primary-darkest/40"></div>
     <!-- Content -->
-    <div class="relative z-10 grid grid-cols-12 gap-4 px-8 pt-60 pb-16 w-full">
-      <div class="col-start-2 col-end-10 flex flex-col">
-      <p class="text-sm font-semibold uppercase text-white/80">{{ $t('home.welcome') }}</p>
-      <h1 class="mt-2 text-4xl font-bold text-white sm:text-5xl">{{ $t('home.title') }}</h1>
-      <p class="mt-4 max-w-2xl text-lg text-white/90">
+    <div class="relative z-10 grid grid-cols-12 gap-4 px-8 pt-60 pb-16 lg:pb-20 w-full">
+      <div class="col-span-12 flex flex-col text-neutral-light lg:col-span-8 lg:col-start-2">
+      <p class="text-xs font-semibold uppercase tracking-[0.3em] text-neutral-light/70">{{ $t('home.welcome') }}</p>
+      <h1 class="mt-4 max-w-3xl text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl text-white">{{ $t('home.title') }}</h1>
+      <p class="mt-5 max-w-2xl text-sm leading-7 text-neutral-light/85 sm:text-base">
         {{ $t('home.subtitle') }}
       </p>
       <div class="mt-8 flex flex-wrap gap-4">

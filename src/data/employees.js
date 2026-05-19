@@ -17,7 +17,7 @@ export const employees = [
   },
   {
     name: 'Lewis C. Bardt',
-    role: 'Projektleder',
+    role: 'Project Manager',
     description: '',
     phone: '+45 21 77 59 16',
     email: 'lecba@toender.dk',
@@ -26,7 +26,7 @@ export const employees = [
   },
   {
     name: 'Peter Engel-Andreasen',
-    role: 'Erhversdirektør',
+    role: 'Business Director',
     description: 'Tønder Erhversråd',
     phone: '+45 30 65 60 60',
     email: 'peeng@toender.dk',
@@ -35,7 +35,7 @@ export const employees = [
   },
   {
     name: 'Ida Mahler Høeg',
-    role: 'Administrations- og økonomikoordinator',
+    role: 'Administration and Finance Coordinator',
     description: '',
     phone: '+45 30 61 96 18',
     linkedin: 'https://www.linkedin.com/in/ida-mahler-høeg-0a4a6b1a9/',

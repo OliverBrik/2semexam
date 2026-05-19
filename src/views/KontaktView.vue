@@ -19,12 +19,12 @@ const formspreeAction = import.meta.env.VITE_FORMSPREE_FORM_ID
         class="absolute inset-0 bg-cover bg-center opacity-45"
         style="background-image: url('https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1600&q=80')"
       ></div>
-      <div class="absolute inset-0 bg-linear-to-r from-primary-darkest via-primary-darkest/80 to-primary-darkest/35"></div>
+      <div class="absolute inset-0 bg-linear-to-r from-primary-darkest via-primary-darkest/80 to-primary-darkest/40"></div>
 
       <div class="relative z-10 grid grid-cols-12 gap-4 px-8 pt-60 pb-16 lg:pb-20 w-full">
           <div class="col-span-12 flex flex-col text-neutral-light lg:col-span-8 lg:col-start-2">
             <p class="text-xs font-semibold uppercase tracking-[0.3em] text-neutral-light/70">{{ $t('contact.subtitle') }}</p>
-            <h1 class="mt-4 max-w-3xl text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl">{{ $t('contact.title') }}</h1>
+            <h1 class="mt-4 max-w-3xl text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl text-white">{{ $t('contact.title') }}</h1>
             <p class="mt-5 max-w-2xl text-sm leading-7 text-neutral-light/85 sm:text-base">
               {{ $t('contact.description') }}
             </p>

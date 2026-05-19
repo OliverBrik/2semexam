@@ -175,7 +175,10 @@ const closeDetails = () => {
 </script>
 
 <template>
-  <header class="relative min-h-156 w-screen overflow-hidden">
+  <header
+    class="relative min-h-156 w-screen overflow-hidden bg-primary-darkest"
+    style="margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw);"
+  >
     <!-- Baggrundsvideo (loop bag overlay) -->
     <div class="absolute inset-0">
       <video
@@ -189,10 +192,10 @@ const closeDetails = () => {
       </video>
     </div>
     <!-- Blå overlay -->
-    <div class="absolute w-full h-full bg-primary-darkest/80"></div>
+    <div class="absolute inset-0 bg-linear-to-r from-primary-darkest via-primary-darkest/80 to-primary-darkest/40"></div>
 
     <div class="relative z-10 grid grid-cols-12 gap-4 px-8 pt-60 pb-16 lg:pb-20 w-full">
-        <div class="col-span-12 flex flex-col justify-start text-neutral-light lg:col-span-8 lg:col-start-2">
+        <div class="col-span-12 flex flex-col text-neutral-light lg:col-span-8 lg:col-start-2">
           <p class="text-xs font-semibold uppercase tracking-[0.3em] text-neutral-light/70">{{ $t('jobportal.subtitle') }}</p>
           <h1 class="mt-4 max-w-3xl text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl text-white">{{ $t('jobportal.title') }}</h1>
           <p class="mt-5 max-w-2xl text-sm leading-7 text-neutral-light/85 sm:text-base">
