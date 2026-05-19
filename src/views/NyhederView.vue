@@ -3,7 +3,7 @@ import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { allNews, getTranslatedNewsItem } from '../data/news.js'
 
-const { t, locale } = useI18n()
+const { t, locale, tm } = useI18n()
 
 // Helper to get translated news data
 const getTranslatedNews = (newsId) => {
@@ -23,16 +23,24 @@ const translatedNewsMap = computed(() => {
 
 // Søgeboks til nyheds-listen
 const searchQuery = ref('')
-const selectedCategory = ref('Alle kategorier')
+const selectedCategory = ref('all')
 
 // Get translated category name or fallback
 const getTranslatedCategory = (category) => {
-  const categories = t('newsCategories')
+  const categories = tm('newsCategories')
   return categories?.[category] || category
 }
 
 const availableCategories = computed(() => {
-  return ['Alle kategorier', ...new Set(allNews.map((news) => news.category))]
+  locale.value
+  return [
+    { value: 'all', label: t('news.allCategories') },
+    ...new Set(allNews.map((news) => news.category)).values(),
+  ].map((category) => (
+    typeof category === 'string'
+      ? { value: category, label: getTranslatedCategory(category) }
+      : category
+  ))
 })
 
 // Filtrerede og sorterede nyheder til listen
@@ -40,7 +48,7 @@ const filteredNews = computed(() => {
   locale.value // Force reactivity on locale change
   
   let filtered = allNews.filter((news) =>
-    (selectedCategory.value === 'Alle kategorier' || news.category === selectedCategory.value)
+    (selectedCategory.value === 'all' || news.category === selectedCategory.value)
   )
   
   // Filter by search query on translated title/summary
@@ -76,9 +84,8 @@ const resultsCount = computed(() => filteredNews.value.length)
       ></div>
       <div class="absolute inset-0 bg-primary-darkest/80"></div>
 
-      <div class="absolute inset-0 z-10 flex items-end">
-        <div class="grid w-full grid-cols-12 gap-4 px-8 pb-16 lg:pb-20">
-          <div class="col-span-12 flex flex-col justify-end text-neutral-light lg:col-span-8 lg:col-start-2">
+      <div class="relative z-10 grid grid-cols-12 gap-4 px-8 pt-60 pb-16 lg:pb-20 w-full">
+          <div class="col-span-12 flex flex-col text-neutral-light lg:col-span-8 lg:col-start-2">
             <p class="text-sm font-semibold uppercase text-neutral-light/70">{{ $t('news.subtitle') }}</p>
             <h1 class="mt-2 text-4xl font-bold text-white sm:text-5xl">
               {{ $t('news.title') }}
@@ -88,7 +95,6 @@ const resultsCount = computed(() => filteredNews.value.length)
             </p>
           </div>
         </div>
-      </div>
     </section>
 
     <!-- Nyheds-liste: Søgbar oversigt over alle nyheder -->
@@ -118,8 +124,8 @@ const resultsCount = computed(() => filteredNews.value.length)
                 v-model="selectedCategory"
                 class="w-full border border-primary-darkest/20 bg-white px-5 py-3 text-primary-darkest shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-light md:max-w-xs"
               >
-                <option v-for="category in availableCategories" :key="category" :value="category">
-                  {{ category }}
+                <option v-for="category in availableCategories" :key="category.value" :value="category.value">
+                  {{ category.label }}
                 </option>
               </select>
             </div>
@@ -140,7 +146,7 @@ const resultsCount = computed(() => filteredNews.value.length)
               >
                 <div class="absolute right-3 top-3 z-10">
                   <p class="bg-primary-darkest/80 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-neutral-light backdrop-blur-sm">
-                    {{ item.badge }}
+                    {{ translatedNewsMap[item.id]?.badge || item.badge }}
                   </p>
                 </div>
 

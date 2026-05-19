@@ -23,9 +23,8 @@ import { employees } from '../data/employees'
       ></div>
       <div class="absolute inset-0 bg-linear-to-r from-primary-darkest via-primary-darkest/80 to-primary-darkest/40"></div>
 
-      <div class="absolute inset-0 z-10 flex items-end">
-        <div class="grid w-full grid-cols-12 gap-4 px-8 pb-16 lg:pb-20">
-          <div class="col-span-12 flex flex-col justify-end text-neutral-light lg:col-span-8 lg:col-start-2">
+      <div class="relative z-10 grid grid-cols-12 gap-4 px-8 pt-60 pb-16 lg:pb-20 w-full">
+          <div class="col-span-12 flex flex-col text-neutral-light lg:col-span-8 lg:col-start-2">
           <p class="text-xs font-semibold uppercase tracking-[0.3em] text-neutral-light/85">{{ $t('about.subtitle') }}</p>
           <h1 class="mt-4 max-w-3xl text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl text-white">{{ $t('about.title') }}</h1>
           <p class="mt-5 max-w-2xl text-sm leading-7 text-neutral-light/85 sm:text-base">
@@ -33,7 +32,6 @@ import { employees } from '../data/employees'
           </p>
           </div>
         </div>
-      </div>
     </section>
 
     <!-- Kontakt og vision: formular til venstre og tekst om siden til højre -->
@@ -46,34 +44,34 @@ import { employees } from '../data/employees'
             <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
 
             <div class="space-y-2">
-              <label class="text-sm font-light" for="about-name">{{ $t('about.name') }}</label>
+              <label class="text-sm font-light" for="about-name">{{ $t('contact.name') }}</label>
               <input
                 id="about-name"
                 name="name"
                 type="text"
-                placeholder="Dit navn"
+                :placeholder="$t('contact.name')"
                 class="w-full border-b border-neutral-light/50 bg-transparent px-0 py-2 text-sm text-neutral-light placeholder:text-neutral-light/55 focus:border-neutral-light focus:outline-none"
               />
             </div>
 
             <div class="space-y-2">
-              <label class="text-sm font-light" for="about-email">{{ $t('about.email') }}</label>
+              <label class="text-sm font-light" for="about-email">{{ $t('contact.email') }}</label>
               <input
                 id="about-email"
                 name="email"
                 type="email"
-                placeholder="Din email"
+                :placeholder="$t('contact.email')"
                 class="w-full border-b border-neutral-light/50 bg-transparent px-0 py-2 text-sm text-neutral-light placeholder:text-neutral-light/55 focus:border-neutral-light focus:outline-none"
               />
             </div>
 
             <div class="space-y-2">
-              <label class="text-sm font-light" for="about-message">{{ $t('about.message') }}</label>
+              <label class="text-sm font-light" for="about-message">{{ $t('contact.message') }}</label>
               <textarea
                 id="about-message"
                 name="message"
                 rows="7"
-                placeholder="Skriv din besked her"
+                :placeholder="$t('contact.message')"
                 class="w-full resize-none border border-neutral-light/45 bg-[#5d6d82] px-3 py-2 text-sm text-neutral-light placeholder:text-neutral-light/55 focus:border-neutral-light focus:outline-none"
               ></textarea>
             </div>
@@ -81,11 +79,11 @@ import { employees } from '../data/employees'
             <div class="flex flex-wrap gap-4 pt-1 text-sm font-light">
               <label class="flex items-center gap-2">
                 <input type="radio" name="type" value="virksomhed" class="accent-primary-darkest" />
-                Virksomhed
+                {{ $t('contact.company') }}
               </label>
               <label class="flex items-center gap-2">
                 <input type="radio" name="type" value="privat" class="accent-primary-darkest" />
-                Privat
+                {{ $t('contact.private') }}
               </label>
             </div>
 
@@ -93,7 +91,7 @@ import { employees } from '../data/employees'
               type="submit"
               class="mt-2 w-full bg-neutral-light px-4 py-2 text-sm font-medium text-primary-darkest transition-colors duration-300 hover:bg-primary-light hover:text-neutral-light"
             >
-              {{ $t('about.send') }}
+              {{ $t('contact.send') }}
             </button>
           </form>
         </aside>

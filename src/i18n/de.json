@@ -1,11 +1,18 @@
 {
   "nav": {
+    "home": "Startseite",
     "news": "Nachrichten & Erkenntnisse",
     "about": "Über uns",
     "events": "Veranstaltungen",
     "jobportal": "Jobportal",
     "contact": "Kontakt",
-    "searchPlaceholder": "Suchen..."
+    "searchPlaceholder": "Suchen...",
+    "homeHint": "Zur Startseite",
+    "newsHint": "Siehe alle Nachrichten",
+    "aboutHint": "Mehr über uns",
+    "eventsHint": "Siehe kommende Veranstaltungen",
+    "jobportalHint": "Finde Unternehmen",
+    "contactHint": "Kontaktieren Sie uns"
   },
   "home": {
     "welcome": "Willkommen bei",
@@ -105,10 +112,25 @@
     }
   ],
   "eventCategories": ["Alle", "Netzwerk", "Workshop", "Job & Karriere", "Seminar"],
+  "eventCategoryLabels": {
+    "networking": "Netzwerk",
+    "workshop": "Workshop",
+    "jobCareer": "Job & Karriere",
+    "seminar": "Seminar"
+  },
+  "eventLocationLabels": {
+    "esbjergDenmark": "Esbjerg, Dänemark",
+    "flensburgGermany": "Flensburg, Deutschland",
+    "copenhagenDenmark": "Kopenhagen, Dänemark",
+    "kielGermany": "Kiel, Deutschland",
+    "koldingDenmark": "Kolding, Dänemark",
+    "aabenraaDenmark": "Aabenraa, Dänemark",
+    "sonderborgDenmark": "Sønderborg, Dänemark"
+  },
   "newsCategories": {
-    "Interview": "Interview",
-    "Indsigt": "Einblick",
-    "Resultat": "Ergebnis"
+    "interview": "Interview",
+    "insight": "Einblick",
+    "result": "Ergebnis"
   },
   "nyhedDetail": {
     "share": "Teilen",
@@ -122,61 +144,73 @@
     {
       "title": "Wenn Onboarding ganzheitlich wird: Sicherheit für internationale Mitarbeiter",
       "summary": "Ein starkes Onboarding-Programm hilft internationalen Mitarbeitern, sich sowohl im Job als auch im Alltag einzuleben.",
+      "badge": "NEU!",
       "body": "Wie orientiert man Mitarbeiter aus 19 verschiedenen Nationalitäten ein – und stellt sicher, dass sie nicht nur im Job, sondern auch in der Gemeinschaft ankommen? Andritz Feed & Biofuel hat Onboarding in den Fokus gerückt und arbeitet systematisch mit Buddy-Programmen, Führungstraining und sozialer sowie kultureller Integration. Das Ergebnis ist ein ganzheitlicher Ansatz mit praktischer Unterstützung bei der Wohnungssuche, Mentoring, fachlichem Austausch und sozialen Aktivitäten, die andere Unternehmen inspirieren können."
     },
     {
       "title": "Von Ausländer zu integriert: Erfahrungen aus dem Alltag in Dänemark",
       "summary": "Umzug in ein neues Land geht es nicht nur um Arbeit, sondern auch darum, sich zu Hause zu fühlen und Teil der Gemeinschaft zu werden.",
+      "badge": "VOR 5 MONATEN",
       "body": "<p>\"Ich fühle mich sowohl bei der Arbeit als auch in meiner Freizeit wohl. Aber manche kulturellen Dinge lassen sich nicht ersetzen, und es ist wichtig, Kontakt zu meiner eigenen Kultur zu halten. Glücklicherweise sind die Menschen hier offen und neugierig – sie fragen, wie es mir zu Hause war, und das macht es leichter, sich willkommen zu fühlen.\"</p>\n\n<p>Integration braucht mehr als nur Arbeit – sie braucht Netzwerk und Sprache. Unterstützung beim Sprachunterricht, Kontakt mit neuen Leuten bei der Arbeit und außerhalb sowie Zugang zu lokalen Netzwerkgruppen helfen ausländischen Arbeitnehmern schneller, sich heimisch zu fühlen.</p>\n\n<p>\"Wenn der Arbeitsplatz beim Arbeitsvisum, der Unterkunft und dem Transport hilft, wird der Anfang viel einfacher, und man kann sich auf Arbeit und Leben konzentrieren.\"</p>\n\n<p>Der Schlüssel zum Erfolg: Sprache, Netzwerk und Unterstützung vom Arbeitsplatz. Kleine Gesten können einen großen Unterschied darin machen, dass sich neue Kollegen willkommen fühlen – bei der Arbeit und im Leben.</p>"
     },
     {
       "title": "Interviews mit Gwyn Nissen, Chefredakteur von Der Nordschleswiger",
       "summary": "Ein Interview über grenzüberschreitende Zusammenarbeit und die Geschichten, die die Region zusammenbinden.",
+      "badge": "VOR 6 MONATEN",
       "body": "Gwyn Nissen bietet einen scharfsinnigen Blick auf Zuwanderung, Integration und Arbeitskräfte in der Grenzregion. Das Interview unterstreicht die Notwendigkeit besserer Koordination zwischen Gemeinden, Wirtschaftsakteuren und lokalen Organisationen sowie die Notwendigkeit, ganzen Familien zu helfen, um langfristige Zufriedenheit zu sichern. Das Video weist auch auf das Potenzial des Wohnungsmarktes, der Natur und der Nähe zu größeren Städten in der Region hin."
     },
     {
       "title": "Business DE-DK: grenzenloses Zusammenarbeiten",
       "summary": "Unternehmen, Organisationen und Menschen können über Grenzen hinweg durch gemeinsame Initiativen zusammen Werte schaffen.",
+      "badge": "VOR 7 MONATEN",
       "body": "<h3>Business DE-DK</h3>\n<p>Business DE-DK, wo Südjütland und Schleswig-Holstein die Herausforderung des Arbeitskräftemangels auf beiden Seiten der Grenze bewältigen. Das Projekt wird von der Stadt Tönder geleitet und durch EU-Mittel unterstützt.</p>\n\n<h4>Wirtschaftliche Zusammenarbeit ist, was wir verstehen</h4>\n<p>Wir bauen Brücken und verändern den Fokus von Herausforderungen zu Lösungen, wir schaffen Klarheit in komplexen grenzüberschreitenden Zusammenhängen. Von Ambitionen zu konkreten Ergebnissen. Berechnungen zeigen, dass in den kommenden Jahren etwa 130.000 in Dänemark und etwa 180.000 in Schleswig-Holstein qualifizierter Fachkräfte fehlen werden. Um diese Herausforderung zu bewältigen, arbeiten wir mit Akteuren wie Wirtschaftsstiftungen, Universitäten und Arbeitsagenturen zusammen.</p>\n\n<h4>Dialog und Netzwerk sind, was wir tun</h4>\n<p>Business DE-DK schafft Plattformen für Lernen und Erfahrungsaustausch über Grenzen hinweg. Wir besuchen Best Practices, lassen uns von existierenden Lösungen inspirieren und erleichtern den Dialog zwischen Unternehmen, Politikern und Organisationen. Durch Workshops, Netzwerktreffen und Online-Lösungen bringen wir Akteure zusammen, um konkrete, grenzüberschreitende Initiativen zu entwickeln.</p>\n\n<h4>Daten und Wissen sind unsere Grundlage</h4>\n<p>Wir sammeln, strukturieren und teilen Daten über die Wirtschaft, Initiativen und Chancen der Grenzregion – frei zugänglich über unseren Medienkanal. Unsere Forschung gibt einen umfassenden Überblick über Bedarf und Potenzial, damit alle Akteure bessere Entscheidungen treffen, effektiver zusammenarbeiten und Wert für die Region schaffen können.</p>\n\n<h4>Grenzlose Werte sind, was wir anbieten</h4>\n<p>Wir gründen ein grenzübergreifendes Business-Netzwerk mit Geschäftsleuten, Beratern, Professoren und Entscheidungsträgern, in dem Wissen geteilt, Beziehungen aufgebaut und neue Partnerschaften entstehen. Gleichzeitig prüfen wir mögliche ein grenzüberschreitendes Handelsbüro, das regionalen Herausforderungen diskutieren, Lösungen vorschlagen und langfristige, nachhaltige Entwicklung fördern kann.</p>\n\n<h4>Eine strahlende Zukunft</h4>\n<p>Business DE-DK ist ein Langzeitprojekt bis 2027, aber bereits jetzt sind die Grundlagen gelegt und die Bereitschaft zur Zusammenarbeit ist deutlich. Wir werden nicht nur die Arbeitskräftelücke schließen; wir werden eine Region schaffen, die zum Zentrum für Innovation, Wachstum und Zusammenarbeit wird – ein grenzüberschreitendes Modell, in dem Unternehmen und Menschen gedeihen. Hier gehörst du hin – und hier sind Grenzen nur eine Gelegenheit.</p>\n\n<p>Interessiert dich die Mitarbeit an unserer Netzwerk-Ideologie? Melde dich an.</p>"
     },
     {
       "title": "Tönder Wirtschaftsrat",
       "summary": "Stärkung der grenzüberschreitenden Zusammenarbeit für wirtschaftliches Wachstum und gemeinsame Entwicklung.",
+      "badge": "VOR 7 MONATEN",
       "body": "<h3>Stärkung der grenzüberschreitenden Zusammenarbeit für wirtschaftliches Wachstum</h3>\n<p>Peter Engel, Geschäftsführer des Tönder Wirtschaftsrats, erklärt die Bedeutung der grenzüberschreitenden Zusammenarbeit zwischen Dänemark und Deutschland. Mit über 300 Mitgliedsunternehmen konzentriert sich der Wirtschaftsrat auf die Unterstützung der urbanen Wirtschaftssektoren und die Förderung von Projekten, die Netzwerke zwischen Unternehmen auf beiden Seiten der Grenze schaffen.</p>\n\n<p>In seinem Interview hebt Engel Herausforderungen wie Sprachbarrieren und kulturelle Unterschiede hervor, unterstreicht aber gleichzeitig die wirtschaftlichen Vorteile. Initiativen wie \"Fit for Jobs\" haben Erfolg gezeigt, indem sie Arbeitskräfte über Grenzen hinweg mobilisiert haben.</p>\n\n<p>Engels Vision beinhaltet die Ausweitung von Netzwerken und die Beseitigung von Barrieren, um Synergien zwischen den Ländern zu schaffen. Durch innovative Projekte und enge Zusammenarbeit sollen Lösungen für den Arbeitskräftemangel gefunden und wirtschaftliches Wachstum geschaffen werden.</p>"
     },
     {
       "title": "Erfolgreiches Onboarding und internationale Rekrutierung bei ANDRITZ Feed & Biofuel",
       "summary": "Ein konkretes Beispiel, wie Unternehmen strukturiert an Onboarding und Rekrutierung über Grenzen hinweg arbeiten können.",
+      "badge": "VOR 7 MONATEN",
       "body": "<h3>Erfolgreiches Onboarding und internationale Rekrutierung bei ANDRITZ Feed & Biofuel</h3>\n<p>Das Unternehmen produziert große Maschinen für Fischfutter und Biokraftstoffe und hat ehrgeizige Pläne zur Entwicklung kompletter A-Z-Prozesse - ein klares Zeichen für Wachstum und technologische Entwicklung.</p>\n\n<p>Mitarbeiter aus über 20 Nationalitäten tragen neue Perspektiven bei und fördern Innovation. Rekrutierung und Onboarding beginnen bereits beim ersten Kontakt mit praktischer Unterstützung bei der Wohnungssuche, Kultureinführung und einem Leitfaden zum dänischen Arbeitsumfeld. Der erste Arbeitstag beinhaltet ein Gespräch mit dem Vorgesetzten, Teamentwicklung und IT-Setup sowie Mentoring, fachlichen Austausch und soziale Integration.</p>\n\n<p>Soziale Aktivitäten wie Teambuilding, Weihnachtsfeiern und Familienveranstaltungen fördern Wohlbefinden und Zusammenhalt, während flexible Sprachpraxis alle im Arbeitsalltag einbezieht. Vertrauen, Geduld und Verständnis für kulturelle Unterschiede sind der Kern des erfolgreichen Onboardings und der internationalen Zusammenarbeit des Unternehmens.</p>"
     },
     {
       "title": "Grenzüberschreitende Lösungen gegen Mangel an qualifizierten Arbeitskräften.",
       "summary": "Ein Treffen im Brauhaus Eutin brachte Unternehmen und Experten zusammen, um Lösungen für den Arbeitskräftemangel zu diskutieren.",
+      "badge": "VOR 7 MONATEN",
       "body": "Etwa 40 Unternehmen und Experten trafen sich im Brauhaus Eutin, um Erfahrungen über Fachkräftemangel auszutauschen. Die Teilnehmer betonten praktische Lösungen: kreative Rekrutierung, engere Zusammenarbeit zwischen Bildung und Wirtschaft sowie Unterstützungsprogramme für Neuzuwanderer. Der Workshop unterstreichte die Bedeutung einer Willkommenskultur und Integrationsmassnahmen."
     },
     {
       "title": "Wie fängt man mit internationaler Rekrutierung an?",
       "summary": "Der Workshop bietet Unternehmen konkrete Werkzeuge, um internationale Mitarbeiter anzuziehen und zu integrieren.",
+      "badge": "VOR 7 MONATEN",
       "body": "<h3>Wie fängt man mit internationaler Rekrutierung an?</h3>\n<p>Dies wurde in einem informativen Workshop in Kolding vermittelt - organisiert von Business Kolding als Teil des Projekts Business in DE-DK. Der Workshop bestand aus einer Präsentation darüber, warum Dänemark von außen attraktiv ist und welche Barrieren Unternehmen typischerweise bei den ersten Schritten zur Einstellung internationaler Mitarbeiter antreffen.</p>\n\n<p>Danach gab es Raum für Gruppendialoges, in dem Teilnehmer Erfahrungen und Überlegungen über Branchen und Perspektiven hinweg austauschten.</p>"
     },
     {
       "title": "Die Grenze bremste uns nicht – sie brachte uns voran",
       "summary": "Das Community-Treffen in Nibøl brachte dänische und deutsche Unternehmen zusammen zur Zusammenarbeit und neuen Möglichkeiten.",
+      "badge": "VOR 7 MONATEN",
       "body": "<h3>Die Grenze bremste uns nicht - sie brachte uns voran</h3>\n<p>Mit starken Präsentationen, ehrlichen Geschichten und konkreten Beispielen von Unternehmen, die über die Grenze hinweg arbeiten, war der Tag sowohl lehrreich als auch wertvoll. Die Teilnehmer gewannen Einblicke, wie man mit behördlichen Anforderungen umgeht, grenzüberschreitende Herausforderungen überwindet und Türen zu neuen Märkten und Kooperationen öffnet.</p>\n\n<p>Das Netzwerk wurde gestärkt, neue Beziehungen wurden geknüpft, und viele Teilnehmer verließen das Treffen mit neuer Inspiration und konkreten Ideen für zukünftige Projekte.</p>"
     },
     {
       "title": "So gründest du ein Unternehmen in Dänemark als Zuwanderer",
       "summary": "Praktische Schritte und hilfreiche Tipps für internationale Zuwanderer, die sich niederlassen und starten möchten.",
+      "badge": "VOR 7 MONATEN",
       "body": "<h3>So gründest du ein Unternehmen in Dänemark als Zuwanderer</h3>\n<p>Neben einer CPR-Nummer und MitID ist es erforderlich, eine feste Adresse in Dänemark zu haben. Je nach Unternehmensform kann auch eine Kapitalbeteiligung erforderlich sein. Es ist auch wichtig, sich mit den dänischen Regeln für Buchhaltung, Steuern, Arbeitsmarktbeitrag und möglicherweise spezifische Lizenzen vertraut zu machen.</p>\n\n<p>Wenn der Unternehmensumsatz die Grenze von 50.000 kr. pro Jahr überschreitet, muss es mit SKAT mehrwertsteuerlich registriert werden. Zuwanderer, die Mitarbeiter beschäftigen möchten, müssen sich auch als Arbeitgeber bei SKAT registrieren und Arbeitsmarktbeiträge zahlen.</p>"
     },
     {
       "title": "Happy Family, Happy Life – ein Schlüssel zur internationalen Mitarbeiterbindung",
       "summary": "Eine Präsentation darüber, wie Familienleben, Wohlbefinden und ganzheitliches Denken die Bindung internationaler Mitarbeiter beeinflussen.",
+      "badge": "VOR 7 MONATEN",
       "body": "<h3>Happy Family, Happy Life - ein Schlüssel zur internationalen Mitarbeiterbindung</h3>\n<p>Sprache, Kultur und praktische Faktoren sind oft Hindernisse für sowohl Rekrutierung als auch Bindung in der Grenzregion.</p>\n\n<p>Bei einer inspirierenden Präsentation mit Gitte Gram Davidsen von Work-live-stay wurde deutlich, wie viele Ebenen diese Herausforderung hat. Ein Teilnehmer merkte an, dass viele Kollegen Angst haben, nicht mit einem internationalen Mitarbeiter kommunizieren zu können.</p>\n\n<p>Sprache und Kultur sind durchgehende Themen. Die Arbeitsplatzkultur unterscheidet sich stark von Land zu Land. Es erfordert Anstrengung, sowohl internationalen Mitarbeitern als auch dänischen Kollegen zu helfen, sich gegenseitig zu verstehen.</p>"
     },
     {
       "title": "Business Kolding: Was braucht es, um qualifizierte Arbeitskräfte anzuziehen?",
       "summary": "Eine Präsentation über die größte Herausforderung für viele Unternehmen und wie sie in der Praxis angegangen werden kann.",
+      "badge": "VOR 7 MONATEN",
       "body": "Business Kolding befasst sich mit drei Wachstumshemmnissen: grüner Transformation, Digitalisierung und Kompetenzmangel. Der Vortrag stellt konkrete Maßnahmen vor, um ausländische Arbeitskräfte anzuziehen, Netzwerkzusammenarbeit und politische Initiativen, die Unternehmen in ihrer Rekrutierungsstrategie nutzen können."
     }
   ],

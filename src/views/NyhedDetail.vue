@@ -102,7 +102,7 @@ import { allNews, getTranslatedNewsItem } from '../data/news.js'
 const route = useRoute()
 const id = Number(route.params.id)
 
-const { t, locale } = useI18n()
+const { t, locale, tm } = useI18n()
 
 // Helper to get translated news data
 const getTranslatedNews = (newsId) => {
@@ -122,7 +122,7 @@ const translatedNewsMap = computed(() => {
 
 // Get translated category
 const getCategoryTranslation = (category) => {
-  const categories = t('newsCategories')
+  const categories = tm('newsCategories')
   return categories?.[category] || category
 }
 

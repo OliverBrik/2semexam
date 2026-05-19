@@ -10,7 +10,7 @@ import { allNews, getTranslatedNewsItem } from './data/news'
 import { businessNetworkJobs } from './data/businessnetwork'
 
 // i18n setup for at skifte sproget
-const { locale } = useI18n()
+const { locale, t, tm } = useI18n()
 
 // Map locale value til sprogets kode for at vise i knappen
 const currentLanguageCode = computed(() => {
@@ -31,19 +31,20 @@ const route = useRoute()
 
 // Samler de vigtigste sider og data, så søgefeltet kan foreslå relevante destinationer
 const searchEntries = computed(() => [
-  { label: 'Forside', hint: 'Gå til forsiden', path: '/' },
-  { label: 'Nyheder & Indsigter', hint: 'Se alle nyheder', path: '/nyheder' },
-  { label: 'Om os', hint: 'Læs om os', path: '/about' },
-  { label: 'Events', hint: 'Se kommende events', path: '/events' },
-  { label: 'Jobportal', hint: 'Find virksomheder', path: '/jobportal' },
-  { label: 'Kontakt', hint: 'Skriv til os', path: '/kontakt' },
+  { label: t('nav.home'), hint: t('nav.homeHint'), path: '/' },
+  { label: t('nav.news'), hint: t('nav.newsHint'), path: '/nyheder' },
+  { label: t('nav.about'), hint: t('nav.aboutHint'), path: '/about' },
+  { label: t('nav.events'), hint: t('nav.eventsHint'), path: '/events' },
+  { label: t('nav.jobportal'), hint: t('nav.jobportalHint'), path: '/jobportal' },
+  { label: t('nav.contact'), hint: t('nav.contactHint'), path: '/kontakt' },
   ...allNews.map((news) => {
     const translatedNews = getTranslatedNewsItem(news, locale.value)
+    const categories = tm('newsCategories')
 
     return {
-    label: translatedNews.title,
-    hint: news.category,
-    path: { name: 'nyhed', params: { id: news.id } },
+      label: translatedNews.title,
+      hint: categories?.[news.category] || news.category,
+      path: { name: 'nyhed', params: { id: news.id } },
     }
   }),
   ...businessNetworkJobs.map((job) => ({
@@ -138,7 +139,7 @@ onBeforeUnmount(() => {
     <nav class="grid grid-cols-12 gap-4 px-8 py-4">
       <!-- Venstre side: logo og hovednavigation -->
       <div class="col-start-2 col-end-10 flex items-center gap-8 min-w-0 overflow-hidden">
-        <RouterLink to="/" class="flex items-center flex-shrink-0">
+        <RouterLink to="/" class="flex items-center shrink-0">
           <img :src="BusinessLogo" alt="Business Region Logo" class="h-12 shrink-0" />
         </RouterLink>
         <div class="flex gap-4 flex-wrap items-center min-w-0">
@@ -149,26 +150,26 @@ onBeforeUnmount(() => {
         </div>
       </div>
       <!-- Højre side: sprogvalg, søgning og kontaktknap -->
-      <div class="col-start-10 col-end-12 flex justify-end gap-0 justify-self-end flex-shrink-0">
+      <div class="col-start-10 col-end-12 flex justify-end gap-0 justify-self-end shrink-0">
         <!-- Sprogmenu med dropdown -->
-        <div class="relative group flex-shrink-0">
+        <div class="relative group shrink-0">
           <!-- Selve sprogknappen, som fungerer som trigger til dropdownen -->
-          <button class="bg-neutral-light text-primary-darkest px-4 py-2 font-light rounded-l-lg hover:bg-primary-light hover:text-neutral-light transition-colors duration-300 whitespace-nowrap flex items-center gap-1 h-full min-h-10 min-w-16 flex-shrink-0">
+          <button class="bg-neutral-light text-primary-darkest px-4 py-2 font-light rounded-l-lg hover:bg-primary-light hover:text-neutral-light transition-colors duration-300 whitespace-nowrap flex items-center gap-1 h-full min-h-10 min-w-16 shrink-0">
             {{ currentLanguageCode }}
             <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
           </button>
           <!-- Dropdownen vises kun, når der hoveres over sprogknappen -->
           <div
-            class="absolute left-0 z-50 bg-neutral-light text-primary-darkest rounded-b shadow-lg w-full opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 origin-top"
+            class="absolute left-0 bg-neutral-light text-primary-darkest rounded-b shadow-lg w-full opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 origin-top"
             style="top: 100%; margin-top: 0;"
           >
-            <button class="block w-full text-left px-4 py-2 hover:bg-primary-light hover:text-neutral-light transition-colors duration-300" @click="changeLang('da')">Dansk</button>
-            <button class="block w-full text-left px-4 py-2 hover:bg-primary-light hover:text-neutral-light transition-colors duration-300" @click="changeLang('de')">Tysk</button>
-            <button class="block w-full text-left px-4 py-2 hover:bg-primary-light hover:text-neutral-light transition-colors duration-300" @click="changeLang('en')">Engelsk</button>
+            <button class="block w-full text-left px-2 py-2 hover:bg-primary-light hover:text-neutral-light transition-colors duration-300" @click="changeLang('da')">Dansk</button>
+            <button class="block w-full text-left px-2 py-2 hover:bg-primary-light hover:text-neutral-light transition-colors duration-300" @click="changeLang('de')">Deutsch</button>
+            <button class="block w-full text-left px-2 py-2 hover:bg-primary-light hover:text-neutral-light transition-colors duration-300" @click="changeLang('en')">English</button>
           </div>
         </div>
         <!-- Søgeikon og inputfelt, som åbner forslag direkte i navbaren -->
-        <div ref="searchContainerRef" class="relative flex items-center border-l border-r border-primary-darkest bg-neutral-light px-3 py-2 flex-shrink-0">
+        <div ref="searchContainerRef" class="relative flex items-center border-l border-r border-primary-darkest bg-neutral-light px-3 py-2 shrink-0">
           <button type="button" class="text-primary-darkest flex items-center" @click="toggleSearch" aria-label="Åbn søgning">
             <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#0D1B2A" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="m21 21l-4.343-4.343m0 0A8 8 0 1 0 5.343 5.343a8 8 0 0 0 11.314 11.314"/></svg>
           </button>

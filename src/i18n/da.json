@@ -1,11 +1,18 @@
 {
   "nav": {
+    "home": "Forside",
     "news": "Nyheder & Indsigter",
     "about": "Om os",
     "events": "Events",
     "jobportal": "Jobportal",
     "contact": "Kontakt Os",
-    "searchPlaceholder": "Søg..."
+    "searchPlaceholder": "Søg...",
+    "homeHint": "Gå til forsiden",
+    "newsHint": "Se alle nyheder",
+    "aboutHint": "Læs om os",
+    "eventsHint": "Se kommende events",
+    "jobportalHint": "Find virksomheder",
+    "contactHint": "Skriv til os"
   },
   "home": {
     "welcome": "Velkommen til",
@@ -105,10 +112,25 @@
     }
   ],
   "eventCategories": ["Alle", "Netværk", "Workshop", "Job & Karriere", "Seminar"],
+  "eventCategoryLabels": {
+    "networking": "Netværk",
+    "workshop": "Workshop",
+    "jobCareer": "Job & Karriere",
+    "seminar": "Seminar"
+  },
+  "eventLocationLabels": {
+    "esbjergDenmark": "Esbjerg, Danmark",
+    "flensburgGermany": "Flensburg, Tyskland",
+    "copenhagenDenmark": "København, Danmark",
+    "kielGermany": "Kiel, Tyskland",
+    "koldingDenmark": "Kolding, Danmark",
+    "aabenraaDenmark": "Aabenraa, Danmark",
+    "sonderborgDenmark": "Sønderborg, Danmark"
+  },
   "newsCategories": {
-    "Interview": "Interview",
-    "Indsigt": "Indsigt",
-    "Resultat": "Resultat"
+    "interview": "Interview",
+    "insight": "Indsigt",
+    "result": "Resultat"
   },
   "nyhedDetail": {
     "share": "Del",

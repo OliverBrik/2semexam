@@ -191,9 +191,8 @@ const closeDetails = () => {
     <!-- Blå overlay -->
     <div class="absolute w-full h-full bg-primary-darkest/80"></div>
 
-    <div class="absolute inset-0 z-10 flex items-end">
-      <div class="grid w-full grid-cols-12 gap-4 px-8 pb-16 lg:pb-20">
-        <div class="col-span-12 flex flex-col justify-end text-neutral-light lg:col-span-8 lg:col-start-2">
+    <div class="relative z-10 grid grid-cols-12 gap-4 px-8 pt-60 pb-16 lg:pb-20 w-full">
+        <div class="col-span-12 flex flex-col justify-start text-neutral-light lg:col-span-8 lg:col-start-2">
           <p class="text-xs font-semibold uppercase tracking-[0.3em] text-neutral-light/70">{{ $t('jobportal.subtitle') }}</p>
           <h1 class="mt-4 max-w-3xl text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl text-white">{{ $t('jobportal.title') }}</h1>
           <p class="mt-5 max-w-2xl text-sm leading-7 text-neutral-light/85 sm:text-base">
@@ -201,7 +200,6 @@ const closeDetails = () => {
           </p>
         </div>
       </div>
-    </div>
   </header>
   <main class="w-full bg-white">
     <section class="grid grid-cols-12 gap-4 px-8 py-10 bg-primary-light/10">

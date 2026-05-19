@@ -1,21 +1,9 @@
 <script setup>
 import { computed, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { allEvents, eventCategories as baseEventCategories, getTranslatedEventItem } from '../data/events'
+import { allEvents, eventCategoryIds, getTranslatedEventItem } from '../data/events'
 
-const { t, locale } = useI18n()
-
-// English to Danish category mapping for filtering
-const categoryMapping = {
-  'Alle': 'Alle',
-  'All': 'Alle',
-  'Networking': 'Netværk',
-  'Netzwerk': 'Netværk',
-  'Workshop': 'Workshop',
-  'Job & Career': 'Job & Karriere',
-  'Job & Karriere': 'Job & Karriere',
-  'Seminar': 'Seminar'
-}
+const { t, locale, tm } = useI18n()
 
 // Helper to get translated event data
 const getTranslatedEvent = (eventId) => {
@@ -32,40 +20,38 @@ const translatedEventMap = computed(() => {
   return map
 })
 
-// Henter oversatte event kategorier fra i18n
-const getTranslatedEventCategories = () => {
-  const translated = t('eventCategories')
-  return Array.isArray(translated) ? translated : baseEventCategories
+const getTranslatedCategory = (categoryId) => {
+  const categories = tm('eventCategoryLabels')
+  return categories?.[categoryId] || categoryId
+}
+
+const getTranslatedLocation = (locationId) => {
+  const locations = tm('eventLocationLabels')
+  return locations?.[locationId] || locationId
 }
 
 // Computed property som reagerer på sproget
 const eventCategories = computed(() => {
-  // locale.value sikrer at denne computed virker igen når sproget ændres
   locale.value
-  return getTranslatedEventCategories()
+  return eventCategoryIds.map((categoryId) => ({
+    value: categoryId,
+    label: categoryId === 'all' ? t('events.allCategories') : getTranslatedCategory(categoryId),
+  }))
 })
 
 // Holder track af den valgte kategori til filtrering
-const selectedCategory = ref(getTranslatedEventCategories()[0] || 'Alle')
+const selectedCategory = ref('all')
 
-// Watch for language changes og update selectedCategory hvis nødvendigt
-watch(() => locale.value, (newLocale) => {
-  const translated = t('eventCategories')
-  if (Array.isArray(translated) && translated.length > 0) {
-    // Preserve the Danish category value when switching languages
-    const danishCategory = categoryMapping[selectedCategory.value] || selectedCategory.value
-    if (!translated.includes(selectedCategory.value)) {
-      // When language changes, keep the same Danish filter active
-      selectedCategory.value = translated[0]
-    }
+watch(() => locale.value, () => {
+  if (!eventCategoryIds.includes(selectedCategory.value)) {
+    selectedCategory.value = 'all'
   }
 })
 
-// Filtrer events efter valgt kategori - map translated category back to Danish
+// Filtrer events efter valgt kategori-id
 const filteredEvents = computed(() => {
-  const danishCategory = categoryMapping[selectedCategory.value] || selectedCategory.value
-  if (danishCategory === 'Alle') return allEvents
-  return allEvents.filter((event) => event.category === danishCategory)
+  if (selectedCategory.value === 'all') return allEvents
+  return allEvents.filter((event) => event.category === selectedCategory.value)
 })
 
 // Det fremhævede event er altid det første i de filtrerede resultater
@@ -93,9 +79,8 @@ const selectCategory = (category) => {
       ></div>
       <div class="absolute inset-0 bg-linear-to-r from-primary-darkest via-primary-darkest/80 to-primary-darkest/40"></div>
 
-      <div class="absolute inset-0 z-10 flex items-end">
-        <div class="grid w-full grid-cols-12 gap-4 px-8 pb-16 lg:pb-20">
-          <div class="col-span-12 flex flex-col justify-end text-neutral-light lg:col-span-8 lg:col-start-2">
+      <div class="relative z-10 grid grid-cols-12 gap-4 px-8 pt-60 pb-16 lg:pb-20 w-full">
+          <div class="col-span-12 flex flex-col text-neutral-light lg:col-span-8 lg:col-start-2">
             <p class="text-xs font-semibold uppercase tracking-[0.3em] text-neutral-light/70">{{ $t('events.subtitle') }}</p>
             <h1 class="mt-4 max-w-3xl text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl text-white">{{ $t('events.title') }}</h1>
             <p class="mt-5 max-w-2xl text-sm leading-7 text-neutral-light/85 sm:text-base">
@@ -103,7 +88,6 @@ const selectCategory = (category) => {
             </p>
           </div>
         </div>
-      </div>
     </section>
 
     <!-- Sektion med filter og events -->
@@ -121,21 +105,21 @@ const selectCategory = (category) => {
               <div class="space-y-2 flex flex-col justify-start">
                 <button
                   v-for="category in eventCategories"
-                  :key="category"
+                  :key="category.value"
                   type="button"
                   class="flex items-center gap-3 px-9 py-2 text-sm transition-all duration-200 w-full"
                   :class="
-                    selectedCategory === category
+                    selectedCategory === category.value
                       ? 'bg-primary-darkest text-neutral-light font-medium'
                       : 'bg-white border border-primary-darkest/10 text-primary-darkest hover:bg-primary-light/10'
                   "
-                  @click="selectCategory(category)"
+                  @click="selectCategory(category.value)"
                 >
                   <span
                     class="h-2 w-2 shrink-0"
-                    :class="selectedCategory === category ? 'bg-neutral-light' : 'bg-primary-base'"
+                    :class="selectedCategory === category.value ? 'bg-neutral-light' : 'bg-primary-base'"
                   ></span>
-                  <span>{{ category }}</span>
+                  <span>{{ category.label }}</span>
                 </button>
               </div>
             </div>
@@ -152,11 +136,11 @@ const selectCategory = (category) => {
           >
             <div class="absolute inset-0 bg-linear-to-b from-primary-darkest/20 to-primary-darkest/70"></div>
             <div class="relative z-10 flex h-80 flex-col justify-end p-8">
-              <p class="text-xs uppercase tracking-[0.2em] text-neutral-light/80">{{ highlightedEvent.category }}</p>
+              <p class="text-xs uppercase tracking-[0.2em] text-neutral-light/80">{{ getTranslatedCategory(highlightedEvent.category) }}</p>
               <h3 class="mt-3 text-3xl font-semibold text-neutral-light">{{ translatedEventMap[highlightedEvent.id]?.title || highlightedEvent.title }}</h3>
               <p class="mt-4 max-w-xl text-sm leading-6 text-neutral-light/90">{{ translatedEventMap[highlightedEvent.id]?.description || highlightedEvent.description }}</p>
               <div class="mt-4 flex items-center gap-4 text-xs text-neutral-light/80">
-                <span> {{ highlightedEvent.location }}</span>
+                <span> {{ getTranslatedLocation(highlightedEvent.location) }}</span>
                 <span> {{ new Date(highlightedEvent.date).toLocaleDateString('da-DK') }}</span>
                 <span> {{ highlightedEvent.attendees }} deltagere</span>
               </div>
@@ -176,7 +160,7 @@ const selectCategory = (category) => {
               >
                 <div class="absolute inset-0 bg-linear-to-b from-primary-darkest/10 to-primary-darkest/40"></div>
                 <p class="absolute right-3 top-3 inline-block bg-primary-darkest px-3 py-1 text-xs font-semibold uppercase text-neutral-light">
-                  {{ event.category }}
+                  {{ getTranslatedCategory(event.category) }}
                 </p>
               </div>
 
@@ -185,7 +169,7 @@ const selectCategory = (category) => {
                 <p class="mt-2 line-clamp-2 text-sm text-primary-darkest/70">{{ translatedEventMap[event.id]?.description || event.description }}</p>
 
                 <div class="mt-4 space-y-1 text-xs text-primary-darkest/60">
-                  <p> {{ event.location }}</p>
+                  <p> {{ getTranslatedLocation(event.location) }}</p>
                   <p> {{ new Date(event.date).toLocaleDateString('da-DK') }} kl. {{ event.time }}</p>
                 </div>
 

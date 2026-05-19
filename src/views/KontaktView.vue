@@ -1,5 +1,8 @@
 <script setup>
 import { employees } from '../data/employees'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 const formspreeAction = import.meta.env.VITE_FORMSPREE_FORM_ID
   ? `https://formspree.io/f/${import.meta.env.VITE_FORMSPREE_FORM_ID}`
@@ -18,9 +21,8 @@ const formspreeAction = import.meta.env.VITE_FORMSPREE_FORM_ID
       ></div>
       <div class="absolute inset-0 bg-linear-to-r from-primary-darkest via-primary-darkest/80 to-primary-darkest/35"></div>
 
-      <div class="absolute inset-0 z-10 flex items-end">
-        <div class="grid w-full grid-cols-12 gap-4 px-8 pb-16 lg:pb-20">
-          <div class="col-span-12 flex flex-col justify-end text-neutral-light lg:col-span-8 lg:col-start-2">
+      <div class="relative z-10 grid grid-cols-12 gap-4 px-8 pt-60 pb-16 lg:pb-20 w-full">
+          <div class="col-span-12 flex flex-col text-neutral-light lg:col-span-8 lg:col-start-2">
             <p class="text-xs font-semibold uppercase tracking-[0.3em] text-neutral-light/70">{{ $t('contact.subtitle') }}</p>
             <h1 class="mt-4 max-w-3xl text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl">{{ $t('contact.title') }}</h1>
             <p class="mt-5 max-w-2xl text-sm leading-7 text-neutral-light/85 sm:text-base">
@@ -28,7 +30,6 @@ const formspreeAction = import.meta.env.VITE_FORMSPREE_FORM_ID
             </p>
           </div>
         </div>
-      </div>
     </section>
 
     <section class="mt-10 w-full px-8 pb-10 lg:mt-14">
@@ -49,18 +50,18 @@ const formspreeAction = import.meta.env.VITE_FORMSPREE_FORM_ID
                   id="kontakt-navn"
                   name="name"
                   type="text"
-                  placeholder="Dit navn"
+                  :placeholder="$t('contact.name')"
                   class="w-full border-b border-neutral-light/50 bg-transparent px-0 py-2 text-sm text-neutral-light placeholder:text-neutral-light/55 focus:border-neutral-light focus:outline-none"
                 />
               </div>
 
               <div class="space-y-2">
-                <label class="text-sm font-light" for="kontakt-telefon">Telefon</label>
+                <label class="text-sm font-light" for="kontakt-telefon">{{ $t('contact.phone') }}</label>
                 <input
                   id="kontakt-telefon"
                   name="phone"
                   type="tel"
-                  placeholder="Dit telefonnummer"
+                  :placeholder="$t('contact.phone')"
                   class="w-full border-b border-neutral-light/50 bg-transparent px-0 py-2 text-sm text-neutral-light placeholder:text-neutral-light/55 focus:border-neutral-light focus:outline-none"
                 />
               </div>
@@ -72,7 +73,7 @@ const formspreeAction = import.meta.env.VITE_FORMSPREE_FORM_ID
                 id="kontakt-email"
                 name="email"
                 type="email"
-                placeholder="Din email"
+                :placeholder="$t('contact.email')"
                 class="w-full border-b border-neutral-light/50 bg-transparent px-0 py-2 text-sm text-neutral-light placeholder:text-neutral-light/55 focus:border-neutral-light focus:outline-none"
               />
             </div>
@@ -83,19 +84,18 @@ const formspreeAction = import.meta.env.VITE_FORMSPREE_FORM_ID
                 id="kontakt-besked"
                 name="message"
                 rows="9"
-                placeholder="Skriv din besked her"
+                :placeholder="$t('contact.message')"
                 class="w-full resize-none border border-neutral-light/45 bg-[#5d6d82] px-3 py-2 text-sm text-neutral-light placeholder:text-neutral-light/55 focus:border-neutral-light focus:outline-none"
               ></textarea>
             </div>
-
             <div class="flex flex-wrap gap-4 pt-1 text-sm font-light">
               <label class="flex items-center gap-2">
                 <input type="radio" name="type" value="virksomhed" class="accent-primary-darkest" />
-                Virksomhed
+                {{ $t('contact.company') }}
               </label>
               <label class="flex items-center gap-2">
                 <input type="radio" name="type" value="privat" class="accent-primary-darkest" />
-                Privat
+                {{ $t('contact.private') }}
               </label>
             </div>
 
@@ -103,7 +103,7 @@ const formspreeAction = import.meta.env.VITE_FORMSPREE_FORM_ID
               type="submit"
               class="mt-2 w-full bg-neutral-light px-4 py-2 text-sm font-medium text-primary-darkest transition-colors duration-300 hover:bg-primary-light hover:text-neutral-light"
             >
-              Send besked
+              {{ $t('contact.send') }}
             </button>
           </form>
         </aside>

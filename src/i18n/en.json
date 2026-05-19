@@ -1,11 +1,18 @@
 {
   "nav": {
+    "home": "Home",
     "news": "News & Insights",
     "about": "About",
     "events": "Events",
     "jobportal": "Job Portal",
     "contact": "Contact Us",
-    "searchPlaceholder": "Search..."
+    "searchPlaceholder": "Search...",
+    "homeHint": "Go to homepage",
+    "newsHint": "See all news",
+    "aboutHint": "Read about us",
+    "eventsHint": "See upcoming events",
+    "jobportalHint": "Find companies",
+    "contactHint": "Write to us"
   },
   "home": {
     "welcome": "Welcome to",
@@ -105,10 +112,25 @@
     }
   ],
   "eventCategories": ["All", "Networking", "Workshop", "Job & Career", "Seminar"],
+  "eventCategoryLabels": {
+    "networking": "Networking",
+    "workshop": "Workshop",
+    "jobCareer": "Job & Career",
+    "seminar": "Seminar"
+  },
+  "eventLocationLabels": {
+    "esbjergDenmark": "Esbjerg, Denmark",
+    "flensburgGermany": "Flensburg, Germany",
+    "copenhagenDenmark": "Copenhagen, Denmark",
+    "kielGermany": "Kiel, Germany",
+    "koldingDenmark": "Kolding, Denmark",
+    "aabenraaDenmark": "Aabenraa, Denmark",
+    "sonderborgDenmark": "Sønderborg, Denmark"
+  },
   "newsCategories": {
-    "Interview": "Interview",
-    "Indsigt": "Insight",
-    "Resultat": "Result"
+    "interview": "Interview",
+    "insight": "Insight",
+    "result": "Result"
   },
   "nyhedDetail": {
     "share": "Share",
@@ -122,61 +144,73 @@
     {
       "title": "When onboarding becomes holistic: Security for international employees",
       "summary": "A strong onboarding program helps international employees feel at home both at work and in everyday life.",
+      "badge": "NEWS!",
       "body": "How do you onboard employees from 19 different nationalities – and ensure they feel at home not just at work but also in the community? Andritz Feed & Biofuel has made onboarding a priority, systematically working with buddy programs, leadership training, and social and cultural integration. The result is a holistic approach with practical support for housing, mentoring, professional peer collaboration and social activities that can inspire other companies."
     },
     {
       "title": "From foreigner to integrated: Experiences from daily life in Denmark",
       "summary": "Moving to a new country is not just about work, but also about feeling at home and being part of the community.",
+      "badge": "5 MONTHS AGO",
       "body": "<p>\"I feel comfortable both at work and in my spare time. But some cultural things can't be replaced, and it's important to maintain contact with your own culture. Fortunately, people here are open and curious – they ask how I was back home, and it makes it easier to feel included.\"</p>\n\n<p>Integration takes more than a job – it takes networks and language. Support for language education, meeting new people both at and outside work, and access to local networking groups help foreign employees feel at home faster.</p>\n\n<p>\"When your employer helps with work permits, housing and transportation, the start becomes much easier, and you can focus on your work and your life here.\"</p>\n\n<p>Keys to success: language, networks and workplace support. Small gestures can make a big difference in helping new colleagues feel welcome – both at work and in life.</p>"
     },
     {
       "title": "Interview with Gwyn Nissen, Editor-in-Chief of Der Nordschleswiger",
       "summary": "An interview about cross-border collaboration and the stories that bind the region together.",
+      "badge": "6 MONTHS AGO",
       "body": "Gwyn Nissen offers a sharp look at migration, integration and labor in the border region. The interview highlights the need for better coordination between municipalities, business actors and local organizations, as well as helping entire families to ensure long-term well-being. The video also points to the potential of the region's housing market, nature and proximity to larger cities."
     },
     {
       "title": "Business DE-DK: borderless collaboration",
       "summary": "Businesses, organizations and people can create value together across borders through joint initiatives.",
+      "badge": "7 MONTHS AGO",
       "body": "<h3>Business DE-DK</h3>\n<p>Business DE-DK, where South Jutland and Schleswig-Holstein tackle the challenge of labor shortages on both sides of the border. The project is led by the City of Tønder and supported by EU funds.</p>\n\n<h4>Business cooperation is what we understand</h4>\n<p>We build bridges and shift focus from challenges to solutions, we create clarity in complex cross-border contexts. From ambitions to concrete results. Calculations show that in the coming years there will be a shortage of around 130,000 skilled workers in Denmark and around 180,000 in Schleswig-Holstein. To address this challenge, we work with actors such as business foundations, universities and employment agencies.</p>\n\n<h4>Dialog and networks are what we do</h4>\n<p>Business DE-DK creates platforms for learning and experience exchange across borders. We visit best practices, are inspired by existing solutions and facilitate dialogue between businesses, politicians and organizations. Through workshops, networking meetings and online solutions we bring actors together to develop concrete, cross-border initiatives.</p>\n\n<h4>Data and knowledge are our foundation</h4>\n<p>We collect, structure and share data about the border region's business, initiatives and opportunities – freely accessible via our media channel. Our research provides a comprehensive overview of needs and potential, so all actors can make better decisions, collaborate more effectively and create value for the region.</p>\n\n<h4>Borderless value is what we offer</h4>\n<p>We establish a cross-border business network with business leaders, consultants, professors and decision-makers where knowledge is shared, relationships are built and new partnerships emerge. At the same time, we explore the possibilities of establishing a cross-border business council that can discuss regional challenges, propose solutions and promote long-term, sustainable development.</p>\n\n<h4>A bright future</h4>\n<p>Business DE-DK is a long-term project running through 2027, but already the foundation is laid and the willingness to cooperate is clear. We will not just solve the labor shortage; we will create a region that becomes a center for innovation, growth and cooperation – a cross-border model where businesses and people thrive. You belong here – and here borders are only an opportunity.</p>\n\n<p>Interested in contributing to our network ideology? Sign up.</p>"
     },
     {
       "title": "Tønder Business Council",
       "summary": "Strengthening cross-border cooperation for economic growth and mutual development.",
+      "badge": "7 MONTHS AGO",
       "body": "<h3>Strengthening cross-border cooperation for economic growth</h3>\n<p>Peter Engel, CEO of the Tønder Business Council, explains the importance of cross-border cooperation between Denmark and Germany. With over 300 member companies, the business council focuses on supporting urban business sectors and promoting projects that create networks between companies on both sides of the border.</p>\n\n<p>In his interview, Engel highlights challenges such as language barriers and cultural differences, but also emphasizes the economic benefits. Initiatives such as \"Fit for Jobs\" have shown success in mobilizing labor across borders.</p>\n\n<p>Engel's vision involves expanding networks and overcoming barriers to create synergies between countries. Through innovative projects and close cooperation, solutions to the labor shortage should be found and economic growth created.</p>"
     },
     {
       "title": "Successful onboarding and international recruitment at ANDRITZ Feed & Biofuel",
       "summary": "A concrete example of how companies can work structurally with onboarding and recruitment across borders.",
+      "badge": "7 MONTHS AGO",
       "body": "<h3>Successful onboarding and international recruitment at ANDRITZ Feed & Biofuel</h3>\n<p>The company produces large machines for fish feed and biofuel products and has ambitions to develop complete A-Z processes - a clear sign of growth and technological development.</p>\n\n<p>Employees from over 20 nationalities bring new perspectives and strengthen innovation. Recruitment and onboarding start at the first contact with practical support for housing search, cultural introduction and a guide to the Danish workplace. The first day includes a meeting with management, team introduction and IT setup, as well as mentoring, professional sparring and social integration.</p>\n\n<p>Social activities such as team building, Christmas parties and family events ensure well-being and community, while flexible language use includes everyone in daily work. Trust, patience and understanding of cultural differences are at the heart of the company's successful onboarding and international collaboration.</p>"
     },
     {
       "title": "Cross-border solutions against lack of qualified labor.",
       "summary": "A meeting at Brauhaus Eutin brought companies and experts together to discuss solutions for labor shortages.",
+      "badge": "7 MONTHS AGO",
       "body": "About 40 companies and experts met at Brauhaus Eutin to share experiences about skilled labor shortages. Participants emphasized practical solutions: creative recruitment, closer collaboration between education and business, and support programs for newcomers. The workshop emphasized the importance of a welcoming culture and integration efforts."
     },
     {
       "title": "How do you get started with international recruitment?",
       "summary": "The workshop provides companies with concrete tools to attract and integrate international employees.",
+      "badge": "7 MONTHS AGO",
       "body": "<h3>How do you get started with international recruitment?</h3>\n<p>This was shared at an informative workshop in Kolding - organized by Business Kolding as part of the Business in DE-DK project. The workshop consisted of a presentation on why Denmark is attractive from the outside and what barriers companies typically encounter when taking their first steps toward hiring international employees.</p>\n\n<p>Afterwards, there was room for group dialogue where participants exchanged experiences and reflections across sectors and perspectives.</p>"
     },
     {
       "title": "The border didn't stop us – it took us further",
       "summary": "The community meeting in Nibøl brought Danish and German companies together for collaboration and new opportunities.",
+      "badge": "7 MONTHS AGO",
       "body": "<h3>The border didn't stop us - it took us further</h3>\n<p>With strong presentations, honest stories and concrete examples from companies working across the border, the day was both educational and valuable. Participants gained insight into how to handle regulatory requirements, overcome cross-border challenges and open doors to new markets and collaborations.</p>\n\n<p>The network was strengthened, new relationships were formed, and many participants left with fresh inspiration and concrete ideas for future projects.</p>"
     },
     {
       "title": "How to start a business in Denmark as an immigrant",
       "summary": "Practical steps and helpful tips for international immigrants who want to settle and get started.",
+      "badge": "7 MONTHS AGO",
       "body": "<h3>How to start a business in Denmark as an immigrant</h3>\n<p>In addition to a CPR number and MitID, it is required to have a permanent address in Denmark. Depending on the business form, equity contribution may also be required. It is also important to familiarize yourself with Danish rules for accounting, taxes, labor market contributions and any specific licenses.</p>\n\n<p>If company turnover exceeds 50,000 kr. per year, it must be registered for VAT with SKAT. Immigrants who want to employ employees must also register as an employer with SKAT and pay labor market contributions.</p>"
     },
     {
       "title": "Happy family, happy life – a key to international employee retention",
       "summary": "A presentation on how family life, well-being and holistic thinking affect the retention of international employees.",
+      "badge": "7 MONTHS AGO",
       "body": "<h3>Happy family, happy life - a key to international employee retention</h3>\n<p>Language, culture and practical factors are often barriers to both recruitment and retention in the border region.</p>\n\n<p>At an inspiring presentation with Gitte Gram Davidsen from Work-live-stay, it became clear how many layers this challenge has. One participant pointed out that many colleagues are afraid they can't communicate with an international employee.</p>\n\n<p>Language and culture are recurring themes. Workplace culture differs greatly from country to country. It takes effort to help both international employees and Danish colleagues understand each other.</p>"
     },
     {
       "title": "Business Kolding: What does it take to attract qualified labor?",
       "summary": "A presentation on the biggest challenge for many companies and how it can be tackled in practice.",
+      "badge": "7 MONTHS AGO",
       "body": "Business Kolding delves into three growth barriers: green transition, digitalization and skills gaps. The presentation presents concrete measures to attract foreign labor, network cooperation and political initiatives that companies can use in their recruitment strategy."
     }
   ],
