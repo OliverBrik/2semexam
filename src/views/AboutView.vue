@@ -148,16 +148,7 @@ import { employees } from '../data/employees'
               <p class="mt-3 text-xs text-neutral-light/85">{{ employee.phone }}</p>
               <p class="text-xs text-neutral-light/70">{{ employee.email }}</p>
               <p v-if="employee.description" class="mt-3 mb-4 text-xs uppercase tracking-[0.18em] text-neutral-light/55">{{ employee.description }}</p>
-              <div class="mt-auto flex justify-center">
-                <a
-                  :href="employee.linkedin"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="inline-flex items-center justify-center w-16 h-8 bg-neutral-light text-xs font-medium text-primary-darkest transition-colors duration-300 hover:bg-primary-light hover:text-neutral-light"
-                >
-                  LinkedIn
-                </a>
-              </div>
+              <!-- LinkedIn button removed -->
             </div>
           </article>
         </div>
