@@ -4,6 +4,7 @@ import InterregLogo from '../assets/logos/interreg logo white.svg'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
+const contactEmail = 'lecba@toender.dk'
 </script>
 
 <template>
@@ -23,7 +24,7 @@ const { t } = useI18n()
       <div class="col-start-6 col-end-9 flex flex-col gap-3 justify-start">
         <p class="text-sm font-light mt-0">{{ t('footer.address') }}</p>
         <p class="text-sm font-light">{{ t('footer.phone') }}</p>
-        <p class="text-sm font-light">{{ t('footer.email') }}</p>
+        <p class="text-sm font-light">Email: <a :href="`mailto:${contactEmail}`" class="hover:underline">{{ contactEmail }}</a></p>
         <p class="text-sm font-light">{{ t('footer.openingHours') }}</p>
         <div class="mt-3 ">
           <p class="text-xs text-neutral-light/60">{{ t('footer.copyright') }}</p>

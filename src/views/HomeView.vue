@@ -156,14 +156,14 @@ const setCurrent = (id) => {
 
   <!-- Ny sektion: Tekst kategorier med billede -->
   <section class="w-full bg-white">
-    <div class="grid grid-cols-12 gap-4 px-8 pt-12">
-      <div class="col-start-2 col-end-7">
-        <h2 class="text-2xl font-light text-primary-darkest sm:text-3xl uppercase">{{ $t('home.faq') }}</h2>
+    <div class="grid grid-cols-12 gap-4 px-4 pt-12 md:px-8">
+      <div class="col-span-12 md:col-start-2 md:col-end-7">
+        <h2 class="text-2xl font-light text-primary-darkest sm:text-3xl uppercase whitespace-nowrap md:whitespace-normal">{{ $t('home.faq') }}</h2>
       </div>
     </div>
-    <div class="grid grid-cols-12 gap-4 px-8 py-12">
+    <div class="grid grid-cols-12 gap-4 px-4 py-12 md:px-8">
       <!-- Venstre side: Kategorier  -->
-      <div class="col-start-2 col-end-7">
+      <div class="col-span-12 md:col-start-2 md:col-end-7">
         <div class="space-y-0">
           <!-- Alle kategorier som klikbare -->
           <div
@@ -174,10 +174,10 @@ const setCurrent = (id) => {
             <button
               @click="activeTab = activeTab === index ? null : index"
               :class="[
-                'w-full text-left px-6 py-4 transition-all duration-300',
+                'w-full text-left px-4 py-4 transition-all duration-300 md:px-6',
                 activeTab === index
-                  ? 'text-2xl font-bold text-primary-darkest border-l-4 border-primary-base'
-                  : 'text-xl font-light text-primary-darkest/60 hover:text-primary-darkest border-l-4 border-transparent hover:border-primary-base'
+                  ? 'text-xl font-bold text-primary-darkest border-l-4 border-primary-base md:text-2xl'
+                  : 'text-lg font-light text-primary-darkest/60 hover:text-primary-darkest border-l-4 border-transparent hover:border-primary-base md:text-xl'
               ]"
             >
               {{ category.title }}
@@ -186,9 +186,9 @@ const setCurrent = (id) => {
             <!-- Tekst indhold vises kun under den aktive kategori -->
             <div
               v-if="activeTab === index"
-              class="px-12 py-4 bg-neutral-light/10 space-y-4"
+              class="space-y-4 bg-neutral-light/10 px-4 py-4 md:px-12"
             >
-              <p class="text-base font-light text-primary-darkest leading-relaxed">
+              <p class="text-sm font-light leading-relaxed text-primary-darkest md:text-base">
                 {{ category.content }}
               </p>
             </div>
@@ -197,7 +197,7 @@ const setCurrent = (id) => {
       </div>
 
       <!-- Højre side: Billede -->
-      <div class="col-start-7 col-end-11 flex items-start justify-center sticky top-12">
+      <div class="col-span-12 hidden items-start justify-center md:col-start-7 md:col-end-11 md:flex sticky top-12">
         <img
           src="/src/assets/logos/Map.svg"
           alt="Grænse billede"

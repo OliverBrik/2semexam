@@ -136,13 +136,13 @@ onBeforeUnmount(() => {
 <template>
   <!-- Fast topbar med logo, navigation og søgefunktion -->
   <header class="w-full bg-primary-darkest! relative z-40">
-    <nav class="grid grid-cols-12 gap-4 px-8 py-4">
+    <nav class="grid grid-cols-1 gap-4 px-4 py-4 md:grid-cols-12 md:px-8">
       <!-- Venstre side: logo og hovednavigation -->
-      <div class="col-start-2 col-end-10 flex items-center gap-8 min-w-0 overflow-hidden">
+      <div class="col-span-1 flex min-w-0 flex-col gap-4 overflow-hidden md:col-start-2 md:col-end-10 md:flex-row md:items-center md:gap-8">
         <RouterLink to="/" class="flex items-center shrink-0">
           <img :src="BusinessLogo" alt="Business Region Logo" class="h-12 shrink-0" />
         </RouterLink>
-        <div class="flex gap-4 flex-wrap items-center min-w-0">
+        <div class="flex min-w-0 flex-wrap items-center gap-3 md:gap-4">
           <RouterLink to="/nyheder" class="text-neutral-light no-underline font-light hover:text-primary-light transition-colors duration-300 text-sm lg:text-base">{{ $t('nav.news') }}</RouterLink>
           <RouterLink to="/about" class="text-neutral-light no-underline font-light hover:text-primary-light transition-colors duration-300 text-sm lg:text-base">{{ $t('nav.about') }}</RouterLink>
           <RouterLink to="/events" class="text-neutral-light no-underline font-light hover:text-primary-light transition-colors duration-300 text-sm lg:text-base">{{ $t('nav.events') }}</RouterLink>
@@ -150,27 +150,27 @@ onBeforeUnmount(() => {
         </div>
       </div>
       <!-- Højre side: sprogvalg, søgning og kontaktknap -->
-      <div class="col-start-10 col-end-12 flex justify-end gap-0 justify-self-end shrink-0">
+      <div class="col-span-1 flex w-full flex-wrap items-stretch justify-start gap-2 shrink-0 md:col-start-10 md:col-end-12 md:w-auto md:justify-end md:gap-0 md:justify-self-end">
         <!-- Sprogmenu med dropdown -->
         <div class="relative group shrink-0">
           <!-- Selve sprogknappen, som fungerer som trigger til dropdownen -->
-          <button class="bg-neutral-light text-primary-darkest px-4 py-2 font-light rounded-l-lg hover:bg-primary-light hover:text-neutral-light transition-colors duration-300 whitespace-nowrap flex items-center gap-1 h-full min-h-10 min-w-16 shrink-0">
+          <button class="bg-neutral-light text-primary-darkest h-10 px-3 text-sm font-light rounded-none md:rounded-l-lg md:rounded-r-none hover:bg-primary-light hover:text-neutral-light transition-colors duration-300 whitespace-nowrap flex items-center justify-center gap-1 min-w-14 shrink-0">
             {{ currentLanguageCode }}
-            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            <svg class="w-3.5 h-3.5 ml-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
           </button>
           <!-- Dropdownen vises kun, når der hoveres over sprogknappen -->
           <div
-            class="absolute left-0 bg-neutral-light text-primary-darkest rounded-b shadow-lg w-full opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 origin-top"
+            class="absolute left-0 top-full z-50 mt-0 flex w-max flex-row overflow-hidden bg-neutral-light text-primary-darkest shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 origin-top md:w-full md:flex-col md:rounded-b"
             style="top: 100%; margin-top: 0;"
           >
-            <button class="block w-full text-left px-2 py-2 hover:bg-primary-light hover:text-neutral-light transition-colors duration-300" @click="changeLang('da')">Dansk</button>
-            <button class="block w-full text-left px-2 py-2 hover:bg-primary-light hover:text-neutral-light transition-colors duration-300" @click="changeLang('de')">Deutsch</button>
-            <button class="block w-full text-left px-2 py-2 hover:bg-primary-light hover:text-neutral-light transition-colors duration-300" @click="changeLang('en')">English</button>
+            <button class="w-20 shrink-0 px-3 py-2 text-center text-sm whitespace-nowrap hover:bg-primary-light hover:text-neutral-light transition-colors duration-300 md:block md:w-full md:px-2 md:text-left" @click="changeLang('da')">Dansk</button>
+            <button class="w-20 shrink-0 px-3 py-2 text-center text-sm whitespace-nowrap hover:bg-primary-light hover:text-neutral-light transition-colors duration-300 md:block md:w-full md:px-2 md:text-left" @click="changeLang('de')">Deutsch</button>
+            <button class="w-20 shrink-0 px-3 py-2 text-center text-sm whitespace-nowrap hover:bg-primary-light hover:text-neutral-light transition-colors duration-300 md:block md:w-full md:px-2 md:text-left" @click="changeLang('en')">English</button>
           </div>
         </div>
         <!-- Søgeikon og inputfelt, som åbner forslag direkte i navbaren -->
-        <div ref="searchContainerRef" class="relative flex items-center border-l border-r border-primary-darkest bg-neutral-light px-3 py-2 shrink-0">
-          <button type="button" class="text-primary-darkest flex items-center" @click="toggleSearch" aria-label="Åbn søgning">
+        <div ref="searchContainerRef" class="relative flex h-10 w-auto min-w-0 flex-none items-stretch border border-primary-darkest bg-neutral-light px-0 py-0 shrink-0 md:w-auto md:border-l md:border-r">
+          <button type="button" class="flex h-full w-10 items-center justify-center rounded-none border-r border-primary-darkest/10 text-primary-darkest hover:bg-primary-light hover:text-neutral-light transition-colors duration-300 md:w-16" @click="toggleSearch" aria-label="Åbn søgning">
             <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#0D1B2A" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="m21 21l-4.343-4.343m0 0A8 8 0 1 0 5.343 5.343a8 8 0 0 0 11.314 11.314"/></svg>
           </button>
           <input
@@ -178,7 +178,7 @@ onBeforeUnmount(() => {
             v-model="searchQuery"
             type="text"
             :placeholder="$t('nav.searchPlaceholder')"
-            class="bg-neutral-light text-primary-darkest ml-2 pr-2 py-1 rounded focus:outline-none w-24 sm:w-32 md:w-40 transition-all duration-300"
+            class="min-w-0 flex-1 bg-neutral-light text-primary-darkest ml-1 pr-1 py-1 text-sm rounded-none focus:outline-none w-16 max-w-16 sm:w-24 sm:max-w-none md:w-40 transition-all duration-300"
             @focus="openSearch"
             @input="openSearch"
             @keydown.enter.prevent="submitSearch"
@@ -187,7 +187,7 @@ onBeforeUnmount(() => {
           <!-- Forslagslisten bliver placeret lige under søgefeltet for hurtig navigation -->
           <div
             v-if="isSearchOpen"
-            class="absolute right-0 top-full z-50 mt-2 w-80 overflow-hidden rounded-md border border-primary-darkest/10 bg-neutral-light shadow-xl"
+            class="absolute left-0 right-0 top-full z-50 mt-2 max-h-[60vh] w-[calc(100vw-1rem)] max-w-[calc(100vw-1rem)] overflow-y-auto overflow-x-hidden rounded-md border border-primary-darkest/10 bg-neutral-light shadow-xl md:left-auto md:right-0 md:w-80 md:max-w-none"
           >
             <div class="border-b border-primary-darkest/10 px-4 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-primary-darkest/55">
               Forslag
@@ -211,7 +211,7 @@ onBeforeUnmount(() => {
           </div>
         </div>
         <!-- Fast kontaktknap, så brugeren altid kan komme hurtigt til kontakt -->
-        <RouterLink to="/kontakt" class="bg-neutral-light text-primary-darkest px-4 py-2 font-light rounded-r-lg hover:bg-primary-light hover:text-neutral-light transition-colors duration-300 whitespace-nowrap flex items-center">{{ $t('nav.contact') }}</RouterLink>
+        <RouterLink to="/kontakt" class="bg-neutral-light text-primary-darkest h-10 px-3 text-sm font-light rounded-none md:rounded-r-lg hover:bg-primary-light hover:text-neutral-light transition-colors duration-300 whitespace-nowrap flex items-center justify-center min-w-20 shrink-0">{{ $t('nav.contact') }}</RouterLink>
       </div>
     </nav>
   </header>

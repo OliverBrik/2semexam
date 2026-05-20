@@ -1,6 +1,20 @@
 {
   "hosting": {
     "public": "dist",
+    "predeploy": [
+      "npm run build"
+    ],
+    "headers": [
+      {
+        "source": "/index.html",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache"
+          }
+        ]
+      }
+    ],
     "ignore": [
       "firebase.json",
       "**/.*",
