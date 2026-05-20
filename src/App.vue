@@ -154,7 +154,7 @@ onBeforeUnmount(() => {
         <!-- Sprogmenu med dropdown -->
         <div class="relative group shrink-0">
           <!-- Selve sprogknappen, som fungerer som trigger til dropdownen -->
-          <button class="bg-neutral-light text-primary-darkest h-10 px-3 text-sm font-light rounded-none md:rounded-l-lg md:rounded-r-none hover:bg-primary-light hover:text-neutral-light transition-colors duration-300 whitespace-nowrap flex items-center justify-center gap-1 min-w-14 shrink-0">
+          <button class="bg-neutral-light text-primary-darkest h-10 px-3 text-sm font-light rounded-none hover:bg-primary-light hover:text-neutral-light transition-colors duration-300 whitespace-nowrap flex items-center justify-center gap-1 min-w-14 shrink-0">
             {{ currentLanguageCode }}
             <svg class="w-3.5 h-3.5 ml-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
           </button>
@@ -169,7 +169,7 @@ onBeforeUnmount(() => {
           </div>
         </div>
         <!-- Søgeikon og inputfelt, som åbner forslag direkte i navbaren -->
-        <div ref="searchContainerRef" class="relative flex h-10 w-auto min-w-0 flex-none items-stretch border border-primary-darkest bg-neutral-light px-0 py-0 shrink-0 md:w-auto md:border-l md:border-r">
+        <div ref="searchContainerRef" class="relative flex h-10 w-auto min-w-0 flex-none items-stretch border border-primary-darkest bg-neutral-light px-0 py-0 shrink-0 rounded-none md:w-auto md:border-l md:border-r">
           <button type="button" class="flex h-full w-10 items-center justify-center rounded-none border-r border-primary-darkest/10 text-primary-darkest hover:bg-primary-light hover:text-neutral-light transition-colors duration-300 md:w-16" @click="toggleSearch" aria-label="Åbn søgning">
             <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#0D1B2A" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="m21 21l-4.343-4.343m0 0A8 8 0 1 0 5.343 5.343a8 8 0 0 0 11.314 11.314"/></svg>
           </button>
@@ -211,7 +211,7 @@ onBeforeUnmount(() => {
           </div>
         </div>
         <!-- Fast kontaktknap, så brugeren altid kan komme hurtigt til kontakt -->
-        <RouterLink to="/kontakt" class="bg-neutral-light text-primary-darkest h-10 px-3 text-sm font-light rounded-none md:rounded-r-lg hover:bg-primary-light hover:text-neutral-light transition-colors duration-300 whitespace-nowrap flex items-center justify-center min-w-20 shrink-0">{{ $t('nav.contact') }}</RouterLink>
+        <RouterLink to="/kontakt" class="bg-neutral-light text-primary-darkest h-10 px-3 text-sm font-light rounded-none hover:bg-primary-light hover:text-neutral-light transition-colors duration-300 whitespace-nowrap flex items-center justify-center min-w-20 shrink-0">{{ $t('nav.contact') }}</RouterLink>
       </div>
     </nav>
   </header>

@@ -27,7 +27,7 @@ export const employees = [
   {
     name: 'Peter Engel-Andreasen',
     role: 'Business Director',
-    description: 'Tønder Erhversråd',
+    description: 'Tønder Erhvervsråd',
     phone: '+45 30 65 60 60',
     email: 'peeng@toender.dk',
     linkedin: 'https://www.linkedin.com/in/peter-engel-andreasen-0a4a6b1a9/',

@@ -76,7 +76,7 @@ const highlightedNews = computed(() => {
 
 const sideNews = computed(() => {
   locale.value // Force reactivity on locale change
-  
+
   if (allNews.length < 2) return []
 
   const prevIndex = (currentIndex.value - 1 + allNews.length) % allNews.length
@@ -243,7 +243,7 @@ const setCurrent = (id) => {
 
         <article
           v-if="highlightedNews"
-          class="relative overflow-hidden bg-cover bg-center transition-all duration-220 hover:scale-100 hover:-translate-y-1 min-h-96 scale-105 shadow-2xl z-30"
+          class="relative overflow-hidden bg-cover bg-center transition-all duration-220 scale-105 hover:scale-110 hover:-translate-y-1 min-h-96 shadow-2xl z-30"
           :style="{ backgroundImage: `url(${highlightedNews.image})` }"
         >
           <div class="absolute inset-0 bg-linear-to-b from-primary-darkest/18 to-primary-darkest/82"></div>

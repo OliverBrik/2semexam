@@ -82,7 +82,7 @@ import { employees } from '../data/employees'
                 {{ $t('contact.company') }}
               </label>
               <label class="flex items-center gap-2">
-                <input type="radio" name="type" value="privat" class="accent-primary-darkest" />
+                <input type="radio" name="type" value="individual" class="accent-primary-darkest" />
                 {{ $t('contact.private') }}
               </label>
             </div>
@@ -145,9 +145,9 @@ import { employees } from '../data/employees'
             <div class="flex flex-col flex-1 p-4 text-center">
               <h3 class="text-base font-semibold leading-6">{{ employee.name }}</h3>
               <p class="mt-1 text-sm text-neutral-light/85">{{ employee.role }}</p>
-              <p v-if="employee.description" class="mt-3 text-xs uppercase tracking-[0.18em] text-neutral-light/55">{{ employee.description }}</p>
               <p class="mt-3 text-xs text-neutral-light/85">{{ employee.phone }}</p>
               <p class="text-xs text-neutral-light/70">{{ employee.email }}</p>
+              <p v-if="employee.description" class="mt-3 mb-4 text-xs uppercase tracking-[0.18em] text-neutral-light/55">{{ employee.description }}</p>
               <div class="mt-auto flex justify-center">
                 <a
                   :href="employee.linkedin"

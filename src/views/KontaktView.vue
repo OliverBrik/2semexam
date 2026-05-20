@@ -90,11 +90,11 @@ const formspreeAction = import.meta.env.VITE_FORMSPREE_FORM_ID
             </div>
             <div class="flex flex-wrap gap-4 pt-1 text-sm font-light">
               <label class="flex items-center gap-2">
-                <input type="radio" name="type" value="virksomhed" class="accent-primary-darkest" />
+                <input type="radio" name="type" value="company" class="accent-primary-darkest" />
                 {{ $t('contact.company') }}
               </label>
               <label class="flex items-center gap-2">
-                <input type="radio" name="type" value="privat" class="accent-primary-darkest" />
+                <input type="radio" name="type" value="individual" class="accent-primary-darkest" />
                 {{ $t('contact.private') }}
               </label>
             </div>
