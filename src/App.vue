@@ -150,7 +150,7 @@ onBeforeUnmount(() => {
         </div>
       </div>
       <!-- Højre side: sprogvalg, søgning og kontaktknap -->
-      <div class="col-span-1 flex w-full flex-wrap items-stretch justify-start gap-2 shrink-0 md:col-start-10 md:col-end-12 md:w-auto md:justify-end md:gap-0 md:justify-self-end">
+      <div class="col-span-1 flex w-full flex-wrap items-center justify-start gap-2 shrink-0 md:col-start-10 md:col-end-12 md:w-auto md:justify-end md:gap-0 md:justify-self-end">
         <!-- Sprogmenu med dropdown -->
         <div class="relative group shrink-0">
           <!-- Selve sprogknappen, som fungerer som trigger til dropdownen -->
@@ -169,8 +169,8 @@ onBeforeUnmount(() => {
           </div>
         </div>
         <!-- Søgeikon og inputfelt, som åbner forslag direkte i navbaren -->
-        <div ref="searchContainerRef" class="relative flex h-10 w-auto min-w-0 flex-none items-stretch border border-primary-darkest bg-neutral-light px-0 py-0 shrink-0 rounded-none md:w-auto md:border-l md:border-r">
-          <button type="button" class="flex h-full w-10 items-center justify-center rounded-none border-r border-primary-darkest/10 text-primary-darkest hover:bg-primary-light hover:text-neutral-light transition-colors duration-300 md:w-16" @click="toggleSearch" aria-label="Åbn søgning">
+        <div ref="searchContainerRef" class="relative flex h-10 w-auto min-w-0 flex-none items-center border border-primary-darkest bg-neutral-light px-0 py-0 shrink-0 rounded-none md:w-auto md:border-l md:border-r">
+          <button type="button" class="bg-neutral-light text-primary-darkest h-10 px-3 text-sm font-light rounded-none hover:bg-primary-light hover:text-neutral-light transition-colors duration-300 whitespace-nowrap flex items-center justify-center border-r border-primary-darkest/10 w-10 md:w-16 shrink-0" @click="toggleSearch" aria-label="Åbn søgning">
             <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#0D1B2A" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="m21 21l-4.343-4.343m0 0A8 8 0 1 0 5.343 5.343a8 8 0 0 0 11.314 11.314"/></svg>
           </button>
           <input
@@ -178,7 +178,7 @@ onBeforeUnmount(() => {
             v-model="searchQuery"
             type="text"
             :placeholder="$t('nav.searchPlaceholder')"
-            class="min-w-0 flex-1 bg-neutral-light text-primary-darkest ml-1 pr-1 py-1 text-sm rounded-none focus:outline-none w-16 max-w-16 sm:w-24 sm:max-w-none md:w-40 transition-all duration-300"
+            class="min-w-0 flex-1 h-full bg-neutral-light text-primary-darkest ml-1 pr-3 py-0 text-sm rounded-none focus:outline-none w-16 max-w-16 sm:w-24 sm:max-w-none md:w-40 transition-all duration-300"
             @focus="openSearch"
             @input="openSearch"
             @keydown.enter.prevent="submitSearch"
