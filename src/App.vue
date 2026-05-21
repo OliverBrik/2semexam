@@ -18,8 +18,17 @@ const currentLanguageCode = computed(() => {
   return languageCodes[locale.value] || 'DA'
 })
 
+// Language menu open state for mobile (click to toggle)
+const isLangOpen = ref(false)
+const langMenuRef = ref(null)
+const toggleLangMenu = (event) => {
+  isLangOpen.value = !isLangOpen.value
+  if (event) event.stopPropagation()
+}
+
 const changeLang = (lang) => {
   locale.value = lang
+  isLangOpen.value = false
 }
 
 // Holder styr på om søgningen i navbaren er åben, og hvad brugeren har skrevet
@@ -108,11 +117,21 @@ const submitSearch = async () => {
 
 // Lukker søgningen, når man klikker uden for feltet, så navbaren ikke bliver stående åben
 const onDocumentClick = (event) => {
-  if (!isSearchOpen.value) return
   const target = event.target
-  if (!searchContainerRef.value || !target) return
-  if (!searchContainerRef.value.contains(target)) {
-    closeSearch()
+  if (!target) return
+
+  // Close search if open and clicked outside
+  if (isSearchOpen.value) {
+    if (!searchContainerRef.value || !searchContainerRef.value.contains(target)) {
+      closeSearch()
+    }
+  }
+
+  // Close language menu if open and clicked outside
+  if (isLangOpen.value) {
+    if (!langMenuRef.value || !langMenuRef.value.contains(target)) {
+      isLangOpen.value = false
+    }
   }
 }
 
@@ -152,15 +171,15 @@ onBeforeUnmount(() => {
       <!-- Højre side: sprogvalg, søgning og kontaktknap -->
       <div class="col-span-1 flex w-full flex-wrap items-center justify-start gap-2 shrink-0 md:col-start-10 md:col-end-12 md:w-auto md:justify-end md:gap-0 md:justify-self-end">
         <!-- Sprogmenu med dropdown -->
-        <div class="relative group shrink-0">
+        <div ref="langMenuRef" class="relative shrink-0 group">
           <!-- Selve sprogknappen, som fungerer som trigger til dropdownen -->
-          <button class="bg-neutral-light text-primary-darkest h-10 px-3 text-sm font-light rounded-none hover:bg-primary-light hover:text-neutral-light transition-colors duration-300 whitespace-nowrap flex items-center justify-center gap-1 min-w-14 shrink-0">
+          <button @click="toggleLangMenu" :aria-expanded="isLangOpen" class="bg-neutral-light text-primary-darkest h-10 px-3 text-sm font-light rounded-none hover:bg-primary-light hover:text-neutral-light transition-colors duration-300 whitespace-nowrap flex items-center justify-center gap-1 min-w-14 shrink-0">
             {{ currentLanguageCode }}
             <svg class="w-3.5 h-3.5 ml-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
           </button>
-          <!-- Dropdownen vises kun, når der hoveres over sprogknappen -->
+          <!-- Dropdown vises på klik (mobil), eller via class når isLangOpen er true -->
           <div
-            class="absolute left-0 top-full z-50 mt-0 flex w-max flex-row overflow-hidden bg-neutral-light text-primary-darkest shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 origin-top md:w-full md:flex-col md:rounded-b"
+            :class="['absolute left-0 top-full z-50 mt-0 flex w-max flex-row overflow-hidden bg-neutral-light text-primary-darkest shadow-lg transition-all duration-200 origin-top md:w-full md:flex-col md:rounded-b group-hover:opacity-100 group-hover:visible', isLangOpen ? 'opacity-100 visible' : 'opacity-0 invisible']"
             style="top: 100%; margin-top: 0;"
           >
             <button class="w-20 shrink-0 px-3 py-2 text-center text-sm whitespace-nowrap hover:bg-primary-light hover:text-neutral-light transition-colors duration-300 md:block md:w-full md:px-2 md:text-left" @click="changeLang('da')">Dansk</button>
