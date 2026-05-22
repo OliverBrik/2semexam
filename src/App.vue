@@ -37,6 +37,136 @@ const searchQuery = ref('')
 const searchContainerRef = ref(null)
 const router = useRouter()
 const route = useRoute()
+const siteName = 'Business DE-DK'
+
+const seoRouteContent = computed(() => {
+  const path = route.path
+
+  if (path === '/') {
+    return {
+      title: `${t('home.title')} | ${siteName}`,
+      description: t('home.subtitle'),
+    }
+  }
+
+  if (path === '/nyheder') {
+    return {
+      title: `${t('news.title')} | ${siteName}`,
+      description: t('news.description'),
+    }
+  }
+
+  if (path === '/about') {
+    return {
+      title: `${t('about.title')} | ${siteName}`,
+      description: t('about.description'),
+    }
+  }
+
+  if (path === '/events') {
+    return {
+      title: `${t('events.title')} | ${siteName}`,
+      description: t('events.description'),
+    }
+  }
+
+  if (path === '/jobportal') {
+    return {
+      title: `${t('jobportal.title')} | ${siteName}`,
+      description: t('jobportal.description'),
+    }
+  }
+
+  if (path === '/kontakt') {
+    return {
+      title: `${t('contact.title')} | ${siteName}`,
+      description: t('contact.description'),
+    }
+  }
+
+  if (path.startsWith('/nyhed/')) {
+    const newsId = Number(route.params.id)
+    const translatedNews = getTranslatedNewsItem(
+      allNews.find((item) => item.id === newsId),
+      locale.value,
+    )
+
+    return {
+      title: `${translatedNews?.title || t('nav.news')} | ${siteName}`,
+      description: translatedNews?.summary || t('news.description'),
+    }
+  }
+
+  return {
+    title: siteName,
+    description: t('news.description'),
+  }
+})
+
+const updateSeoMeta = () => {
+  if (typeof document === 'undefined') return
+
+  document.title = seoRouteContent.value.title
+
+  const descriptionContent = seoRouteContent.value.description
+  const selectors = [
+    'meta[name="description"]',
+    'meta[property="og:description"]',
+    'meta[name="twitter:description"]',
+  ]
+
+  selectors.forEach((selector) => {
+    let tag = document.head.querySelector(selector)
+
+    if (!tag) {
+      tag = document.createElement('meta')
+
+      if (selector.includes('og:')) {
+        tag.setAttribute('property', 'og:description')
+      } else if (selector.includes('twitter:')) {
+        tag.setAttribute('name', 'twitter:description')
+      } else {
+        tag.setAttribute('name', 'description')
+      }
+
+      document.head.appendChild(tag)
+    }
+
+    tag.setAttribute('content', descriptionContent)
+  })
+
+  let ogTitle = document.head.querySelector('meta[property="og:title"]')
+  if (!ogTitle) {
+    ogTitle = document.createElement('meta')
+    ogTitle.setAttribute('property', 'og:title')
+    document.head.appendChild(ogTitle)
+  }
+  ogTitle.setAttribute('content', seoRouteContent.value.title)
+
+  let twitterTitle = document.head.querySelector('meta[name="twitter:title"]')
+  if (!twitterTitle) {
+    twitterTitle = document.createElement('meta')
+    twitterTitle.setAttribute('name', 'twitter:title')
+    document.head.appendChild(twitterTitle)
+  }
+  twitterTitle.setAttribute('content', seoRouteContent.value.title)
+
+  let ogSiteName = document.head.querySelector('meta[property="og:site_name"]')
+  if (!ogSiteName) {
+    ogSiteName = document.createElement('meta')
+    ogSiteName.setAttribute('property', 'og:site_name')
+    document.head.appendChild(ogSiteName)
+  }
+  ogSiteName.setAttribute('content', siteName)
+}
+
+watch(
+  seoRouteContent,
+  () => {
+    updateSeoMeta()
+  },
+  { immediate: true },
+)
 
 // Samler de vigtigste sider og data, så søgefeltet kan foreslå relevante destinationer
 const searchEntries = computed(() => [
@@ -139,6 +269,13 @@ watch(
   () => route.fullPath,
   () => {
     closeSearch()
+  }
+)
+
+watch(
+  () => locale.value,
+  () => {
+    updateSeoMeta()
   }
 )
 
