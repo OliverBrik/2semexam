@@ -202,6 +202,8 @@ const setCurrent = (id) => {
           src="/src/assets/logos/Map.svg"
           alt="Grænse billede"
           class="w-full h-auto object-cover shadow-lg"
+          loading="lazy"
+          decoding="async"
         />
       </div>
     </div>

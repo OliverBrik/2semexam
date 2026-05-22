@@ -13,8 +13,8 @@ const contactEmail = 'lecba@toender.dk'
     <div class="grid grid-cols-12 gap-4 px-8 py-12">
       <!-- Logoer og juridisk info -->
       <div class="col-span-12 md:col-start-2 md:col-end-5 flex flex-col items-start gap-2 p-0">
-        <img :src="BusinessLogo" alt="Business Region Logo" class="h-12 w-auto p-0 m-0" />
-        <img :src="InterregLogo" alt="Interreg Logo" class="h-12 w-auto p-0 m-0" />
+        <img :src="BusinessLogo" alt="Business Region Logo" class="h-12 w-auto p-0 m-0" loading="lazy" decoding="async" />
+        <img :src="InterregLogo" alt="Interreg Logo" class="h-12 w-auto p-0 m-0" loading="lazy" decoding="async" />
         <div class="mt-4 pt-3 border-t border-neutral-light/20">
           <p class="text-xs text-neutral-light/70">{{ t('footer.legalInfo') }}</p>
         </div>

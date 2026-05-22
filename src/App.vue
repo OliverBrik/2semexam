@@ -296,7 +296,7 @@ onBeforeUnmount(() => {
       <!-- Venstre side: logo og hovednavigation -->
       <div class="col-span-1 flex min-w-0 flex-col gap-4 overflow-hidden md:col-start-2 md:col-end-10 md:flex-row md:items-center md:gap-8">
         <RouterLink to="/" class="flex items-center shrink-0">
-          <img :src="BusinessLogo" alt="Business Region Logo" class="h-12 shrink-0" />
+          <img :src="BusinessLogo" alt="Business Region Logo" class="h-12 shrink-0" loading="eager" decoding="async" />
         </RouterLink>
         <div class="flex min-w-0 flex-wrap items-center gap-3 md:gap-4">
           <RouterLink to="/nyheder" class="text-neutral-light no-underline font-light hover:text-primary-light transition-colors duration-300 text-sm lg:text-base">{{ $t('nav.news') }}</RouterLink>

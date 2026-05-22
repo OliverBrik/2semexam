@@ -126,7 +126,7 @@ const formspreeAction = import.meta.env.VITE_FORMSPREE_FORM_ID
             :key="employee.name + employee.phone"
             class="flex flex-col overflow-hidden bg-primary-darkest text-neutral-light shadow-lg transition-transform duration-300 hover:-translate-y-1"
           >
-            <img :src="employee.image" :alt="employee.name" class="h-52 w-full object-cover object-center" />
+            <img :src="employee.image" :alt="employee.name" class="h-52 w-full object-cover object-center" loading="lazy" decoding="async" />
             <div class="flex flex-col flex-1 p-4 text-center">
               <h3 class="text-base font-semibold leading-6">{{ employee.name }}</h3>
               <p class="mt-1 text-sm text-neutral-light/85">{{ employee.role }}</p>

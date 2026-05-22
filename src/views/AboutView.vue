@@ -118,7 +118,7 @@ import { employees } from '../data/employees'
           </div>
 
           <div class="mt-auto flex justify-end">
-            <img :src="InterregLogo" alt="Interreg logo" class="h-12 w-auto" />
+            <img :src="InterregLogo" alt="Interreg logo" class="h-12 w-auto" loading="lazy" decoding="async" />
           </div>
         </article>
       </div>
@@ -141,7 +141,7 @@ import { employees } from '../data/employees'
             :key="employee.name + employee.phone"
             class="flex flex-col overflow-hidden bg-primary-darkest text-neutral-light shadow-lg transition-transform duration-300 hover:-translate-y-1"
           >
-            <img :src="employee.image" :alt="employee.name" class="h-52 w-full object-cover object-center" />
+            <img :src="employee.image" :alt="employee.name" class="h-52 w-full object-cover object-center" loading="lazy" decoding="async" />
             <div class="flex flex-col flex-1 p-4 text-center">
               <h3 class="text-base font-semibold leading-6">{{ employee.name }}</h3>
               <p class="mt-1 text-sm text-neutral-light/85">{{ employee.role }}</p>

@@ -27,6 +27,7 @@
             :src="`https://www.youtube.com/embed/${article.youtube}?rel=0`"
             title="YouTube video player"
             frameborder="0"
+            loading="lazy"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen
           ></iframe>
@@ -45,6 +46,7 @@
               :src="`https://www.youtube.com/embed/${article.youtube2}?rel=0`"
               title="YouTube video player"
               frameborder="0"
+              loading="lazy"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowfullscreen
             ></iframe>
