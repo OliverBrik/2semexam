@@ -1,8 +1,24 @@
 <script setup>
+import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import InterregLogo from '../assets/logos/Interreg-Logo_business-de-dk.png'
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
+
+const videoIds = {
+  en: 'plGUimVaDs0',
+  de: '140ipk4m370',
+  da: 'tXlboRdeSNY',
+}
+
+const videoUrl = computed(() => {
+  const loc = (locale.value || '').toString().toLowerCase()
+  let id = videoIds.en
+  if (loc.startsWith('da') || loc === 'dk') id = videoIds.da
+  else if (loc.startsWith('de') || loc === 'ger' || loc === 'de-de') id = videoIds.de
+  else if (loc.startsWith('en')) id = videoIds.en
+  return `https://www.youtube.com/embed/${id}?rel=0&showinfo=0`
+})
 
 const formspreeAction = import.meta.env.VITE_FORMSPREE_FORM_ID
   ? `https://formspree.io/f/${import.meta.env.VITE_FORMSPREE_FORM_ID}`
@@ -32,6 +48,17 @@ import { employees } from '../data/employees'
           </p>
           </div>
         </div>
+    </section>
+
+    <!-- Video (sprog-specifik): responsiv embed -->
+    <section class="mt-8 w-full px-8 lg:mt-10">
+      <div class="grid grid-cols-12">
+        <div class="col-span-12 lg:col-start-2 lg:col-span-10">
+          <div class="relative" style="padding-bottom:56.25%;height:0;overflow:hidden;">
+            <iframe :src="videoUrl" :title="$t('about.title')" class="absolute top-0 left-0 w-full h-full" frameborder="0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Kontakt og vision: formular til venstre og tekst om siden til højre -->
