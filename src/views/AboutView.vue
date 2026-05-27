@@ -17,7 +17,7 @@ const videoUrl = computed(() => {
   if (loc.startsWith('da') || loc === 'dk') id = videoIds.da
   else if (loc.startsWith('de') || loc === 'ger' || loc === 'de-de') id = videoIds.de
   else if (loc.startsWith('en')) id = videoIds.en
-  return `https://www.youtube.com/embed/${id}?rel=0&showinfo=0`
+  return `https://www.youtube-nocookie.com/embed/${id}?rel=0&modestbranding=1&iv_load_policy=3&playsinline=1`
 })
 
 const formspreeAction = import.meta.env.VITE_FORMSPREE_FORM_ID
