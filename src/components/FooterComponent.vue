@@ -16,7 +16,9 @@ const contactEmail = 'lecba@toender.dk'
         <img :src="BusinessLogo" alt="Business Region Logo" class="h-12 w-auto p-0 m-0" loading="lazy" decoding="async" />
         <img :src="InterregLogo" alt="Interreg Logo" class="h-12 w-auto p-0 m-0" loading="lazy" decoding="async" />
         <div class="mt-4 pt-3 border-t border-neutral-light/20">
-          <p class="text-xs text-neutral-light/70">{{ t('footer.legalInfo') }}</p>
+          <RouterLink to="/juridiske-oplysninger" class="text-xs text-neutral-light/70 hover:text-neutral-light hover:underline">
+            {{ t('footer.legalInfo') }}
+          </RouterLink>
         </div>
       </div>
 

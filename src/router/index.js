@@ -45,6 +45,11 @@ const router = createRouter({
       name: 'kontakt',
       component: () => import('../views/KontaktView.vue'),
     },
+    {
+      path: '/juridiske-oplysninger',
+      name: 'juridiske-oplysninger',
+      component: () => import('../views/JuridiskeOplysningerView.vue'),
+    },
   ],
 })
 
