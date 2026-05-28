@@ -11,8 +11,6 @@ const openId = ref(null)
 // Translations for company details (description & focus areas)
 const companyTranslations = {
   da: {
-    1: { description: 'Erhvervsudvikling og vækst for virksomheder i Esbjerg-området. Business Esbjerg fokuserer på iværksætteri, direkte investering og lokal forretningsudvikling. Organisationen arbejder tæt sammen med virksomheder for at identificere og udnytte vækstmuligheder i regionen.', focusAreas: ['Erhvervsudvikling', 'Iværksætteri', 'Vækst', 'Jobskabelse'] },
-    2: { description: 'Arbejder med erhvervsservice, innovation og udvikling af virksomheder i Kolding Kommune. Business Kolding tilbyder rådgivning inden for digitalisering, innovation og eksportudvikling. Organisationen understøtter både etablerede virksomheder og startup.', focusAreas: ['Innovation', 'Digitalisering', 'Erhvervsudvikling', 'Eksport'] },
     3: { description: 'Hjælper virksomheder med vækst, netværk og erhvervsudvikling i Aabenraa-området. Som del af Business Region arbejder Aabenraa-organisationen på at styrke lokale virksomheder og tiltrække nye investeringer gennem strategisk netværksarbejde.', focusAreas: ['Networking', 'Vækst', 'Erhvervsudvikling', 'Internationalt samarbejde'] },
     4: { description: 'Dansk organisation der tiltrækker internationale virksomheder, investeringer og talenter til Danmark. Copenhagen Capacity positionerer København og Danmark som foretrukne destinationer for innovation og erhvervsudvikling globalt.', focusAreas: ['Internationalt samarbejde', 'Investering', 'Talentrekruttering', 'Vækst'] },
     5: { description: 'Brancheorganisation for danske virksomheder med fokus på erhvervspolitik, vækst og international konkurrenceevne. DI repræsenterer danske industrivirksomheders interesser og arbejder for at forbedre rammevilkår for dansk erhvervsliv.', focusAreas: ['Erhvervspolitik', 'International konkurrenceevne', 'Vækst', 'Innovation'] },
@@ -318,19 +316,31 @@ const closeDetails = () => {
       <!-- Action buttons -->
       <div class="mt-8 flex flex-wrap gap-3 pt-6 border-t border-primary-darkest/10">
         <a
-          v-if="selectedJob.website && selectedJob.website !== '#'"
-          :href="selectedJob.website"
+          v-if="selectedJob.contactUrl"
+          :href="selectedJob.contactUrl"
           target="_blank"
           rel="noopener noreferrer"
           class=" bg-primary-darkest px-6 py-2.5 text-sm font-semibold text-white hover:bg-primary-base transition"
         >
+          {{ $t('jobportal.contactOrganization') }}
+        </a>
+        <a
+          v-if="selectedJob.website && selectedJob.website !== '#'
+          "
+          :href="selectedJob.website"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="border border-primary-darkest/30 px-6 py-2.5 text-sm font-semibold text-primary-darkest hover:border-primary-darkest transition"
+        >
           {{ $t('jobportal.website') }}
         </a>
         <button
+          v-else
           type="button"
-          class="border border-primary-darkest/30 px-6 py-2.5 text-sm font-semibold text-primary-darkest hover:border-primary-darkest transition"
+          disabled
+          class="cursor-not-allowed border border-primary-darkest/15 px-6 py-2.5 text-sm font-semibold text-primary-darkest/40"
         >
-          {{ $t('jobportal.contactOrganization') }}
+          {{ $t('jobportal.website') }}
         </button>
       </div>
     </div>

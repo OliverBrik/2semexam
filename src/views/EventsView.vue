@@ -175,6 +175,7 @@ const selectCategory = (category) => {
 
                 <button
                   type="button"
+                  @click="$router.push({ name: 'event-detail', params: { id: event.id } })"
                   class="mt-4 inline-block border border-primary-darkest bg-transparent px-4 py-2 text-xs font-semibold text-primary-darkest transition-colors hover:bg-primary-light hover:text-neutral-light"
                 >
                   {{ $t('home.readMore') }}

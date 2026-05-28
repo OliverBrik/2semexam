@@ -7,6 +7,7 @@ export const businessNetworkJobs = [
     location: 'Esbjerg, Danmark',
     description: 'Erhvervsudvikling og vækst for virksomheder i Esbjerg-området. Business Esbjerg fokuserer på iværksætteri, direkte investering og lokal forretningsudvikling. Organisationen arbejder tæt sammen med virksomheder for at identificere og udnytte vækstmuligheder i regionen.',
     website: 'https://www.businessesbjerg.com',
+    contactUrl: 'https://www.businessesbjerg.com/om-os/medarbejdere',
     focusAreas: ['Erhvervsudvikling', 'Iværksætteri', 'Vækst', 'Jobskabelse'],
   },
   {
@@ -16,6 +17,7 @@ export const businessNetworkJobs = [
     location: 'Kolding, Danmark',
     description: 'Arbejder med erhvervsservice, innovation og udvikling af virksomheder i Kolding Kommune. Business Kolding tilbyder rådgivning inden for digitalisering, innovation og eksportudvikling. Organisationen understøtter både etablerede virksomheder og startup.',
     website: 'https://businesskolding.dk',
+    contactUrl: 'https://www.businesskolding.dk/om-os/om-business-kolding/kontakt',
     focusAreas: ['Innovation', 'Digitalisering', 'Erhvervsudvikling', 'Eksport'],
   },
   {
@@ -25,6 +27,7 @@ export const businessNetworkJobs = [
     location: 'Aabenraa, Danmark',
     description: 'Hjælper virksomheder med vækst, netværk og erhvervsudvikling i Aabenraa-området. Som del af Business Region arbejder Aabenraa-organisationen på at styrke lokale virksomheder og tiltrække nye investeringer gennem strategisk netværksarbejde.',
     website: 'https://businessaabenraa.dk',
+    contactUrl: 'https://businessaabenraa.com/kontakt/',
     focusAreas: ['Networking', 'Vækst', 'Erhvervsudvikling', 'Internationalt samarbejde'],
   },
   {
@@ -34,6 +37,7 @@ export const businessNetworkJobs = [
     location: 'København, Danmark',
     description: 'Dansk organisation der tiltrækker internationale virksomheder, investeringer og talenter til Danmark. Copenhagen Capacity positionerer København og Danmark som foretrukne destinationer for innovation og erhvervsudvikling globalt.',
     website: 'https://www.copcap.com',
+    contactUrl: 'https://www.copcap.com/contact-us',
     focusAreas: ['Internationalt samarbejde', 'Investering', 'Talentrekruttering', 'Vækst'],
   },
   {
@@ -43,6 +47,7 @@ export const businessNetworkJobs = [
     location: 'Danmark',
     description: 'Brancheorganisation for danske virksomheder med fokus på erhvervspolitik, vækst og international konkurrenceevne. DI repræsenterer danske industrivirksomheders interesser og arbejder for at forbedre rammevilkår for dansk erhvervsliv.',
     website: 'https://www.danskindustri.dk',
+    contactUrl: 'https://www.danskindustri.dk/om-di/kontakt-os/',
     focusAreas: ['Erhvervspolitik', 'International konkurrenceevne', 'Vækst', 'Innovation'],
   },
   {
@@ -52,6 +57,7 @@ export const businessNetworkJobs = [
     location: 'Syddanmark',
     description: 'Regional offentlig organisation der arbejder med udvikling, infrastruktur, sundhed og erhvervsvækst i Syddanmark. Region Syddanmark spiller en vigtig rolle i koordination af regionale udviklingsprojekter og strategier.',
     website: 'https://regionsyddanmark.dk',
+    contactUrl: 'https://regionsyddanmark.dk/om-region-syddanmark/kontakt',
     focusAreas: ['Regional udvikling', 'Infrastruktur', 'Erhvervsudvikling', 'Vækst'],
   },
   {
@@ -61,6 +67,7 @@ export const businessNetworkJobs = [
     location: 'Sydjylland, Danmark',
     description: 'Tilbyder rådgivning og støtte til virksomheder indenfor digitalisering, eksport og udvikling. Erhvervshus er statsligt finansieret institution der hjælper virksomheder med strategisk udvikling og ekspansion.',
     website: 'https://ehsj.dk',
+    contactUrl: 'https://ehsyd.dk/kontakt',
     focusAreas: ['Digitalisering', 'Eksport', 'Erhvervsudvikling', 'Innovation'],
   },
   {
@@ -70,6 +77,7 @@ export const businessNetworkJobs = [
     location: 'Tønder, Danmark',
     description: 'Lokal erhvervsorganisation der støtter virksomheder og iværksættere i Tønder Kommune. Organisationen arrangerer netværksmøder, workshops og forbinder lokale virksomheder med regionale og internationale partnere.',
     website: 'https://www.tondererhvervsraad.dk',
+    contactUrl: 'https://tondererhvervsraad.dk/medarbejdere/',
     focusAreas: ['Iværksætteri', 'Jobskabelse', 'Lokalt samarbejde', 'Networking'],
   },
   {
@@ -79,6 +87,7 @@ export const businessNetworkJobs = [
     location: 'Trekantområdet, Danmark',
     description: 'Samarbejde mellem kommuner om erhvervsudvikling, grøn omstilling og innovation. Trekantområdet repræsenterer tværkommunalt samarbejde om vision for bæredygtig vækst og innovation.',
     website: 'https://trekantomraadet.dk',
+    contactUrl: 'https://www.trekantomraadet.dk/kontakt/',
     focusAreas: ['Innovation', 'Grøn omstilling', 'Erhvervsudvikling', 'Vækst'],
   },
   {
@@ -88,6 +97,7 @@ export const businessNetworkJobs = [
     location: 'Sønderjylland, Danmark',
     description: 'Regionalt samarbejde med fokus på vækst, udvikling og arbejdsmarked i Sønderjylland. Rådet arbejder på at identificere udviklingspotentialer og koordinere indsatser på tværs af sektorer og kommune grænser.',
     website: 'https://www.sjyd.dk',
+    contactUrl: 'https://www.soenderjylland.dk/kontakt/',
     focusAreas: ['Vækst', 'Jobskabelse', 'Uddannelse', 'Arbejdsmarkedssikring'],
   },
   {
@@ -97,6 +107,7 @@ export const businessNetworkJobs = [
     location: 'Syddanmark, Danmark',
     description: 'Hjælper internationale medarbejdere og virksomheder med rekruttering og integration i Syddanmark. Organisationen arbejder for at gøre det lettere for udenlandske talenter at få arbejde og etablere sig i Danmark.',
     website: 'https://workindenmark.dk',
+    contactUrl: 'https://www.workindenmark.dk/about-workindenmark-eures/contact-information',
     focusAreas: ['Talentrekruttering', 'Internationalt samarbejde', 'Jobskabelse', 'Integration'],
   },
   {
@@ -106,6 +117,7 @@ export const businessNetworkJobs = [
     location: 'Kiel, Tyskland',
     description: 'Tysk regional udviklingsorganisation med fokus på innovation, mobilitet og bæredygtig vækst. KielRegion arbejder på at gøre Kiel-regionen attraktiv for innovation og investeringer indenfor nye teknologier.',
     website: 'https://www.kielregion.de',
+    contactUrl: 'https://www.kielregion.de/kontakt/',
     focusAreas: ['Innovation', 'Mobilitet', 'Bæredygtighed', 'Internationalt samarbejde'],
   },
   {
@@ -115,6 +127,7 @@ export const businessNetworkJobs = [
     location: 'Flensburg, Tyskland',
     description: 'Tysk handelskammer der støtter virksomheder med rådgivning, netværk og erhvervsudvikling. IHK Flensburg repræsenterer erhvervets interesser i Flensburg-regionen og arrangerer netværksmøder og træning.',
     website: 'https://www.ihk.de/flensburg',
+    contactUrl: 'https://www.ihk.de/schleswig-holstein/produktmarken/ihre-ihk/kontakt/vor-ort/geschaeftsstellen-flensburg',
     focusAreas: ['Erhvervsudvikling', 'Networking', 'Internationalt samarbejde', 'Vækst'],
   },
   {
@@ -124,6 +137,7 @@ export const businessNetworkJobs = [
     location: 'Flensburg, Tyskland',
     description: 'Uddannelsesinstitution med fokus på forskning, innovation og samarbejde med erhvervslivet. Hochschule Flensburg tilbyder praktisk orienteret uddannelse og driver forskning relevant for regional industri.',
     website: 'https://hs-flensburg.de',
+    contactUrl: 'https://hs-flensburg.de/en/node/272',
     focusAreas: ['Uddannelse', 'Innovation', 'Forskning', 'Erhvervssamarbejde'],
   },
   {
@@ -133,6 +147,7 @@ export const businessNetworkJobs = [
     location: 'Danmark-Tyskland',
     description: 'Grænseoverskridende netværk der arbejder med infrastruktur, erhverv og regional udvikling mellem Danmark og Tyskland. HanseBelt er platform for dansk-tysk samarbejde og fokuserer på fælles udviklingsprojekter.',
     website: 'https://hansebelt.de',
+    contactUrl: 'https://hansebelt.de/de/kontakt',
     focusAreas: ['Internationalt samarbejde', 'Infrastruktur', 'Regional udvikling', 'Vækst'],
   },
   {
@@ -142,6 +157,7 @@ export const businessNetworkJobs = [
     location: 'Nordfriesland, Tyskland',
     description: 'Regional erhvervsorganisation der understøtter vækst og investeringer i Nordfriesland. WFG Nordfriesland arbejder på at tiltrække virksomheder til regionen og støtter lokale virksomheders ekspansion.',
     website: 'https://wfg-nf.de',
+    contactUrl: 'https://wfg-nf.de/kontakt/',
     focusAreas: ['Investering', 'Vækst', 'Erhvervsudvikling', 'Internationalt samarbejde'],
   },
   {
@@ -151,6 +167,7 @@ export const businessNetworkJobs = [
     location: 'Unterelbe-Westküste, Tyskland',
     description: 'Tysk erhvervsnetværk der repræsenterer virksomheder og styrker regional økonomisk udvikling. Organisationen arrangerer møder, dele erfaringer og arbejder for at forbedre rammevilkår for medlemmer.',
     website: 'https://www.unternehmensverband.de',
+    contactUrl: 'https://uvuw.de/kontakt/',
     focusAreas: ['Vækst', 'Erhvervsudvikling', 'Internationalt samarbejde', 'Networking'],
   },
   {
@@ -178,6 +195,7 @@ export const businessNetworkJobs = [
     location: 'Sønderborg, Danmark',
     description: 'Lokalt samarbejde om erhvervsudvikling, innovation og vækst i Sønderborg-området. Vækstrrådet arbejder på at identificere og udnytte vækstpotentialer og koordinerer tværsektorale indsatser.',
     website: 'https://sonderborgvaekstraad.dk',
+    contactUrl: 'https://svr.sonderborg.dk/kontakt/',
     focusAreas: ['Vækst', 'Innovation', 'Erhvervsudvikling', 'Jobskabelse'],
   },
   {
@@ -187,6 +205,7 @@ export const businessNetworkJobs = [
     location: 'Vejen, Danmark',
     description: 'Lokalt erhvervsforum der arbejder med vækst og udvikling for virksomheder i Vejen Kommune. Rådet faciliterer netværk og koordinerer udviklingsprojekter relevant for lokale virksomheder.',
     website: 'https://udviklingsraadvejen.dk',
+    contactUrl: 'https://www.udviklingvejen.dk/om-udviklingvejen/kontakt.aspx',
     focusAreas: ['Erhvervsudvikling', 'Vækst', 'Networking', 'Jobskabelse'],
   },
   {
@@ -214,6 +233,7 @@ export const businessNetworkJobs = [
     location: 'Eutin, Tyskland',
     description: 'Tysk erhvervsforening der støtter virksomheder gennem netværk og udviklingsprojekter. Organisationen arrangerer møder, seminarer og faciliterer samarbejde mellem medlemmer for fælles vækst.',
     website: 'https://www.wve.de',
+    contactUrl: 'https://wv-eutin.de/kontakt/',
     focusAreas: ['Networking', 'Vækst', 'Erhvervsudvikling', 'Internationalt samarbejde'],
   },
   {
@@ -223,6 +243,7 @@ export const businessNetworkJobs = [
     location: 'Syddanmark, Danmark',
     description: 'Initiative der arbejder med at tiltrække talent, virksomheder og investeringer til Syddanmark. Work-live-stay fokuserer på at positionere regionen som attraktiv destination for arbejdskraft, bosætning og erhvervsaktivitet.',
     website: 'https://work-live-stay.dk',
+    contactUrl: 'https://work-live-stay.dk/foreningenwls/kontakt/',
     focusAreas: ['Talentrekruttering', 'Investering', 'Internationalt samarbejde', 'Vækst'],
   },
   {

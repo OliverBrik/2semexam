@@ -140,6 +140,15 @@
     "notFound": "Die Nachricht wurde nicht gefunden.",
     "byline": "Von Business Region"
   },
+  "eventDetail": {
+    "placeholderCopy": "Dies ist ein Platzhalter-Event, basierend auf dem Event oben. Es folgt demselben Layout wie die Nachrichtendetailseite, damit Events jetzt eine echte Eventseite mit stärkerem visuellem Fokus öffnen.",
+    "extendCopy": "Das Format macht es einfach, später Eventbeschreibung, Ergebnisse, Kontaktinformationen und weitere Bildabschnitte hinzuzufügen, ohne den allgemeinen Stil zu ändern.",
+    "factsTitle": "Event-Fakten",
+    "categoryLabel": "Kategorie",
+    "locationLabel": "Ort",
+    "dateLabel": "Datum",
+    "notFound": "Das Event wurde nicht gefunden."
+  },
   "newsItems": [
     {
       "title": "Wenn Onboarding ganzheitlich wird: Sicherheit für internationale Mitarbeiter",

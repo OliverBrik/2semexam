@@ -140,6 +140,15 @@
     "notFound": "The article was not found.",
     "byline": "By Business Region"
   },
+  "eventDetail": {
+    "placeholderCopy": "This is a placeholder event based on the event above. It follows the same layout as the news detail page, so events now open a proper event page with a stronger visual focus.",
+    "extendCopy": "The format makes it easy to add event descriptions, results, contact information and more image sections later without changing the overall style.",
+    "factsTitle": "Event facts",
+    "categoryLabel": "Category",
+    "locationLabel": "Location",
+    "dateLabel": "Date",
+    "notFound": "The event was not found."
+  },
   "newsItems": [
     {
       "title": "When onboarding becomes holistic: Security for international employees",

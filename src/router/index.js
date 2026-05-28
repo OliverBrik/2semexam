@@ -26,6 +26,11 @@ const router = createRouter({
       component: () => import('../views/EventsView.vue'),
     },
     {
+      path: '/events/:id',
+      name: 'event-detail',
+      component: () => import('../views/EventDetailView.vue'),
+    },
+    {
       path: '/jobportal',
       name: 'jobportal',
       component: () => import('../views/JobportalView.vue'),

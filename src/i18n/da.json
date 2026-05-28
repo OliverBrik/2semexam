@@ -140,6 +140,15 @@
     "notFound": "Nyheden blev ikke fundet.",
     "byline": "Af Business Region"
   },
+  "eventDetail": {
+    "placeholderCopy": "Dette er et placeholder-event baseret på eventet herover. Det følger samme layout som nyheddetaillesiden, så events nu åbner en egentlig eventside med et større visuelt fokus.",
+    "extendCopy": "Formatet gør det nemt at udvide senere med eventbeskrivelse, resultater, kontaktoplysninger og flere billedsektioner uden at ændre den overordnede stil.",
+    "factsTitle": "Eventfakta",
+    "categoryLabel": "Kategori",
+    "locationLabel": "Lokation",
+    "dateLabel": "Dato",
+    "notFound": "Eventet blev ikke fundet."
+  },
   "newsItems": [
     {
       "title": "Når onboarding bliver helhed: Tryghed for internationale medarbejdere",
